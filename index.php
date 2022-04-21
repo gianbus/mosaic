@@ -11,19 +11,16 @@
 <body>
     <div id="container" class="container-fluid">
     <h1>M O S A I C</h1>
-        <div class="row">
             <?php
-                for ($i = 1; $i <= 12; $i++) {
+                for ($row = 1; $row <= 12; $row++) {
                     echo '<div class="row">';
-                    for ($j = 1; $j <= 12; $j++) {
-                        echo '<div class="col">'.$j.' of 12</div>';
+                    for ($col = 1; $col <= 12; $col++) {
+                        echo '<div class="col">'.$col.' of 12</div>';
                     }
                     echo '</div>';
                 }
             ?>
-        </div>
     </div>
-
 
      <!-- Bootstrap Bundle with Popper -->
      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
