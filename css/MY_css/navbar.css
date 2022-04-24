@@ -1,0 +1,131 @@
+@import url(navbar-sm.css);
+
+
+.nav-menu {
+    text-align: center;
+    color: aliceblue;
+    font-size: 2vw;
+    
+    background-color: #012746;
+    align-items: center;
+}
+
+
+.nav-menu-resp {
+    
+    display: flex;
+    flex-flow: row nowrap;
+}
+
+#logo {
+    flex: 1 2 0px;
+    
+}
+#logo > img{
+    max-width:100%;
+    
+}
+
+.nav-btn{
+    margin: 0.5vw;
+    padding: 0.5vw;
+    text-decoration: none;
+    border-radius: 50px;
+    border: 0.1vw solid white;
+    background-color: #11185e;
+}
+
+#home {
+    flex: 0 1 auto;
+    
+}
+
+#profile {
+    flex: 0 1 auto;
+    display: flex;
+    flex-wrap:  nowrap;
+    
+}
+
+#profile > .signin {
+    flex: 0 0 auto;
+}
+
+#profile > .login {
+    flex: 0 0 auto;
+}
+
+
+#dropup-btn {
+    cursor: pointer;
+    border-radius: 30px;
+    width:fit-content;
+    border: 2px solid black;
+    margin: 5px;
+    padding: 8px;
+    display: none;
+  }
+  
+.bar1, .bar2, .bar3 {
+    width: 25px;
+    height: 3px;
+    background-color: rgb(94, 2, 180);
+    margin: 4px 0;
+    transition: 0.4s;
+    
+  }
+
+.change .bar1 {transform: rotate(-45deg) translate(-5px, 4px);}
+.change .bar2 {opacity: 0;}
+.change .bar3 {transform: rotate(45deg) translate(-5px, -5px);}
+
+
+
+
+
+@media  screen and (max-width: 425px){
+    .nav-menu{
+        background-color: rgba(255, 255, 255, 0);
+        font-size: 7vw;
+        width: 40%;
+        
+
+        right: 20px;
+        bottom: 75px;
+        position: fixed;
+
+        
+    }
+    
+    
+    .nav-menu-resp {
+        color: rgb(255, 255, 255);
+        visibility:hidden;
+        flex-flow: column nowrap;
+
+        
+    }
+    
+    
+
+    #logo{
+        display: none;
+    }
+
+    #home{
+        width: 100%;
+    }
+    #profile {
+        flex-flow: column nowrap;
+        width: 100%;
+    }
+
+    #dropup-btn {
+        right: 20px;
+        bottom: 20px;
+        position: fixed;
+        display: block;
+    }
+}
+
+

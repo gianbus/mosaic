@@ -1,0 +1,29 @@
+@import "block-grid-md.css";
+@import "block-grid-min.css";
+
+body{ 
+    background-color: rgb(255, 255, 255);
+}
+
+
+div[id|=block]{
+    background-color: rgb(219, 92, 92);
+
+    border: 1px solid rgb(255, 255, 255);
+    text-align: center;
+    /*max-width: 8.4%;*/    /*|Potrebbe ritornare utile in futuro*/
+    flex: 1 0 0%;
+
+    aspect-ratio: 1 / 1;    /*|blocchi sempre di egual misura in altezza e larghezza*/
+
+    display: flex;          /*|centrare l'immagine nel blocco*/
+    align-items: center;    /*|*/
+    
+}
+
+div[class|=row]{
+    display: flex;         
+    flex-wrap: wrap;        
+}
+
+

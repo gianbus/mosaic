@@ -3,27 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/MY_css/block-grid.css">
+    <link rel="stylesheet" href="css/MY_css/navbar.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <title>Mosaic</title>
 </head>
 <body>
     <?php
 		include '../config.php';
 	?>
-    <div id="container" class="container-fluid">
-    <h1>M O S A I C</h1>
-            <?php
-                for ($row = 1; $row <= 12; $row++) {
-                    echo '<div class="row">';
-                    for ($col = 1; $col <= 12; $col++) {
-                        echo '<div class="col">'.$col.' of 12</div>';
-                    }
-                    echo '</div>';
-                }
-            ?>
-    </div><!-- CONTAINER END -->
+    
+    
+    <?php
+    $img="https://pixidisorg.files.wordpress.com/2019/07/dito-wuxi.jpg";
+    for ($i=0; $i<12; $i=$i+1){
+            echo "<div class= row-$i  >\n";
+            for ($j=1; $j<=12; $j=$j+1){
+                echo "\t<div id= block-". ($j+$i*12)."  >\n
+                      \t\t<img id=img-".($j+$i*12)." src=$img  style=\"width:100%\">\n
+                      \t</div>\n";
+            }
+            echo "</div>\n";
+        }
+    ?>   
+
     <?php
 		include '../footer.php';
 	?>
