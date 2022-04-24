@@ -23,33 +23,29 @@
 			$password1 = $_POST['password1'];
 			$password2 = $_POST['password2'];
 			$email = $_POST['email'];
-
-			echo "Nome: ".$nome."<br>";
-			echo "Cognome: ".$cognome."<br>";
-			echo "Password: ".$password1."<br>";
-			echo "Email: ".$email."<br>";
 			
 			if($nome == "" || $cognome == "" || $username == "" || $password1 == "" || $password2 == "" || $email == ""){
 			
-				echo "<center><font class=rosso_strong size=5>Attenzione, devi compilare tutti i campi!</font></center>";
-				//header( "refresh:2;url=index.html" );
+				echo "Attenzione, devi compilare tutti i campi!";
+				header( "refresh:5;url=index.html" );
 				
 			}elseif($password1 != $password2){
 			
-				echo "<center><font class=rosso_strong size=5>Attenzione, le password devono coincidere!</font></center>";
-				//header( "refresh:2;url=index.html" );
-				
-			//}elseif(!ereg("^[_a-z0-9-]+(.[_a-z0-9-]+)*@[a-z0-9-]+(.[a-z0-9-]+)*(.[a-z]{2,3})$",$email)){
-				
-				//echo "<center><font class=rosso_strong size=5>Attenzione, devi inserire un'email valida!</font></center>";
-				//header( "refresh:2;url=index.html" );
+				echo "Attenzione, le password devono coincidere!";
+				header( "refresh:5;url=index.html" );
 				
 			}elseif(!isset($_POST['checkbox'])){ 
-			?>
-				<p>Al fine della registrazione devi accettare i <a href="termini-servizio.html">Termini di servizio</a></p>
-				
-			<?php
+
+				echo 'Al fine della registrazione devi accettare i <a href="termini-servizio.html">Termini di servizio</a>';
+				header( "refresh:5;url=index.html" );
+
 			}else{
+
+				//RIEPILOGO CAMPI INSERITI
+				echo "Nome: ".$nome."<br>";
+				echo "Cognome: ".$cognome."<br>";
+				echo "Password: ".$password1."<br>";
+				echo "Email: ".$email."<br>";
 			
 				$recuperaemail = mysqli_query($mysqli, "SELECT * FROM utenti WHERE email='$email' ");
 
@@ -59,7 +55,7 @@
 					echo 'recuperamail ha dato false<br>';
 				
 				$recuperauser = mysqli_query($mysqli, "SELECT * FROM utenti WHERE username='$username' ");
-				
+
 				if($recuperauser)
 					$contauser = mysqli_num_rows($recuperauser);
 				else
