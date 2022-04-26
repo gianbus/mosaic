@@ -1,6 +1,3 @@
-@import url(navbar-sm.css);
-
-
 .nav-menu {
     text-align: center;
     color: aliceblue;
@@ -100,7 +97,7 @@
     
     .nav-menu-resp {
         color: rgb(255, 255, 255);
-        visibility:hidden;
+        
         flex-flow: column nowrap;
 
         
