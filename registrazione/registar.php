@@ -63,18 +63,18 @@
 				
 				if ($contaemail > 0 && $contauser > 0){
 						
-					echo "<center><font class=rosso_strong size=5>Sia l'email che l'username sono gi&agrave; utilizzati!</font></center>";
-					//header( "refresh:2;url=index.html" );	
+					echo "Sia l'email che l'username sono gi&agrave; utilizzati!";
+					header( "refresh:2;url=index.html" );	
 					
 				}elseif($contaemail > 0){
 						
-					echo "<center><font class=rosso_strong size=5>L'email &egrave; stata gi&agrave; utilizzata!</font></center>";
-					//header( "refresh:2;url=index.html" );
+					echo "L'email &egrave; stata gi&agrave; utilizzata!";
+					header( "refresh:2;url=index.html" );
 							
 				}elseif($contauser > 0){
 							
-					echo "<center><font class=rosso_strong size=5>L'username &egrave; stato gi&agrave; utilizzato!</font></center>";
-					//header( "refresh:2;url=index.html" );
+					echo "L'username &egrave; stato gi&agrave; utilizzato!";
+					header( "refresh:2;url=index.html" );
 						
 				}else{
 				
@@ -95,21 +95,21 @@
 						
 						if($sentmail){
 						
-							echo "<center><font class=verde_strong size=5>Ti sei registrato con successo!<br>Ti abbiamo inviato una mail contenente i tuoi dati di accesso e il link di attivazione.</font></center>";
-							//header( "refresh:2;url=registrazione.php" );
+							echo "Ti sei registrato con successo!<br>Ti abbiamo inviato una mail contenente i tuoi dati di accesso e il link di attivazione.";
+							header( "refresh:2;url=registrazione.php" );
 						
 						}else{	
 					
-							echo "<center><font class=rosso_strong size=5>Si &egrave; vericato un errore nella registrazione! Riprova pi&ugrave; tardi!</font></center>";
-							//header( "refresh:2;url=registrazione.php" );
+							echo "Si &egrave; vericato un errore nella registrazione! Riprova pi&ugrave; tardi!";
+							header( "refresh:2;url=registrazione.php" );
 							
 						}
 					
 					
 					}else{
 					
-						echo "<center><font class=rosso_strong size=5>Si &egrave; vericato un errore nella registrazione! Riprova pi&ugrave; tardi!</font></center>";
-						//header( "refresh:2;url=registrazione.php" );	
+						echo "Si &egrave; vericato un errore nella registrazione! Riprova pi&ugrave; tardi!";
+						header( "refresh:2;url=registrazione.php" );	
 						
 					}
 				}

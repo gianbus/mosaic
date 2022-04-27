@@ -13,6 +13,49 @@
         <h1>M O S A I C</h1>
         <h2>Registrazione</h2>
 
+        <?php
+			include '../config.php';
+			$passkey = $_GET['passkey'];
+					
+					$risultatouser = mysqli_query($mysqli, "SELECT * FROM utenti WHERE codiceconferma = '$passkey'");
+					
+					if($risultatouser) {
+					
+						$contauser = mysqli_num_rows($risultatouser);
+						
+						if($contauser == 1){
+							
+							$sqlconfermauser = mysqli_query($mysqli, "UPDATE utenti SET verificato=1 WHERE codiceconferma = '$passkey'");
+							
+							if ($sqlconfermauser) {
+								
+								?>
+									<p>Il tuo account &egrave; stato attivato con successo!<br>Stai per essere reindirizzato alla pagina di login!</p>
+									<meta http-equiv="refresh" content="5; url=../login">
+								<?php
+							
+							} else {
+							?>
+								<meta http-equiv="refresh" content="0; url=../index.php">
+							<?php
+							}
+						
+						}else{
+						?>
+							<p>Il tuo account &egrave; gi&agrave; attivo o &egrave; passato troppo tempo dalla tua registrazione!</p>
+							<meta http-equiv="refresh" content="5; url=../login">
+						<?php
+						}
+					
+					}else{
+					?>
+						<p>Il tuo account &egrave; gi&agrave; attivo o &egrave; passato troppo tempo dalla tua registrazione!</p>
+						<meta http-equiv="refresh" content="5; url=../login">
+					<?php
+					}
+                include '../footer.php';
+		?>
+        
     </div><!-- CONTAINER END -->
 
      <!-- Bootstrap Bundle with Popper -->
