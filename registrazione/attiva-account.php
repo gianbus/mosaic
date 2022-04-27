@@ -15,6 +15,7 @@
 
         <?php
 			include '../config.php';
+            $codiceconferma = md5(uniqid(rand()));
 			$passkey = $_GET['passkey'];
 					
 					$risultatouser = mysqli_query($mysqli, "SELECT * FROM utenti WHERE codiceconferma = '$passkey'");
@@ -25,7 +26,7 @@
 						
 						if($contauser == 1){
 							
-							$sqlconfermauser = mysqli_query($mysqli, "UPDATE utenti SET verificato=1 WHERE codiceconferma = '$passkey'");
+							$sqlconfermauser = mysqli_query($mysqli, "UPDATE utenti SET verificato=1, punti=100, codiceconferma = '$codiceconferma' WHERE codiceconferma = '$passkey'");
 							
 							if ($sqlconfermauser) {
 								
