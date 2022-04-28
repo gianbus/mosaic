@@ -78,7 +78,7 @@
 						
 				}else{
 				
-					$inviautentitemp = mysqli_query($mysqli, "INSERT INTO utenti (codiceconferma, nome, cognome, username, password, email) VALUES ('$codiceconferma', '$nome', '$cognome', '$username', '$password2', '$email')");
+					$inviautentitemp = mysqli_query($mysqli, "INSERT INTO utenti (codiceconferma, nome, cognome, username, password, verificato, punti, email) VALUES ('$codiceconferma', '$nome', '$cognome', '$username', '$password2', 0, 0, '$email')");
 					
 					if($inviautentitemp){
 					
@@ -96,12 +96,12 @@
 						if($sentmail){
 						
 							echo "Ti sei registrato con successo!<br>Ti abbiamo inviato una mail contenente i tuoi dati di accesso e il link di attivazione.";
-							header( "refresh:2;url=registrazione.php" );
+							header( "refresh:3;url=../index.php" );
 						
 						}else{	
 					
 							echo "Si &egrave; vericato un errore nella registrazione! Riprova pi&ugrave; tardi!";
-							header( "refresh:2;url=registrazione.php" );
+							header( "refresh:3;url=index.html" );
 							
 						}
 					
@@ -109,7 +109,7 @@
 					}else{
 					
 						echo "Si &egrave; vericato un errore nella registrazione! Riprova pi&ugrave; tardi!";
-						header( "refresh:2;url=registrazione.php" );	
+						header( "refresh:2;url=index.html" );	
 						
 					}
 				}
