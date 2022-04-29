@@ -81,20 +81,26 @@
 
 
 @media  screen and (max-width: 425px){
+    #navbar{
+        width: 40%;
+        right: 20px;
+        bottom: 20px;
+        position: fixed;
+        z-index: 2;
+    }
     .nav-menu{
         background-color: rgba(255, 255, 255, 0);
         font-size: 7vw;
-        width: 40%;
         
-
-        right: 20px;
-        bottom: 75px;
-        position: fixed;
-
+        
+        display: none;
+        
         
     }
     
-    
+    .visible{
+        display: block;
+    }
     .nav-menu-resp {
         color: rgb(255, 255, 255);
         
@@ -118,10 +124,12 @@
     }
 
     #dropup-btn {
-        right: 20px;
-        bottom: 20px;
-        position: fixed;
         display: block;
+        background-color: rgb(0, 255, 234);
+        float: right;
+    }
+    #dropup-btn:active{
+        background-color: rgb(255, 255, 255);
     }
 }
 
