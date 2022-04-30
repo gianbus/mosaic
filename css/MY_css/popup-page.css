@@ -1,5 +1,5 @@
 
-  #pop-block{
+#pop-block{
     width: 100%;
     height: 100%;
     position: fixed;
@@ -8,6 +8,11 @@
 
     
 }
+
+.filter{
+  filter: blur(5px);
+}
+
 .info-pop {
   height: 96%;
   border-radius:25px;
