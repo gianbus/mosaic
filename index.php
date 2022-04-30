@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="css/MY_css/navbar.css">
     <link rel="stylesheet" href="css/MY_css/popup-page.css">
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="js/MY_js/navbar.js"></script>
@@ -46,19 +46,26 @@
             <div class="bar3"></div>
         </div>
     </div>
-    <!--navbar-->
+    <!--/navbar-->
     
     <!--popup-page-->
- 
-    <div id="mySidenav" class="sidenav">
-    
-        <a href="#" class="closebtn" >&times;</a>
-        <a href="#">About</a>
-        <a href="#">Services</a>
-        <a href="#">Clients</a>
-        <a href="#">Contact</a>
+    <div id="pop-block">
+        <div  class="info-pop bg-dark text-white ">
+            <div class="card bg-dark h-100" >
+                <a href="#" class="closebtn carad-title me-1" >&times;</a>
+                <img src="https://pixidisorg.files.wordpress.com/2019/07/dito-wuxi.jpg" class="card-img-top p-2" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                </div>
+                <div class="card-footer">
+                  <small class="text-muted">Last updated 3 mins ago</small>
+                </div>
+            </div>
+        </div>
     </div>
-    <!--popup-page-->
+    <!--/popup-page-->
+
     <?php
     $img="https://pixidisorg.files.wordpress.com/2019/07/dito-wuxi.jpg";
     for ($i=0; $i<12; $i=$i+1){
