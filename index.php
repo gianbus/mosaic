@@ -47,7 +47,17 @@
         </div>
     </div>
     <!--navbar-->
+    <!--popup-page-->
+ 
+    <div id="mySidenav" class="sidenav">
     
+        <a href="#" class="closebtn" >&times;</a>
+        <a href="#">About</a>
+        <a href="#">Services</a>
+        <a href="#">Clients</a>
+        <a href="#">Contact</a>
+    </div>
+    <!--popup-page-->
     <?php
     $img="https://pixidisorg.files.wordpress.com/2019/07/dito-wuxi.jpg";
     for ($i=0; $i<12; $i=$i+1){

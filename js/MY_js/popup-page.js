@@ -9,9 +9,10 @@ $(document).ready(function(){
     })
 
     $(window).resize(function(){                //|Agisce nel caso vi sia un resize, e quindi per evitare che la width si mantenga al 97% agisce
-        if(window.innerWidth>=425 && w=="97%"){
+        if( (window.innerWidth>=425 && w=="97%") || (window.innerWidth<425 && w=="300px") ){
             w="0px";
         }
+        
         $("#mySidenav").css("width",w);
     })
 
