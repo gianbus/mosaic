@@ -5,9 +5,6 @@
     position: fixed;
     top: 0%;
     z-index: -1;
-    
-
-    
 }
 
 .filter{
@@ -30,6 +27,7 @@
  
 }
 
+
 .info-pop a {
   padding: 8px 8px 8px 8px;
   text-decoration: none;
@@ -49,7 +47,27 @@
   text-align: end;
 }
 
+.card-img-top{
+  margin: 0px auto 0px;
+  max-width: 100%;
+  max-height: 50%;
+  object-fit: contain;
+}
 
+
+@media screen and (max-height: 400px){
+  .info-pop .closebtn{
+    font-size: 8px;
+  }
+  
+}
+@media screen and (max-height: 915px) and (min-height: 401px){
+  
+  .info-pop .closebtn{
+    font-size: 15px;
+  }
+ 
+}
 
 @media screen and (max-height: 915px) and (max-width: 425px){
   .info-pop {
@@ -58,8 +76,5 @@
       height: 75%;
 
   }
-  .info-pop a {font-size: 18px;}
-  .card-img-top{
-    width: 50%;
-  }
+  
 }
