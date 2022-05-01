@@ -9,6 +9,7 @@ $(document).ready(function(){
 
     //Quando apro un blocco 
     $("div[id|=block]").click(function(){       //|Serve ad attivare la popup page per ogni blocco
+        //Design
         z="2";
         if(window.innerWidth<425) w=w_sm;
         else w=w_max;
@@ -18,6 +19,13 @@ $(document).ready(function(){
         $("#pop-block").css("background-color",black_medium);
         $("div[class|=row]").toggleClass("filter");
         blur=!blur;
+        //
+        //Task
+        let img = $(this).children().attr("src");
+        $(".card-img-top").attr("src",img);
+        
+        
+
     })
 
     //Quando chiudo blocco
@@ -35,6 +43,7 @@ $(document).ready(function(){
     $(window).resize(function(){                //|Agisce nel caso vi sia un resize, e quindi per evitare che la width si mantenga al w_sm% agisce
         console.log(window.innerWidth + " blur "+ blur + "width:" + $(".info-pop").css("width"));
         if((window.innerWidth<425  && w==w_sm) ||  (window.innerWidth>=425 && w==w_max)){
+            
             return
         }
         w="0px";

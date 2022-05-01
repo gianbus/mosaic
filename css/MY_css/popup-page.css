@@ -51,7 +51,7 @@
 
 
 
-@media screen and (max-height: 900px) and (max-width: 425px){
+@media screen and (max-height: 915px) and (max-width: 425px){
   .info-pop {
       border-radius: 25px 25px 0px 0px ;
       top: 25%;
@@ -59,4 +59,7 @@
 
   }
   .info-pop a {font-size: 18px;}
+  .card-img-top{
+    width: 50%;
+  }
 }
