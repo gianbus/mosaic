@@ -3,7 +3,7 @@
     color: aliceblue;
     font-size: 2vw;
     
-    background-color: #012746;
+    background-color: #161b22;;
     align-items: center;
 }
 
@@ -29,7 +29,7 @@
     text-decoration: none;
     border-radius: 50px;
     border: 0.1vw solid white;
-    background-color: #11185e;
+    background-color: #24292f;
 }
 
 #home {
@@ -44,7 +44,7 @@
     
 }
 
-#profile > .signin {
+#profile > .signup {
     flex: 0 0 auto;
 }
 

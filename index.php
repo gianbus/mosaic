@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="css/MY_css/block-grid.css">
     <link rel="stylesheet" href="css/MY_css/navbar.css">
     <link rel="stylesheet" href="css/MY_css/popup-page.css">
-
     
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="js/MY_js/navbar.js"></script>
@@ -18,7 +17,7 @@
 </head>
 <body>
     <!--<?php
-		include '../config.php';
+		include 'config.php';
 	?>-->
     
     <!--navbar-->
@@ -26,7 +25,6 @@
         <div class="nav-menu nav-menu-resp ">
             <div id="logo">
                     <img  src="https://pixidisorg.files.wordpress.com/2019/07/dito-wuxi.jpg"  >
-                    
             </div>
             <span style="flex: 2 2 auto; "></span>
             <div class="nav-btn" id="home" >
