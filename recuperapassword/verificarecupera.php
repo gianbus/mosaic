@@ -14,29 +14,28 @@
         <h2>Recupera Password</h2>
         <?php
 			include '../config.php';
-
-			$codiceconferma = md5(uniqid(rand()));
 			
             //IMPORTO USERNAME E PASSWORD CON REAL ESCAPE STRING - PROTEZIONE SQL INJECTION
             $email = mysqli_real_escape_string($mysqli, $_POST['email']);
 
+            //RIEPILOGO CAMPI INSERITI
+			echo "Email: ".$email."<br>";
 			
 			if($email == ""){
-                
-                //RIEPILOGO CAMPI INSERITI
-				echo "Email: ".$email."<br>";
 
 				echo "Attenzione, devi compilare tutti i campi!";
-				header( "refresh:5;url=index.html" );
+				header( "refresh:5;url=index.php" );
 				
 			}else{
 
-				//RIEPILOGO CAMPI INSERITI
-				echo "Email: ".$email."<br>";
+                
 			
 				$recuperauser = mysqli_query($mysqli, "SELECT * FROM utenti WHERE email='$email' ");
 
 				if($recuperauser){
+
+                    $row = mysqli_fetch_array($recuperauser);
+                    $codiceconferma = $row['codiceconferma'];
 
 					$contauser = mysqli_num_rows($recuperauser);
                     if($contauser == 1){
@@ -52,7 +51,7 @@
                         echo "Se esiste un account registrato con quest'email riceverai presto nella tua casella di posta le istruzioni per resettare la password!";
                         
                     }else{
-                        header("Refresh: 2; URL= ../index.php");
+                        header("Refresh: 4; URL= ../index.php");
                         echo "Se esiste un account registrato con quest'email riceverai presto nella tua casella di posta le istruzioni per resettare la password!";
                     }
 

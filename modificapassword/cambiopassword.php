@@ -13,7 +13,36 @@
     <h1>M O S A I C</h1>
     <?php
             include '../config.php';
-            
+
+            $codiceconferma = md5(uniqid(rand()));
+            $key = mysqli_real_escape_string($mysqli, $_GET['key']);
+            $email = mysqli_real_escape_string($mysqli, $_GET['email']);
+            $password1 = mysqli_real_escape_string($mysqli, $_POST['password1']);
+            $password2 = mysqli_real_escape_string($mysqli, $_POST['password2']);
+
+            echo $password1.'<br>';
+            echo $password2.'<br>';
+
+            if($password1=="" || $password2 == ""){
+                echo 'Devi riempire tutti i campi!';
+            }else if($password1 != $password2){
+                echo 'Le password devono coincidere!';
+            }else if(!$key || !$email){
+              echo 'Link non valido';
+              header( "refresh:2;url=../index.php" );	
+            }else{
+
+                $risultatouser = mysqli_query($mysqli, "UPDATE utenti SET password='$password1', codiceconferma = '$codiceconferma' WHERE codiceconferma = '$key' and email = '$email' ");
+					
+                if($risultatouser){
+                
+                    echo 'Password cambiata con successo!';
+
+                }else{
+                    echo 'Si è verificato un errore!';
+                }
+            }
+
 
             include '../footer.php';
         ?>

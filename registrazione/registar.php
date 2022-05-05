@@ -100,7 +100,7 @@
 						
 						}else{	
 					
-							echo "Si &egrave; vericato un errore nella registrazione! Riprova pi&ugrave; tardi!";
+							echo "Si &egrave; vericato un errore nell'invio della mail! Riprova ad accedere pi&ugrave; tardi!";
 							header( "refresh:3;url=index.html" );
 							
 						}

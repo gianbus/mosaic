@@ -26,7 +26,7 @@
                     $contauser = mysqli_num_rows($risultatouser);
                     
                     if($contauser == 1){ 
-                        echo '<form action="cambiopassword.php" method="POST" id="formcambiopassword"> 
+                        echo '<form action="cambiopassword.php?key='.$key.'&email='.$email.'" method="POST" id="formcambiopassword"> 
                         
                         <label for="password1">Crea una nuova password:</label><br>
                         <input type="password" id="password1" name="password1" placeholder="Password" required><br>
