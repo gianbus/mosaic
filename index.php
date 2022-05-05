@@ -24,12 +24,12 @@
     
     <?php
         //include 'config.php';
-       /*
+       
         $_SESSION['utente']="ER_DIMA";
         $_SESSION['punti']=1000;
         $punti = $_SESSION['punti'];
         $username = $_SESSION['utente'];
-        */
+        
     ?>
     
     
@@ -85,9 +85,17 @@
                             <h1 id="price-block">_price</h1>
                         </div>
                         <div id="buy-if"style="flex: 2 1 0%">
-                            <button class="not-logged signup _btn ">Sign up</button>
-                            <button class="not-logged login _btn ">Login</button>
-                        </div>
+                            <?php
+                                if(!isset($_SESSION['utente'])){
+                                    echo "\t\t\t\t\t\t<button class='not-logged signup _btn '>Sign up</button>";
+                                    echo "\t\t\t\t\t\t<button class='not-logged login _btn '>Login</button>";
+                                }
+                                else {
+                                    echo "\t\t\t\t\t\t<button class='logged-buy  _btn '>Compra</button>";
+                                }
+
+                            ?>
+                            </div>
                     </div>  
                 </div>
                 <div class="card-footer">
