@@ -1,8 +1,21 @@
 $(document).ready(function(){
+    let logged = true;
     
+    if(parseInt(sessionStorage.isLogged)==1){
+        console.log("Sei loggato  "+ sessionStorage.isLogged);
+        
+        $(".not-logged.signup").text("compra");
+        $(".not-logged.signup").toggleClass("logged-buy");
+        $(".not-logged.signup").toggleClass("signup not-logged");
+        $(".not-logged.login").remove();
+        
+        
+    }
+
+
     let w="0px"
     let z="-1;"
-    let w_max="40%";
+    let w_max="35%"; //popup page width when open by a desktop system
     let w_sm="97%"
     let black_medium=" rgba(18, 18, 18, 0.500)";
     let blur=false;
@@ -27,7 +40,17 @@ $(document).ready(function(){
         //Task
         let img = $(this).children().attr("src");
         $(".card-img-top").attr("src",img);
-        
+        let idBlocco = $(this).attr("id");
+        let nBlocco= parseInt(idBlocco.match(/[0-9]+/));
+
+        if(parseInt(sessionStorage.isLogged)==1){
+            console.log("roba");
+            
+            
+        }
+
+        console.log(nBlocco);
+
         
 
     })
