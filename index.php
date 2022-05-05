@@ -15,15 +15,9 @@
 	?>
     <div id="container" class="container-fluid">
     <h1>M O S A I C</h1>
-            <?php
-                for ($row = 1; $row <= 12; $row++) {
-                    echo '<div class="row">';
-                    for ($col = 1; $col <= 12; $col++) {
-                        echo '<div class="col">'.$col.' of 12</div>';
-                    }
-                    echo '</div>';
-                }
-            ?>
+		<a href='/login/index.html'><h2>Testa il login!</h2></a><br>
+		<a href='/registrazione'><h2>Testa la registrazione!</h2></a><br>
+		<a href='/recuperapassword'><h2>Testa il recuperapassword!</h2></a><br>
     </div><!-- CONTAINER END -->
     <?php
 		include 'footer.php';

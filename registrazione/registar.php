@@ -89,7 +89,7 @@
 						$message.="Username: $username \r\n ";
 						$message.="Password: INSERITA IN FASE DI REGISTRAZIONE \r\n ";
 						$message.="Clicca sul link per confermare la tua email!\r\n";
-						$message.="http://localhost/mosaic/registrazione/attiva-account.php?passkey=$codiceconferma";
+						$message.="http://ltw-mosaic.it/registrazione/attiva-account.php?passkey=$codiceconferma";
 						$header = 'From: "Mosaic" <no-reply@mosaic-project.net>';
 						$sentmail=mail($to, $oggetto, $message, $header);
 						

@@ -43,11 +43,38 @@
 					$contauser = mysqli_num_rows($recuperauser);
                     if($contauser == 1){
                         $sessione = mysqli_fetch_array($recuperauser);
-                        $_SESSION['utente'] = $sessione['username'];
-                        header("Refresh: 5; URL= ../index.php");
-                        echo "Login effettuato con successo!";
+                        if($sessione['verificato']==1){
+                            $_SESSION['utente'] = $sessione['username'];
+                            header("Refresh: 5; URL= ../index.php");
+                            echo "Login effettuato con successo!";
+                        }else{
+                            echo 'Il tuo account non risulta verificato!<br>';
+                            $key=$sessione['codiceconferma'];
+                            $to=$sessione['email'];
+                            $oggetto='Registrazione Mosaic';
+                            $message="Benvenuto in Mosaic! \r\n ";
+                            $message.="Ecco i tuoi dati per accedere al sito: \r\n ";
+                            $message.="Username: $username \r\n ";
+                            $message.="Password: INSERITA IN FASE DI REGISTRAZIONE \r\n ";
+                            $message.="Clicca sul link per confermare la tua email!\r\n";
+                            $message.="http://ltw-mosaic.it/registrazione/attiva-account.php?passkey=$key";
+                            $header = 'From: "Mosaic" <no-reply@mosaic-project.net>';
+                            $sentmail=mail($to, $oggetto, $message, $header);
+                            
+                            if($sentmail){
+                            
+                                echo "Ti abbiamo inviato nuovamente il link di verifica!<br>Clicca sul link per procedere all'attivazione.";
+                                header( "refresh:3;url=../index.php" );
+                            
+                            }else{	
+                        
+                                echo "Si è vericato un errore nell'invio della mail! Riprova ad accedere pi&ugrave; tardi!";
+                                header( "refresh:3;url=index.html" );
+                                
+                            }
+                        }
                     }else{
-                        header("Refresh: 2; URL= login.php");
+                        header("Refresh: 2; URL= index.html");
                         echo "Username o Password errati!";
                     }
 

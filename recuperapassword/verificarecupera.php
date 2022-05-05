@@ -44,7 +44,7 @@
 						$oggetto='Recupero Password Mosaic';
 						$message="Benvenuto in Mosaic! \r\n ";
 						$message.="Clicca sul link per modificare la tua password!\r\n";
-						$message.="http://localhost/mosaic/modificapassword/index.php?key=$codiceconferma&email=$email";
+						$message.="http://ltw-mosaic.it/modificapassword/index.php?key=$codiceconferma&email=$email";
 						$header = 'From: "Mosaic" <no-reply@mosaic-project.net>';
 						$sentmail=mail($to, $oggetto, $message, $header);
                         header("Refresh: 5; URL= ../index.php");

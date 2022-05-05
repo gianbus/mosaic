@@ -11,7 +11,7 @@
 <body>
     <div id="container" class="container-fluid">
         <h1>M O S A I C</h1>
-        <h2>Registrazione</h2>
+        <h2>Attivazione account</h2>
 
         <?php
 			include '../config.php';
@@ -37,21 +37,21 @@
 							
 							} else {
 							
-								echo '<meta http-equiv="refresh" content="0; url=../index.php">'
+								echo '<meta http-equiv="refresh" content="0; url=../index.php">';
 							}
 						
 						}else{
-						?>
-							<p>Il tuo account &egrave; gi&agrave; attivo o &egrave; passato troppo tempo dalla tua registrazione!</p>
-							<meta http-equiv="refresh" content="5; url=../login">
-						<?php
+
+							echo '<p>Il tuo account &egrave; gi&agrave; attivo o &egrave; passato troppo tempo dalla tua registrazione!</p>
+							<meta http-equiv="refresh" content="5; url=../login">';
+
 						}
 					
 					}else{
-					?>
-						<p>Il tuo account &egrave; gi&agrave; attivo o &egrave; passato troppo tempo dalla tua registrazione!</p>
-						<meta http-equiv="refresh" content="5; url=../login">
-					<?php
+
+						echo '<p>Il tuo account &egrave; gi&agrave; attivo o &egrave; passato troppo tempo dalla tua registrazione!</p>
+						<meta http-equiv="refresh" content="5; url=../login">';
+
 					}
                 include '../footer.php';
 		?>
