@@ -31,24 +31,25 @@ div[class|=row]{
 }
 
 /*Scrollbar personalizzata, magari da utilizzare*/
-/*
+
 ::-webkit-scrollbar {
     width: 10px;
   }
   
 
-::-webkit-scrollbar-track {background: #f1f1f1; 
+::-webkit-scrollbar-track {background: #000000; 
 }
 
 ::-webkit-scrollbar-thumb {
-    background: #888; 
+    background: #161b22; 
 }
   
  
 ::-webkit-scrollbar-thumb:hover {
-    background: #555; 
+    background: #2f3947; 
 }
-*/
+/*fine scrollbar personalizzata */
+
 @media screen and (min-width: 768px){
     div[id|=block]:hover{
         background-color: white;
