@@ -17,12 +17,12 @@
 
 			$codiceconferma = md5(uniqid(rand()));
 			
-			$nome = $_POST['nome'];
-			$cognome = $_POST['cognome'];
-			$username = $_POST['username'];
-			$password1 = $_POST['password1'];
-			$password2 = $_POST['password2'];
-			$email = $_POST['email'];
+			$nome = mysqli_real_escape_string($mysqli, $_POST['nome']);
+			$cognome = mysqli_real_escape_string($mysqli, $_POST['cognome']);
+			$username = mysqli_real_escape_string($mysqli, $_POST['username']);
+			$password1 = mysqli_real_escape_string($mysqli, $_POST['password1']);
+			$password2 = mysqli_real_escape_string($mysqli, $_POST['password2']);
+			$email = mysqli_real_escape_string($mysqli, $_POST['email']);
 			
 			if($nome == "" || $cognome == "" || $username == "" || $password1 == "" || $password2 == "" || $email == ""){
 			
@@ -87,9 +87,9 @@
 						$message="Benvenuto in Mosaic! \r\n ";
 						$message.="Ecco i tuoi dati per accedere al sito: \r\n ";
 						$message.="Username: $username \r\n ";
-						$message.="Password: $password2 \r\n ";
+						$message.="Password: INSERITA IN FASE DI REGISTRAZIONE \r\n ";
 						$message.="Clicca sul link per confermare la tua email!\r\n";
-						$message.="http://ltw-mosaic.it/registrazione/attiva-account.php?passkey=$codiceconferma";
+						$message.="http://localhost/mosaic/registrazione/attiva-account.php?passkey=$codiceconferma";
 						$header = 'From: "Mosaic" <no-reply@mosaic-project.net>';
 						$sentmail=mail($to, $oggetto, $message, $header);
 						

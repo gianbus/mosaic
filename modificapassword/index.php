@@ -9,16 +9,50 @@
     <title>Mosaic |Modifica password</title>
 </head>
 <body>
-    <?php
-		include 'config.php';
-	?>
     <div id="container" class="container-fluid">
     <h1>M O S A I C</h1>
-
-    </div><!-- CONTAINER END -->
     <?php
-		include 'footer.php';
-	?>
+            include '../config.php';
+            $key = mysqli_real_escape_string($mysqli, $_GET['key']);
+            $email = mysqli_real_escape_string($mysqli, $_GET['email']);
+            if(!$key || !$email){
+              echo 'Link non valido';
+              header( "refresh:2;url=../index.php" );	
+            }else{
+                $risultatouser = mysqli_query($mysqli, "SELECT * FROM utenti WHERE codiceconferma = '$key' and email='$email'");
+					
+                if($risultatouser){
+                
+                    $contauser = mysqli_num_rows($risultatouser);
+                    
+                    if($contauser == 1){ 
+                        echo '<form action="cambiopassword.php" method="POST" id="formcambiopassword"> 
+                        
+                        <label for="password1">Crea una nuova password:</label><br>
+                        <input type="password" id="password1" name="password1" placeholder="Password" required><br>
+                        
+                        <label for="password2">Conferma la nuova password:</label><br>
+                        <input type="password" id="password2" name="password2" placeholder="Ripeti Password" required><br><br>
+                        
+                        <input type="submit" value="Cambia Password" >
+                    
+                    </form>';
+                    }else{
+                        echo 'Il link per cambiare password è scaduto.';
+                        header( "refresh:5;url=index.php" );
+
+                    }
+
+                }else{
+                    echo 'Si è verificato un errore!';
+                }
+            }
+
+
+            include '../footer.php';
+        ?>
+    </div><!-- CONTAINER END -->
+
      <!-- Bootstrap Bundle with Popper -->
      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>

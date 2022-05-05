@@ -16,7 +16,7 @@
         <?php
 			include '../config.php';
             $codiceconferma = md5(uniqid(rand()));
-			$passkey = $_GET['passkey'];
+			$passkey = mysqli_real_escape_string($mysqli, $_GET['passkey']);
 					
 					$risultatouser = mysqli_query($mysqli, "SELECT * FROM utenti WHERE codiceconferma = '$passkey'");
 					
