@@ -1,18 +1,4 @@
 $(document).ready(function(){
-    let logged = true;
-    
-    if(parseInt(sessionStorage.isLogged)==1){
-        console.log("Sei loggato  "+ sessionStorage.isLogged);
-        
-        $(".not-logged.signup").text("compra");
-        $(".not-logged.signup").toggleClass("logged-buy");
-        $(".not-logged.signup").toggleClass("signup not-logged");
-        $(".not-logged.login").remove();
-        
-        
-    }
-
-
     let w="0px"
     let z="-1;"
     let w_max="35%"; //popup page width when open by a desktop system

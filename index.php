@@ -24,12 +24,12 @@
     
     <?php
         //include 'config.php';
-       
+       /*
         $_SESSION['utente']="ER_DIMA";
         $_SESSION['punti']=1000;
         $punti = $_SESSION['punti'];
         $username = $_SESSION['utente'];
-        
+        */
     ?>
     
     
