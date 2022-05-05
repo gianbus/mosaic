@@ -29,8 +29,8 @@ $(document).ready(function(){
         let idBlocco = $(this).attr("id");
         let nBlocco= parseInt(idBlocco.match(/[0-9]+/));
 
-       
-        console.log(nBlocco);
+        
+
 
         
 

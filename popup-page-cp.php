@@ -8,7 +8,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     
     <link rel="stylesheet" href="css/MY_css/block-grid.css" type="text/css">
-    <link rel="stylesheet" href="css/MY_css/popup-page.css" type="text/css">
+    <link rel="stylesheet" href="css/MY_css/popup-page-cp.css" type="text/css">
     
     
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -19,8 +19,16 @@
 </head>
 <body>
 
-    
-<!--popup-page-->
+    <?php
+        //include 'config.php';
+       
+        $_SESSION['utente']="ER_DIMA";
+        $_SESSION['punti']=1000;
+        $punti = $_SESSION['punti'];
+        $username = $_SESSION['utente'];
+        
+    ?>
+    <!--popup-page-->
     <div id="pop-block">
         <div  class="info-pop  text-white ">
             <div class="card  h-100" >
@@ -36,18 +44,27 @@
                             <h1 id="price-block">_price</h1>
                         </div>
                         <div id="buy-if"style="flex: 2 1 0%">
-                            <button class="not-logged signup _btn ">Sign up</button>
-                            <button class="not-logged login _btn ">Login</button>
-                        </div>
+                            <?php
+                                if(!isset($_SESSION['utente'])){
+                                    echo "\t\t\t\t\t\t<button class='not-logged signup _btn '>Sign up</button>";
+                                    echo "\t\t\t\t\t\t<button class='not-logged login _btn '>Login</button>";
+                                }
+                                else {
+                                    echo "\t\t\t\t\t\t<button class='logged-buy  _btn '>Compra</button>";
+                                }
+
+                            ?>
+                            </div>
                     </div>  
                 </div>
                 <div class="card-footer">
-                  <small class="text-muted">Last updated 3 mins ago</small>
+                <small class="text-muted">Last updated 3 mins ago</small>
                 </div>
             </div>
         </div>
     </div>
-<!--popup-page-->
+    <!--popup-page-->
+
   <div class="row-1">
     <div id= block-1 >
         <img id=img-1 src="assets/grid/block-1.jpg"  style="width:100%">
