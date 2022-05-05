@@ -18,7 +18,7 @@
             $codiceconferma = md5(uniqid(rand()));
 			$passkey = mysqli_real_escape_string($mysqli, $_GET['passkey']);
 					
-					$risultatouser = mysqli_query($mysqli, "SELECT * FROM utenti WHERE codiceconferma = '$passkey'");
+					$risultatouser = mysqli_query($mysqli, "SELECT * FROM utenti WHERE codiceconferma = '$passkey' and verificato = 0 ");
 					
 					if($risultatouser) {
 					
@@ -26,19 +26,18 @@
 						
 						if($contauser == 1){
 							
-							$sqlconfermauser = mysqli_query($mysqli, "UPDATE utenti SET verificato=1, punti=100, codiceconferma = '$codiceconferma' WHERE codiceconferma = '$passkey'");
+							$sqlconfermauser = mysqli_query($mysqli, "UPDATE utenti SET verificato=1, punti=100, codiceconferma = '$codiceconferma' WHERE codiceconferma = '$passkey' and verificato=0");
 							
 							if ($sqlconfermauser) {
 								
-								?>
-									<p>Il tuo account &egrave; stato attivato con successo!<br>Stai per essere reindirizzato alla pagina di login!</p>
-									<meta http-equiv="refresh" content="5; url=../login">
-								<?php
+								
+									echo '<p>Il tuo account &egrave; stato attivato con successo!<br>Stai per essere reindirizzato alla pagina di login!</p>
+									<meta http-equiv="refresh" content="5; url=../login">';
+								
 							
 							} else {
-							?>
-								<meta http-equiv="refresh" content="0; url=../index.php">
-							<?php
+							
+								echo '<meta http-equiv="refresh" content="0; url=../index.php">'
 							}
 						
 						}else{
