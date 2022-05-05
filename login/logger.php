@@ -42,7 +42,7 @@
 
 					$contauser = mysqli_num_rows($recuperauser);
                     if($contauser == 1){
-                        $sessione = mysqlI_fetch_array($recuperauser);
+                        $sessione = mysqli_fetch_array($recuperauser);
                         $_SESSION['utente'] = $sessione['username'];
                         header("Refresh: 5; URL= ../index.php");
                         echo "Login effettuato con successo!";
