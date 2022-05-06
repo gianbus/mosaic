@@ -14,6 +14,11 @@
         
         <div id="divregistrazione">
             <h2>Registrazione</h2>
+            <?php
+                include '../config.php';
+                if(isset($_SESSION['utente'])) header( "refresh:0;url=../index.php" );
+                include '../footer.php';
+            ?>
             <form action="registar.php" method="POST" id="formregistrazione" onsubmit="return verificaForm()"> 
                 
                 <div class = "campoform">
@@ -63,18 +68,20 @@
 
                 <div class = "campoform">      
                     <label for="email">Il tuo indirizzo email:</label><br>
-                    <input type="email" id=email name="email" placeholder="Email"><br>
+                    <input type="text" id=email name="email" placeholder="Email"><br>
                     <small></small>
                 </div>
-              
-                <input type="checkbox" name="checktermini" id="checktermini" required>
+                
+                <div>
+                    <input type="checkbox" name="checktermini" id="checktermini">
+                    <label style="display:inline" for="checktermini">Accetto i <a href="termini-servizio.html"><strong>Termini di servizio</strong></a> di Mosaic</label><br><br>
+                    <small></small>
 
-                <label for="checktermini"><i>Accetto i <a href="termini-servizio.html"><strong>Termini di servizio</strong></a> di Mosaic</label><br>
+                    <input class="buttonSubmit" type="submit" value="Registrati">
+                </div>
 
                 <br>
 
-                <input type="submit" value="Registrati" >
-                  
                 <div class="container-fluid signin">
                     <p>Hai già un account? <a target="_blank" href="#">Sign in</a>.</p>
                 </div>

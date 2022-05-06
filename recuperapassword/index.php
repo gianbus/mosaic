@@ -14,6 +14,12 @@
 
             <div id="divrecuperapassword">
                 <h2>Recupera password</h2>
+                <?php
+                    include '../config.php';
+                    if(isset($_SESSION['utente'])) header( "refresh:0;url=../index.php" );
+                    include '../footer.php';
+                ?>
+                
                 <form action="verificarecupera.php" method="POST" id="formrecuperapassword"> 
                     <label for="email">Email inserita in fase di registrazione:</label><br>
                     <input type="email" id="email" name="email" placeholder="email" required><br><br>

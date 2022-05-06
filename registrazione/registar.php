@@ -34,7 +34,7 @@
 				echo "Attenzione, le password devono coincidere!";
 				header( "refresh:5;url=index.html" );
 				
-			}elseif(!isset($_POST['checkbox'])){ 
+			}elseif(!isset($_POST['checktermini'])){ 
 
 				echo 'Al fine della registrazione devi accettare i <a href="termini-servizio.html">Termini di servizio</a>';
 				header( "refresh:5;url=index.html" );

@@ -8,5 +8,6 @@
     if(false === $mysqli){
         exit("Errore: impossibile stabilire una connessione " . mysqli_connect_error());
     }
+    session_start();
     
 ?>

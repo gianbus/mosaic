@@ -14,6 +14,12 @@
         
         <div id="divlogin">
             <h2>Login</h2>
+            <?php
+                include '../config.php';
+                if(isset($_SESSION['utente'])) header( "refresh:0;url=../index.php" );
+                include '../footer.php';
+            ?>
+
             <form action="logger.php" method="POST" id="formlogin"> 
 
                 <label for="username">Username:</label><br>

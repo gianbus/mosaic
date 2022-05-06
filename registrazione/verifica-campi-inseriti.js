@@ -22,7 +22,7 @@ function verificaForm() {
     else if (!verificaEmail())
         return false;
 
-    else if (!(document.getElementById("check").checked)) {
+    else if (!(document.getElementById("checktermini").checked)) {
         alert(msgTerminiDiServizio);
         return false;
     }

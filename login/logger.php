@@ -13,9 +13,10 @@
         <h1>M O S A I C</h1>
         <h2>Login</h2>
         <?php
-			include '../config.php';
 
-			$codiceconferma = md5(uniqid(rand()));
+
+			include '../config.php';
+			
 			
             //IMPORTO USERNAME E PASSWORD CON REAL ESCAPE STRING - PROTEZIONE SQL INJECTION
             $username = mysqli_real_escape_string($mysqli, $_POST['username']);
@@ -24,17 +25,11 @@
 			
 			if($username == "" || $password == ""){
                 
-                //RIEPILOGO CAMPI INSERITI
-				echo "Username: ".$username."<br>";
-				echo "Password: ".$password."<br>";
 				echo "Attenzione, devi compilare tutti i campi!";
 				header( "refresh:5;url=index.html" );
 				
 			}else{
 
-				//RIEPILOGO CAMPI INSERITI
-				echo "Username: ".$username."<br>";
-				echo "Password: ".$password."<br>";
 			
 				$recuperauser = mysqli_query($mysqli, "SELECT * FROM utenti WHERE username='$username' AND password='$password' ");
 
@@ -48,6 +43,7 @@
                             header("Refresh: 5; URL= ../index.php");
                             echo "Login effettuato con successo!";
                         }else{
+                            $codiceconferma = md5(uniqid(rand()));
                             echo 'Il tuo account non risulta verificato!<br>';
                             $key=$sessione['codiceconferma'];
                             $to=$sessione['email'];
