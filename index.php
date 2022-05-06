@@ -11,7 +11,7 @@
 </head>
 <body>
     <?php
-		include 'config.php';
+		include '../config.php';
 	?>
     <div id="container" class="container-fluid">
     <h1>M O S A I C</h1>
@@ -20,7 +20,7 @@
 		<a href='/recuperapassword'><h2>Testa il recuperapassword!</h2></a><br>
     </div><!-- CONTAINER END -->
     <?php
-		include 'footer.php';
+		include '../footer.php';
 	?>
      <!-- Bootstrap Bundle with Popper -->
      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
