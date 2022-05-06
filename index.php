@@ -7,7 +7,6 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
     <title>Mosaic</title>
-    <link href="favicon.ico" rel="shortcut icon" type="image/x-icon" />
 </head>
 <body>
     <?php
@@ -15,9 +14,15 @@
 	?>
     <div id="container" class="container-fluid">
     <h1>M O S A I C</h1>
-		<a href='/login/index.html'><h2>Testa il login!</h2></a><br>
-		<a href='/registrazione'><h2>Testa la registrazione!</h2></a><br>
-		<a href='/recuperapassword'><h2>Testa il recuperapassword!</h2></a><br>
+            <?php
+                for ($row = 1; $row <= 12; $row++) {
+                    echo '<div class="row">';
+                    for ($col = 1; $col <= 12; $col++) {
+                        echo '<div class="col">'.$col.' of 12</div>';
+                    }
+                    echo '</div>';
+                }
+            ?>
     </div><!-- CONTAINER END -->
     <?php
 		include '../footer.php';
