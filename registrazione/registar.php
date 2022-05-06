@@ -17,12 +17,12 @@
 
 			$codiceconferma = md5(uniqid(rand()));
 			
-			$nome = $_POST['nome'];
-			$cognome = $_POST['cognome'];
-			$username = $_POST['username'];
-			$password1 = $_POST['password1'];
-			$password2 = $_POST['password2'];
-			$email = $_POST['email'];
+			$nome = mysqli_real_escape_string($mysqli, $_POST['nome']);
+			$cognome = mysqli_real_escape_string($mysqli, $_POST['cognome']);
+			$username = mysqli_real_escape_string($mysqli, $_POST['username']);
+			$password1 = mysqli_real_escape_string($mysqli, $_POST['password1']);
+			$password2 = mysqli_real_escape_string($mysqli, $_POST['password2']);
+			$email = mysqli_real_escape_string($mysqli, $_POST['email']);
 			
 			if($nome == "" || $cognome == "" || $username == "" || $password1 == "" || $password2 == "" || $email == ""){
 			
@@ -63,22 +63,22 @@
 				
 				if ($contaemail > 0 && $contauser > 0){
 						
-					echo "<center><font class=rosso_strong size=5>Sia l'email che l'username sono gi&agrave; utilizzati!</font></center>";
-					//header( "refresh:2;url=index.html" );	
+					echo "Sia l'email che l'username sono gi&agrave; utilizzati!";
+					header( "refresh:2;url=index.html" );	
 					
 				}elseif($contaemail > 0){
 						
-					echo "<center><font class=rosso_strong size=5>L'email &egrave; stata gi&agrave; utilizzata!</font></center>";
-					//header( "refresh:2;url=index.html" );
+					echo "L'email &egrave; stata gi&agrave; utilizzata!";
+					header( "refresh:2;url=index.html" );
 							
 				}elseif($contauser > 0){
 							
-					echo "<center><font class=rosso_strong size=5>L'username &egrave; stato gi&agrave; utilizzato!</font></center>";
-					//header( "refresh:2;url=index.html" );
+					echo "L'username &egrave; stato gi&agrave; utilizzato!";
+					header( "refresh:2;url=index.html" );
 						
 				}else{
 				
-					$inviautentitemp = mysqli_query($mysqli, "INSERT INTO utenti (codiceconferma, nome, cognome, username, password, email) VALUES ('$codiceconferma', '$nome', '$cognome', '$username', '$password2', '$email')");
+					$inviautentitemp = mysqli_query($mysqli, "INSERT INTO utenti (codiceconferma, nome, cognome, username, password, verificato, punti, email) VALUES ('$codiceconferma', '$nome', '$cognome', '$username', '$password2', 0, 0, '$email')");
 					
 					if($inviautentitemp){
 					
@@ -87,29 +87,29 @@
 						$message="Benvenuto in Mosaic! \r\n ";
 						$message.="Ecco i tuoi dati per accedere al sito: \r\n ";
 						$message.="Username: $username \r\n ";
-						$message.="Password: $password2 \r\n ";
+						$message.="Password: INSERITA IN FASE DI REGISTRAZIONE \r\n ";
 						$message.="Clicca sul link per confermare la tua email!\r\n";
-						$message.="http://localhost/mosaic/registrazione/attiva-account.php?passkey=$codiceconferma";
+						$message.="http://ltw-mosaic.it/registrazione/attiva-account.php?passkey=$codiceconferma";
 						$header = 'From: "Mosaic" <no-reply@mosaic-project.net>';
 						$sentmail=mail($to, $oggetto, $message, $header);
 						
 						if($sentmail){
 						
-							echo "<center><font class=verde_strong size=5>Ti sei registrato con successo!<br>Ti abbiamo inviato una mail contenente i tuoi dati di accesso e il link di attivazione.</font></center>";
-							//header( "refresh:2;url=registrazione.php" );
+							echo "Ti sei registrato con successo!<br>Ti abbiamo inviato una mail contenente i tuoi dati di accesso e il link di attivazione.";
+							header( "refresh:3;url=../index.php" );
 						
 						}else{	
 					
-							echo "<center><font class=rosso_strong size=5>Si &egrave; vericato un errore nella registrazione! Riprova pi&ugrave; tardi!</font></center>";
-							//header( "refresh:2;url=registrazione.php" );
+							echo "Si &egrave; vericato un errore nell'invio della mail! Riprova ad accedere pi&ugrave; tardi!";
+							header( "refresh:3;url=index.html" );
 							
 						}
 					
 					
 					}else{
 					
-						echo "<center><font class=rosso_strong size=5>Si &egrave; vericato un errore nella registrazione! Riprova pi&ugrave; tardi!</font></center>";
-						//header( "refresh:2;url=registrazione.php" );	
+						echo "Si &egrave; vericato un errore nella registrazione! Riprova pi&ugrave; tardi!";
+						header( "refresh:2;url=index.html" );	
 						
 					}
 				}
