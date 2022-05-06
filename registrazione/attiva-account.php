@@ -49,11 +49,11 @@
 					
 					}else{
 
-						echo '<p>Il tuo account &egrave; gi&agrave; attivo o &egrave; passato troppo tempo dalla tua registrazione!</p>
+						echo '<p>Si è verificato un errore!</p>
 						<meta http-equiv="refresh" content="5; url=../login">';
 
 					}
-                include '../footer.php';
+            include '../footer.php';
 		?>
         
     </div><!-- CONTAINER END -->

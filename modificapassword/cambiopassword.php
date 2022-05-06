@@ -20,9 +20,6 @@
             $password1 = mysqli_real_escape_string($mysqli, $_POST['password1']);
             $password2 = mysqli_real_escape_string($mysqli, $_POST['password2']);
 
-            echo $password1.'<br>';
-            echo $password2.'<br>';
-
             if($password1=="" || $password2 == ""){
                 echo 'Devi riempire tutti i campi!';
             }else if($password1 != $password2){
