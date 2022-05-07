@@ -81,8 +81,8 @@
                         <div id="buy-if"style="flex: 2 1 0%">
                             <?php
                                 if(!isset($_SESSION['utente'])){
-                                    echo "\t\t\t\t\t\t<a href='./registrazione'><button class='not-logged signup _btn '>Sign up</button></a>";
-                                    echo "\t\t\t\t\t\t<a href='./login'><button class='not-logged login _btn '>Login</button></a>";
+                                    echo "\t\t\t\t\t\t<a href='./registrazione' class='not-logged signup _btn '>Sign up</a>";
+                                    echo "\t\t\t\t\t\t<a href='./login' class='not-logged login _btn '>Login</a>";
                                 }
                                 else {
                                     echo "\t\t\t\t\t\t<button class='logged-buy  _btn '>Compra</button>";

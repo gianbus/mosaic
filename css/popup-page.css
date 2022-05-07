@@ -35,8 +35,6 @@
 
   text-decoration: none;
   font-size: 25px;
-  color: #818181;
-
 }
 
 .info-pop a:hover {
@@ -46,6 +44,8 @@
 .info-pop .closebtn {  
   font-size: 36px;
   text-align: end;
+  color: #818181;
+
 }
 
 /*| More deep in details*/
@@ -146,6 +146,9 @@ font-size: 30px;
   #buy-if{
     flex-direction: row;
     font-size: 15px;
+  }
+  .not-logged.signup{
+    margin: 5px 10px 5px 0px;
   }
   .card-footer{
     font-size: 10px;
