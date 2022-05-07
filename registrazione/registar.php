@@ -29,17 +29,17 @@
 			if($nome == "" || $cognome == "" || $username == "" || $password1 == "" || $password2 == "" || $email == ""){
 			
 				echo "Attenzione, devi compilare tutti i campi!";
-				header( "refresh:5;url=index.html" );
+				header( "refresh:5;url=index.php" );
 				
 			}elseif($password1 != $password2){
 			
 				echo "Attenzione, le password devono coincidere!";
-				header( "refresh:5;url=index.html" );
+				header( "refresh:5;url=index.php" );
 				
 			}elseif(!isset($_POST['checktermini'])){ 
 
 				echo 'Al fine della registrazione devi accettare i <a href="termini-servizio.html">Termini di servizio</a>';
-				header( "refresh:5;url=index.html" );
+				header( "refresh:5;url=index.php" );
 
 			}else{
 
@@ -66,17 +66,17 @@
 				if ($contaemail > 0 && $contauser > 0){
 						
 					echo "Sia l'email che l'username sono gi&agrave; utilizzati!";
-					header( "refresh:2;url=index.html" );	
+					header( "refresh:2;url=index.php" );	
 					
 				}elseif($contaemail > 0){
 						
 					echo "L'email &egrave; stata gi&agrave; utilizzata!";
-					header( "refresh:2;url=index.html" );
+					header( "refresh:2;url=index.php" );
 							
 				}elseif($contauser > 0){
 							
 					echo "L'username &egrave; stato gi&agrave; utilizzato!";
-					header( "refresh:2;url=index.html" );
+					header( "refresh:2;url=index.php" );
 						
 				}else{
 				
