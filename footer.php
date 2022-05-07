@@ -1,8 +1,8 @@
 <!-- JQuery -->
-<script src="./jquery/jquery.min.js"></script>
+<script src="http://ltw-mosaic.it/jquery/jquery.min.js"></script>
 
 <!-- Bootstrap Bundle with Popper -->
-<script src="../bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="http://ltw-mosaic.it/bootstrap/js/bootstrap.bundle.min.js"></script>
 
 
 <?php

@@ -7,7 +7,7 @@
     <title>Mosaic</title>
 
     <!-- Bootstrap CSS -->
-    <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="./bootstrap/css/bootstrap.min.css" rel="stylesheet">
     
     <!-- My CSS -->
     <link rel="stylesheet" href="css/block-grid.css" type="text/css">
@@ -119,7 +119,6 @@
 		  include './footer.php';
     ?>    
     
-    <script src="./jquery/jquery.min.js"></script>
     <script src="js/navbar.js"></script>
     <script src="js/popup-page.js"></script>
 
