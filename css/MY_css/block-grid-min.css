@@ -1,0 +1,12 @@
+@media screen and (max-width: 425px){
+    div[id|=block]{
+        min-width: 33.2%;
+    }
+    div[id|=block]:active{
+    
+        border: 1px solid red;
+        padding: 0px;
+        background-color: rgb(253, 146, 146);
+       
+    }
+}

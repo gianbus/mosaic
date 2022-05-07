@@ -14,22 +14,22 @@
     <script src="js/MY_js/navbar.js"></script>
     <script src="js/MY_js/popup-page.js"></script>
 
-    <!--font-style-->
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
-    <!--font-style-->
+    
 </head>
 <body>
     
     <?php
         //include 'config.php';
-       /*
+       
         $_SESSION['utente']="ER_DIMA";
         $_SESSION['punti']=1000;
         $punti = $_SESSION['punti'];
         $username = $_SESSION['utente'];
-        */
+        
     ?>
     
     
