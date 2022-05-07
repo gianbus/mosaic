@@ -3,27 +3,70 @@
 
 body{ 
     background-color: rgb(255, 255, 255);
+    overflow-x: hidden;
 }
 
 
 div[id|=block]{
     background-color: rgb(219, 92, 92);
 
-    border: 1px solid rgb(255, 255, 255);
+    border: 0.5px solid rgb(0, 0, 0);
     text-align: center;
     /*max-width: 8.4%;*/    /*|Potrebbe ritornare utile in futuro*/
-    flex: 1 0 0%;
-
+    flex: 1 0 ;
+    
     aspect-ratio: 1 / 1;    /*|blocchi sempre di egual misura in altezza e larghezza*/
 
     display: flex;          /*|centrare l'immagine nel blocco*/
     align-items: center;    /*|*/
-    z-index: -1;
+    
 }
 
+
+
 div[class|=row]{
+    
     display: flex;         
-    flex-wrap: wrap;        
+    flex-wrap: wrap;  
+}
+
+/*Scrollbar personalizzata, magari da utilizzare*/
+
+::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+
+::-webkit-scrollbar-track {background: #000000; 
+}
+
+::-webkit-scrollbar-thumb {
+    background: #161b22; 
+}
+  
+ 
+::-webkit-scrollbar-thumb:hover {
+    background: #2f3947; 
+}
+/*fine scrollbar personalizzata */
+
+@media screen and (min-width: 768px){
+    div[id|=block]:hover{
+        background-color: white;
+        border: 0px;
+        padding: 1px;
+        transform: scale(1.1,1.1);
+        transition: transform 0.1s
+       
+    }
+    div[id|=block]:active{
+    
+        border: 1px solid red;
+        padding: 0px;
+        background-color: rgb(63, 44, 44);
+       
+    }
+    
 }
 
 
