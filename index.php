@@ -106,7 +106,7 @@
     for ($i=0; $i<12; $i=$i+1){
             echo "<div class= row-$i  >\n";
             for ($j=1; $j<=12; $j=$j+1){
-                echo "\t<div id= block-". ($j+$i*12)."  >\n
+                echo "\t<div class='blocco' id='block-". ($j+$i*12)."'  >\n
                       \t\t<img id=img-".($j+$i*12)." src=$img  style=\"width:100%\">\n
                       \t</div>\n";
             }

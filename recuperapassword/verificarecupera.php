@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+
     <!-- Bootstrap CSS -->
     <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
@@ -38,6 +38,7 @@
 
                     $row = mysqli_fetch_array($recuperauser);
                     $codiceconferma = $row['codiceconferma'];
+                    $username = $row['username'];
 
 					$contauser = mysqli_num_rows($recuperauser);
                     if($contauser == 1){
@@ -46,6 +47,7 @@
 						$oggetto='Recupero Password Mosaic';
 						$message="Benvenuto in Mosaic! \r\n ";
 						$message.="Clicca sul link per modificare la tua password!\r\n";
+                        $message.="Il tuo username:".$username."\r\n";
 						$message.="http://ltw-mosaic.it/modificapassword/index.php?key=$codiceconferma&email=$email";
 						$header = 'From: "Mosaic" <no-reply@mosaic-project.net>';
 						$sentmail=mail($to, $oggetto, $message, $header);
