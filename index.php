@@ -23,22 +23,14 @@
 <body>
     
     <?php
-        //include 'config.php';
-       /*
-        $_SESSION['utente']="ER_DIMA";
-        $_SESSION['punti']=1000;
-        $punti = $_SESSION['punti'];
-        $username = $_SESSION['utente'];
-        */
+      include './config.php';
     ?>
-    
     
 <!--navbar-->
     <div id="navbar">
         <div class="nav-menu nav-menu-resp ">
             <div id="logo">
                     <img style="padding:5%;" src="assets/logos/logo2.png"  >
-                    
             </div>
             <span style="flex: 2 2 auto; "></span>
             <div id="home" >
@@ -47,17 +39,17 @@
             
             <div id="profile" >
                 <?php
+                    $punti = 0;
                     if(!isset($_SESSION['utente'])){
-                        echo "\t\t\t\t\t\t<a class='signup nav-btn' href='#' >_sign up</a>\n";
-                        echo "\t\t\t\t\t\t<a class='login nav-btn' href='#' >_login</a>\n";
-                    }
-                    else {
-                        echo "\t\t\t\t\t\t<span id='points' class=' nav-btn'>$punti</span>\n";
-                        echo "\t\t\t\t\t\t<a id='username' class=' nav-btn' href='#' >$username</a>\n";
+                      echo "\t\t\t\t\t\t<a class='signup nav-btn' href='./registrazione' >_sign up</a>\n";
+                      echo "\t\t\t\t\t\t<a class='login nav-btn' href='./login' >_login</a>\n";
+                    }else{
+                      echo "\t\t\t\t\t\t<span id='points' class=' nav-btn'>$punti</span>\n";
+                      echo "\t\t\t\t\t\t<a id='username' class=' nav-btn' href='#' >".$_SESSION['utente']."</a>\n";
+                      echo "\t\t\t\t\t\t<a class='login nav-btn' href='./logout' >_logout</a>\n";
                     }
                 ?> 
-                </div>
-            
+            </div>
         </div>
         
         
@@ -122,8 +114,8 @@
 <!--block-grid-->    
     
     <?php
-		//include '../footer.php';
-	?>
+		  include './footer.php';
+	  ?>
     
      <!-- Bootstrap Bundle with Popper -->
      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
