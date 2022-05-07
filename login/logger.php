@@ -24,7 +24,7 @@
 			if($username == "" || $password == ""){
                 
 				echo "Attenzione, devi compilare tutti i campi!";
-				header( "refresh:5;url=index.html" );
+				header( "refresh:5;url=index.php" );
 				
 			}else{
 
@@ -63,12 +63,12 @@
                             }else{	
                         
                                 echo "Si è vericato un errore nell'invio della mail! Riprova ad accedere pi&ugrave; tardi!";
-                                header( "refresh:3;url=index.html" );
+                                header( "refresh:3;url=index.php" );
                                 
                             }
                         }
                     }else{
-                        header("Refresh: 2; URL= index.html");
+                        header("Refresh: 2; URL= index.php");
                         echo "Username o Password errati!";
                     }
 
