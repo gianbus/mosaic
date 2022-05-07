@@ -1,9 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-
-	<title>Logout - Mosaic</title>
-	
+	<title>Mosaic |Logout</title>
 </head>
 <body>
 			<?php

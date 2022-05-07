@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- My CSS -->
     <link rel="stylesheet" href="../css/style.css">
     <title>Mosaic |Login</title>
 </head>
@@ -13,15 +15,11 @@
         <h1>M O S A I C</h1>
         <h2>Login</h2>
         <?php
-
-
 			include '../config.php';
-			
 			
             //IMPORTO USERNAME E PASSWORD CON REAL ESCAPE STRING - PROTEZIONE SQL INJECTION
             $username = mysqli_real_escape_string($mysqli, $_POST['username']);
             $password = mysqli_real_escape_string($mysqli, $_POST['password']);
-
 			
 			if($username == "" || $password == ""){
                 
@@ -30,7 +28,6 @@
 				
 			}else{
 
-			
 				$recuperauser = mysqli_query($mysqli, "SELECT * FROM utenti WHERE username='$username' AND password='$password' ");
 
 				if($recuperauser){
@@ -40,6 +37,7 @@
                         $sessione = mysqli_fetch_array($recuperauser);
                         if($sessione['verificato']==1){
                             $_SESSION['utente'] = $sessione['username'];
+                            $_SESSION['punti'] = $sessione['punti'];
                             header("Refresh: 5; URL= ../index.php");
                             echo "Login effettuato con successo!";
                         }else{
@@ -77,16 +75,14 @@
                 }else{
 					echo 'recuperauser ha dato false<br>';
                 }			
-
 			}
-			
 		?>
+
     </div><!-- CONTAINER END -->
 	
 	<?php
 		include '../footer.php';
 	?>
-     <!-- Bootstrap Bundle with Popper -->
-     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
 </body>
 </html>

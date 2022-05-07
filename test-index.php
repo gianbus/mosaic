@@ -4,15 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mosaic</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- Bootstrap CSS -->
+    <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
     
-    <link rel="stylesheet" href="css/MY_css/block-grid.css" type="text/css">
-    <link rel="stylesheet" href="css/MY_css/navbar.css" type="text/css">
-    <link rel="stylesheet" href="css/MY_css/popup-page.css" type="text/css">
+    <link rel="stylesheet" href="css/block-grid.css" type="text/css">
+    <link rel="stylesheet" href="css/navbar.css" type="text/css">
+    <link rel="stylesheet" href="css/popup-page.css" type="text/css">
     
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="js/MY_js/navbar.js"></script>
-    <script src="js/MY_js/popup-page.js"></script>
+    <script src="./jquery/jquery.min.js"></script>
+    <script src="js/navbar.js"></script>
+    <script src="js/popup-page.js"></script>
 
 
     <link rel="preconnect" href="https://fonts.googleapis.com">

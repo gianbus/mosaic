@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <title>Mosaic</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <!-- Bootstrap CSS -->
+    <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
     
-    <link rel="stylesheet" href="css/MY_css/block-grid.css" type="text/css">
-    <link rel="stylesheet" href="css/MY_css/navbar.css" type="text/css">
-    <link rel="stylesheet" href="css/MY_css/popup-page.css" type="text/css">
-    
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="js/MY_js/navbar.js"></script>
-    <script src="js/MY_js/popup-page.js"></script>
+    <!-- My CSS -->
+    <link rel="stylesheet" href="css/block-grid.css" type="text/css">
+    <link rel="stylesheet" href="css/navbar.css" type="text/css">
+    <link rel="stylesheet" href="css/popup-page.css" type="text/css">
 
     <!--font-style-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -46,7 +46,7 @@
                       echo "\t\t\t\t\t\t<a class='signup nav-btn' href='./registrazione' >_sign up</a>\n";
                       echo "\t\t\t\t\t\t<a class='login nav-btn' href='./login' >_login</a>\n";
                     }else{
-                      echo "\t\t\t\t\t\t<span id='points' class=' nav-btn'>$punti</span>\n";
+                      echo "\t\t\t\t\t\t<span id='points' class=' nav-btn'>".$_SESSION['punti']."</span>\n";
                       echo "\t\t\t\t\t\t<a id='username' class=' nav-btn' href='#' >".$_SESSION['utente']."</a>\n";
                       echo "\t\t\t\t\t\t<a class='login nav-btn' href='./logout' >_logout</a>\n";
                     }
@@ -81,8 +81,8 @@
                         <div id="buy-if"style="flex: 2 1 0%">
                             <?php
                                 if(!isset($_SESSION['utente'])){
-                                    echo "\t\t\t\t\t\t<button class='not-logged signup _btn '>Sign up</button>";
-                                    echo "\t\t\t\t\t\t<button class='not-logged login _btn '>Login</button>";
+                                    echo "\t\t\t\t\t\t<a href='./registrazione'><button class='not-logged signup _btn '>Sign up</button></a>";
+                                    echo "\t\t\t\t\t\t<a href='./login'><button class='not-logged login _btn '>Login</button></a>";
                                 }
                                 else {
                                     echo "\t\t\t\t\t\t<button class='logged-buy  _btn '>Compra</button>";
@@ -117,9 +117,11 @@
     
     <?php
 		  include './footer.php';
-	  ?>
+    ?>    
     
-     <!-- Bootstrap Bundle with Popper -->
-     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-</body>
+    <script src="./jquery/jquery.min.js"></script>
+    <script src="js/navbar.js"></script>
+    <script src="js/popup-page.js"></script>
+
+    </body>
 </html>
