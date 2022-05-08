@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	
+
     <!-- Bootstrap CSS -->
     <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
@@ -15,7 +15,7 @@
 
 <body>
     <div id="container" class="container-fluid">
-
+		<h1>M O S A I C</h1>
         <h2>Registrazione</h2>
 
         <?php
@@ -109,7 +109,7 @@
 					}
 
 				}else{
-					echo 'Si è verificato un errore. Riprova più tardi.<br>';
+					echo 'Si è verificato un errore con l\' esecuzione delle query. Riprova più tardi.<br>';
 				}
 				
 			}
