@@ -16,7 +16,6 @@
         include '../navbar.php';
     ?>
     <div id="container" class="container-fluid">
-        <h1>M O S A I C</h1>
         
         <div id="divlogin">
             <h2>Login</h2>

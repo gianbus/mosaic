@@ -31,26 +31,28 @@
 			
 			if($nome == "" || $cognome == "" || $username == "" || $password1 == "" || $password2 == "" || $email == ""){ //CONTROLLO INSERIMENTO TUTTI I CAMPI
 				echo "Attenzione, devi compilare tutti i campi!";
-				header( "refresh:4;url=index.php" );
+				header( "refresh:5;url=index.php" );
 				
 			}else if(!preg_match("/[a-zA-Z0-9._]+$/",$username) || preg_match("/[ ]+/",$username)){ //CONTROLLO FORMATO USERNAME
 				echo "Username non valido. Può contenere soltanto lettere maiuscole, minuscole, numeri o i caratteri [.] e [_] e non può contenere spazi!<br>";
-				header( "refresh:4;url=index.php" );
+				header( "refresh:5;url=index.php" );
 			
 			}elseif($password1 != $password2){ //CONTROLLO CHE LE PASSWORD COINCIDANO
 				echo "Attenzione, le password devono coincidere!";
-				header( "refresh:4;url=index.php" );
+				header( "refresh:5;url=index.php" );
 				
 			}elseif(strlen($password1)<8 || !preg_match("/[A-Z]+/",$password1) || !preg_match("/[a-z]+/",$password1)){ //CONTROLLO COMPLESSITA PASSWORD
 				echo "Password troppo semplice, deve avere almeno una maiuscola e una minuscola ed almeno 8 caratteri!";
-				header( "refresh:4;url=index.php" );
+				header( "refresh:5;url=index.php" );
 			
 			}elseif(!isset($_POST['checktermini'])){ //CONTROLLO CHE I TERMINI DI SERVIZIO SIANO STATI ACCETTATI
 				echo 'Al fine della registrazione devi accettare i <a href="termini-servizio.html">Termini di servizio</a>';
-				header( "refresh:4;url=index.php" );
+				header( "refresh:5;url=index.php" );
 
 			}else{ //I DATI SODDISFANO LE RICHIESTE
-				
+				//LA PASSWORD VIENE CRIPTATA IN SHA256
+				$password1 = hash('sha256', $password1);
+
 				$recuperaemail = mysqli_query($mysqli, "SELECT * FROM utenti WHERE email='$email' ");
 				$recuperauser = mysqli_query($mysqli, "SELECT * FROM utenti WHERE username='$username' ");
 
@@ -61,20 +63,20 @@
 					//CONTROLLO SE ESISTONO ALTRI ACCOUNT CON STESSO USERNAME E/O EMAIL
 					if ($contaemail > 0 && $contauser > 0){ 
 						echo "Sia l'email che l'username sono già utilizzati!";
-						header( "refresh:2;url=index.php" );	
+						header( "refresh:5;url=index.php" );	
 						
 					}elseif($contaemail > 0){
 						echo "L'email è stata già utilizzata!";
-						header( "refresh:2;url=index.php" );
+						header( "refresh:5;url=index.php" );
 								
 					}elseif($contauser > 0){
 						echo "L'username è stato già utilizzato!";
-						header( "refresh:2;url=index.php" );
+						header( "refresh:5;url=index.php" );
 							
 					}else{
 						//GENERO CODICE CONFERMA E INSERISCO I DATI NEL DATABASE
 						$codiceconferma = md5(uniqid(rand()));
-						$inviautentitemp = mysqli_query($mysqli, "INSERT INTO utenti (codiceconferma, nome, cognome, username, password, verificato, punti, email) VALUES ('$codiceconferma', '$nome', '$cognome', '$username', '$password2', 0, 0, '$email')");
+						$inviautentitemp = mysqli_query($mysqli, "INSERT INTO utenti (codiceconferma, nome, cognome, username, password, verificato, punti, email) VALUES ('$codiceconferma', '$nome', '$cognome', '$username', '$password1', 0, 0, '$email')");
 						
 						if($inviautentitemp){
 
@@ -92,24 +94,25 @@
 							
 							if($sentmail){
 								echo "Ti sei registrato con successo!<br>Ti abbiamo inviato una mail contenente i tuoi dati di accesso e il link di attivazione.";
-								header( "refresh:3;url=../index.php" );
+								header( "refresh:5;url=../index.php" );
 							
 							}else{	
 								echo "Ti sei registrato con successo!<br>Si è vericato però un errore nell'invio della mail! Riprova ad accedere più tardi per ricevere un altro link di attivazione!";
-								header( "refresh:3;url=index.php" );
+								header( "refresh:5;url=index.php" );
 								
 							}
 						
 						
 						}else{
 							echo "Si &egrave; vericato un errore nella registrazione! Riprova pi&ugrave; tardi!";
-							header( "refresh:2;url=index.php" );	
+							header( "refresh:5;url=index.php");	
 							
 						}
 					}
 
 				}else{
-					echo 'Si è verificato un errore con l\' esecuzione delle query. Riprova più tardi.<br>';
+					echo 'Si è verificato un errore con l\' esecuzione delle query. Riprova più tardi.';
+					header( "refresh:5;url=index.php");	
 				}
 				
 			}
