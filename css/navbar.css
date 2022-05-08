@@ -21,7 +21,6 @@
 }
 #logo > img{
     max-width:100%;
-    
 }
 
 .nav-btn{
@@ -93,7 +92,7 @@
 #points{
     background-color: #24292f00;
 }
-#username{
+#logged-username{
     background-color: #4b5561;
     color: aliceblue;
 }
@@ -117,11 +116,10 @@
     
   }
 
+
 .change .bar1 {transform: rotate(-45deg) translate(-5px, 4px);}
 .change .bar2 {opacity: 0;}
 .change .bar3 {transform: rotate(45deg) translate(-5px, -5px);}
-
-
 
 
 
@@ -146,6 +144,7 @@
     .visible{
         display: block;
     }
+
     .nav-menu-resp {
         color: rgb(255, 255, 255);
         
@@ -153,8 +152,6 @@
 
         
     }
-    
-    
 
     #logo{
         display: none;

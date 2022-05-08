@@ -8,17 +8,20 @@
 
     <!-- My CSS -->
     <link rel="stylesheet" href="../css/style.css">
+    
     <title>Mosaic |Registrazione</title>
 </head>
 <body>
+    <?php
+        include '../navbar.php';
+    ?>
     <div id="container" class="container-fluid">
-        <h1>M O S A I C</h1>
-        
+
         <div id="divregistrazione">
-            <h2>Registrazione</h2>
+            
             <?php
                 include '../config.php';
-                if(isset($_SESSION['utente'])) header( "refresh:0;url=../index.php" );
+                if(isset($_SESSION['utente'])) header("refresh:0;url=../index.php");
             ?>
             <form action="registar.php" method="POST" id="formregistrazione" onsubmit="return verificaForm()"> 
                 

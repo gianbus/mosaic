@@ -38,7 +38,7 @@
                         if($sessione['verificato']==1){
                             $_SESSION['utente'] = $sessione['username'];
                             $_SESSION['punti'] = $sessione['punti'];
-                            header("Refresh: 5; URL= ../index.php");
+                            header("Refresh: 2; URL= ../index.php");
                             echo "Login effettuato con successo!";
                         }else{
                             $codiceconferma = md5(uniqid(rand()));
