@@ -11,7 +11,7 @@
     
     <!-- My CSS -->
     <link rel="stylesheet" href="css/block-grid.css" type="text/css">
-    <link rel="stylesheet" href="css/navbar.css" type="text/css">
+    <link rel="stylesheet" href="css/style.css" type="text/css">
     <link rel="stylesheet" href="css/popup-page.css" type="text/css">
 
     <!--font-style-->
@@ -69,15 +69,16 @@
 
 <!--block-grid-->
     <?php
-    $img="https://pixidisorg.files.wordpress.com/2019/07/dito-wuxi.jpg";
-    for ($i=0; $i<12; $i=$i+1){
-            echo "<div class= row-$i  >\n";
-            for ($j=1; $j<=12; $j=$j+1){
-                echo "\t<div class='blocco' id='block-". ($j+$i*12)."'  >\n
-                      \t\t<img id=img-".($j+$i*12)." src=$img  style=\"width:100%\">\n
-                      \t</div>\n";
-            }
-            echo "</div>\n";
+        $img="https://pixidisorg.files.wordpress.com/2019/07/dito-wuxi.jpg";
+        for ($i=0; $i<12; $i=$i+1){
+                echo "<div class= row-$i  >\n";
+                for ($j=1; $j<=12; $j=$j+1){
+
+                    echo "\t<div class='blocco' id='block-". ($j+$i*12)."'  >\n
+                        \t\t<img id=img-".($j+$i*12)." src=$img  style=\"width:100%\">\n
+                        \t</div>\n";
+                }
+                echo "</div>\n";
         }
     ?>   
 <!--block-grid-->    

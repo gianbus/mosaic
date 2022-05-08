@@ -11,6 +11,7 @@
 <body>
     <?php
         include '../config.php';
+        include '../navbar.php';
     ?>
     <div id="container" class="container-fluid">
         <h1>M O S A I C</h1>

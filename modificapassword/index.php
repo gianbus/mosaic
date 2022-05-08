@@ -13,6 +13,8 @@
     <h1>M O S A I C</h1>
     <?php
             include '../config.php';
+            include '../navbar.php';
+            
             $key = mysqli_real_escape_string($mysqli, $_GET['key']);
             $email = mysqli_real_escape_string($mysqli, $_GET['email']);
             if(!$key || !$email){
