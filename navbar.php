@@ -2,7 +2,7 @@
     <div id="navbar">
         <div class="nav-menu nav-menu-resp ">
             <div id="logo">
-                <img style="padding:5%;" src="/mosaic/assets/logos/logo2.png">
+                <img style="padding:5%;" src="/assets/logos/logo2.png">
             </div>
             <span style="flex: 2 2 auto; "></span>
             <div id="home" >
