@@ -49,7 +49,7 @@
 						$message.="Clicca sul link per modificare la tua password!\r\n";
                         $message.="Il tuo username:".$username."\r\n";
 						$message.="http://ltw-mosaic.it/modificapassword/index.php?key=$codiceconferma&email=$email";
-						$header = 'From: "Mosaic" <no-reply@mosaic-project.net>';
+						$header = 'From: "Mosaic" <no-reply@ltw-mosaic.it>';
 						$sentmail=mail($to, $oggetto, $message, $header);
                         header("Refresh: 5; URL= ../index.php");
                         echo "Se esiste un account registrato con quest'email riceverai presto nella tua casella di posta le istruzioni per resettare la password!";
