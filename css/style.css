@@ -10,4 +10,8 @@
     border: 1px solid black;
 }
 
-
+@media screen and (min-width: 426px){
+    #container{
+        margin-top: 12vw;
+    }
+}

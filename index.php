@@ -20,7 +20,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
     <!--font-style-->
 
+    <!--icons-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--icons-->
+
     <link href="favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    
 </head>
 <body>
     
@@ -53,6 +58,7 @@
                                 }
                                 else {
                                     echo "\t\t\t\t\t\t<button class='logged-buy  _btn '>Compra</button>";
+
                                 }
 
                             ?>
@@ -65,9 +71,14 @@
             </div>
         </div>
     </div>
+    <?php
+        if(isset($_SESSION['utente'])) 
+            include "purchase-block.php";
+    ?>
 <!--popup-page-->
 
 <!--block-grid-->
+    <div id="grid">
     <?php
         $img="https://pixidisorg.files.wordpress.com/2019/07/dito-wuxi.jpg";
         for ($i=0; $i<12; $i=$i+1){
@@ -80,7 +91,8 @@
                 }
                 echo "</div>\n";
         }
-    ?>   
+    ?>
+    </div>
 <!--block-grid-->    
     
     <?php

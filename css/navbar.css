@@ -1,3 +1,4 @@
+
 .nav-menu {
     text-align: center;
     color: aliceblue;
@@ -6,6 +7,8 @@
     font-weight: 300;
     background-color: #161b22;;
     align-items: center;
+
+   
 }
 
 
@@ -27,7 +30,7 @@
     margin: 0px 5px;
     padding: 0.5vw;
     text-decoration: none;
-    border-radius: 20px;
+    border-radius: 1vw;
     
     background-color: #24292f;
     /*box-shadow: 2px 2px 5px 0px #4152634d;*/
@@ -121,6 +124,17 @@
 .change .bar2 {opacity: 0;}
 .change .bar3 {transform: rotate(45deg) translate(-5px, -5px);}
 
+@media  screen and (min-width: 426px){
+    #navbar {
+        position: fixed;
+        top: 0;
+        z-index: 1;
+    }
+    .nav-menu{
+        height: 12vw;
+        transition: 0.5s;
+    }
+}
 
 
 @media  screen and (max-width: 425px){
@@ -166,6 +180,7 @@
     }
     .nav-btn{
         margin: 2px 0px;
+        border-radius: 2vw;
     }
     #dropup-btn {
         display: block;
