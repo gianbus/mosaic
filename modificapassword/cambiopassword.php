@@ -11,11 +11,14 @@
 </head>
 
 <body>
-    <div id="container" class="container-fluid">
-    <h1>M O S A I C</h1>
     <?php
-            include '../config.php';
+        include '../config.php';
+        include '../navbar.php';
+    ?>
+    
+    <div id="container" class="container-fluid">
 
+    <?php
             //RECUPERO GLI ELEMENTI TRAMITE GET E POST + PROTEZIONE SQL INJECTION
             $key = mysqli_real_escape_string($mysqli, $_GET['key']);
             $email = mysqli_real_escape_string($mysqli, $_GET['email']);
@@ -28,15 +31,15 @@
             
             }else if($password1=="" || $password2 == ""){ //VERIFICO LA COMPILAZIONE DI TUTTI I CAMPI
                 echo 'Devi riempire tutti i campi!';
-                header( "refresh:4;url=../index.php" );
+			    header("refresh:4;url=index.php?key=$key&email=$email");	
 
             }else if($password1 != $password2){ //VERIFICO CHE LE PASSWORD COINCIDANO
                 echo 'Le password devono coincidere!';
-                header( "refresh:4;url=../index.php" );
+			    header("refresh:4;url=index.php?key=$key&email=$email");	
 
             }elseif(strlen($password1)<8 || !preg_match("/[A-Z]+/",$password1) || !preg_match("/[a-z]+/",$password1)){ //CONTROLLO COMPLESSITA PASSWORD
 				echo "Password troppo semplice, deve avere almeno una maiuscola e una minuscola ed almeno 8 caratteri!";
-			    header( "refresh:4;url=../index.php" );	
+			    header("refresh:4;url=index.php?key=$key&email=$email");	
 
             }else{
                 //GENERO UN NUOVO CODICE CONFERMA
@@ -50,8 +53,10 @@
 					
                 if($risultatouser){ //SE L'UPDATE E' ANDATO A BUON FINE
                     echo 'Password cambiata con successo!';
+                    header( "refresh:4;url=../login" );
                 }else{ //SE SI E' VERIICATO UN ERRORE
                     echo 'Si è verificato un errore!';
+                    header( "refresh:4;url=../index.php" );
                 }
             }
 

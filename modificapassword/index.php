@@ -9,12 +9,13 @@
     <title>Mosaic |Modifica password</title>
 </head>
 <body>
-    <div id="container" class="container-fluid">
-    <h1>M O S A I C</h1>
     <?php
-            include '../config.php';
-            include '../navbar.php';
+        include '../config.php';
+        include '../navbar.php';
+    ?>
+    <div id="container" class="container-fluid">
 
+    <?php
             //RECUPERO TRAMITE GET LA KEY E LA RELATIVA EMAIL + PROTEZIONE SQL INJECTION
             $key = mysqli_real_escape_string($mysqli, $_GET['key']);
             $email = mysqli_real_escape_string($mysqli, $_GET['email']);

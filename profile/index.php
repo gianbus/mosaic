@@ -14,17 +14,17 @@
 <body>
 
     <?php
+        include '../config.php'
         include '../navbar.php';
+        if(!isset($_SESSION['utente'])) header("refresh:0;url=../index.php");
     ?>
 
     <div id="container" class="container-fluid">
 
         <div id="divprofilo">
             
-            <?php
-                include '../config.php';
-                if(!isset($_SESSION['utente'])) header("refresh:0;url=../index.php");
-            ?>
+
+        </div>
             
     </div><!-- CONTAINER END -->
 
@@ -32,6 +32,5 @@
         include '../footer.php';
     ?>
 
-    <script src="../js/verifica-campi-inseriti.js"></script>
 </body>
 </html>
