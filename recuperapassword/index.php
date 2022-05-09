@@ -14,13 +14,12 @@
         include '../navbar.php';
     ?>
     <div id="container" class="container-fluid">
-        <h1>M O S A I C</h1>
 
             <div id="divrecuperapassword">
-                <h2>Recupera password</h2>
+                <h2>Recupera Password</h2>
                 <form action="verificarecupera.php" method="POST" id="formrecuperapassword"> 
                     <label for="email">Email inserita in fase di registrazione:</label><br>
-                    <input type="email" id="email" name="email" placeholder="email" required><br><br>
+                    <input type="text" id="email" name="email" placeholder="email" required><br><br>
                     <input type="submit" value="Recupera!" ><br>
                 </form>
                 <a href="../login/"><p>Ti sei ricordato la password?</p></a>
