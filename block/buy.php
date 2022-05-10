@@ -1,5 +1,5 @@
 <?php
-    include './config.php';
+    include '../config.php';
     //RECUPERO IL NOME UTENTE E L'ID BLOCCO
     $username = $_SESSION['utente'];
     $id = mysqli_real_escape_string($mysqli, $_GET['id']);
@@ -98,7 +98,7 @@
         }
     ';
 
-    include './footer.php';
+    include '../footer.php';
 
 
 
