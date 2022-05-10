@@ -93,7 +93,7 @@
             "errore":'.$err.', 
             "idblocco":'.$id.',
             "acquirente":'.$username.',
-            "venditore":.'$seller_username.',
+            "venditore":'.$seller_username.',
             "nuovo_saldo_acquirente":'.$nuovo_saldo_buyer.'
         }
     ';
