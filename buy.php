@@ -58,7 +58,7 @@
                 }
 
             }else{
-                echo 'blocco non in vendita';
+                echo 'blocco non in vendita!';
             }
         
             //ESEGUO LA TRANSAZIONE
@@ -72,6 +72,8 @@
     }else{ //RICHIESTA NON VALIDA
         echo 'richiesta non valida';
     }
+
+    include './footer.php';
 
 
 
