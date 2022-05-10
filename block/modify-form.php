@@ -25,7 +25,7 @@
                 if(!isset($_SESSION['utente'])) header( "refresh:0;url=../index.php" );
             ?>
 
-            <form action="modify.php?id=33" method="POST" id="modifyform"> 
+            <form action="modify.php?id=1" method="POST" id="modifyform"> 
 
                 <fieldset> <!--INIZIO INPUT RADIO TIPO-->
                     

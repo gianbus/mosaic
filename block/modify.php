@@ -15,8 +15,9 @@
     $price = 0;
 
     //RECUPERO IL NOME UTENTE E L'ID BLOCCO DA MODIFICARE
-    $username = $_SESSION['utente'];
     $id = mysqli_real_escape_string($mysqli, $_GET['id']);
+    $username = $_SESSION['utente'];
+    
 
     //RECUPERO I VALORI DEL FORM
     $new_tipo = mysqli_real_escape_string($mysqli, $_POST['tipo']);
@@ -28,7 +29,7 @@
     $new_price = intval(mysqli_real_escape_string($mysqli, $_POST['price']));
 
     //SE LE VARIABILI SONO PRESENTI
-    if($id && $username){
+    if($id && $username && $new_tipo && $new_path && $new_titolo && isset($new_invendita) ){
         $richiesta_valida = 1;
         //INIZIO TRANSAZIONE
         mysqli_begin_transaction($mysqli);
@@ -69,7 +70,7 @@
                     $elimina_annuncio = mysqli_query($mysqli, "DELETE FROM market WHERE idblocco='$id' ");
                     $invendita = 0;
                 }
-
+                
                 $modificato = 1;
 
             }else{
@@ -82,7 +83,8 @@
 
         } catch (mysqli_sql_exception $exception) {
             mysqli_rollback($mysqli);
-                //INIZIALIZZO I VALORI
+            
+            //INIZIALIZZO I VALORI
             $richiesta_valida = 0;
             $modificato = 0;
             $tipo = "";
