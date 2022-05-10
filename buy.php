@@ -3,10 +3,15 @@
     //RECUPERO IL NOME UTENTE E L'ID BLOCCO
     $username = $_SESSION['utente'];
     $id = mysqli_real_escape_string($mysqli, $_GET['id']);
+    $richiesta_valida = false;
+    $comprato = false;
+    $err = 0;
+    $seller_username = "";
+    $nuovo_saldo_buyer = 0;
 
     //SE LE VARIABILI SONO PRESENTI
     if($id && $username){
-
+        $richiesta_valida = true;
         //INIZIO TRANSAZIONE
         mysqli_begin_transaction($mysqli);
 
@@ -43,22 +48,26 @@
 
                 if($username != $seller_username){
                     if($nuovo_saldo_buyer >= 0){
+                        $_SESSION['punti'] = $nuovo_saldo_buyer;
                         $aggiorna_saldo_buyer = mysqli_query($mysqli, "UPDATE utenti SET punti = '$nuovo_saldo_buyer' WHERE username = '$username' ");
                         $aggiorna_saldo_seller = mysqli_query($mysqli, "UPDATE utenti SET punti = '$nuovo_saldo_seller' WHERE username = '$seller_username' ");
                         $aggiorna_blocco = mysqli_query($mysqli, "UPDATE blocchi SET proprietario = '$username' WHERE id = '$id' ");
                         $elimina_annuncio = mysqli_query($mysqli, "DELETE FROM market WHERE idblocco = '$id' ");
-                        echo 'vendita effettuata';
+                        $comprato = true;
 
                     }else{
-                        echo 'saldo non sufficiente';
+                        //SALDO NON SUFFICIENTE
+                        $err=1;
                     }
 
                 }else{
-                    echo 'è già tuo!';
+                    //IL BLOCCO E' GIA' DELL'ACQUIRENTE
+                    $err=3;
                 }
 
             }else{
-                echo 'blocco non in vendita!';
+                //BLOCCO NON IN VENDITA
+                $err = 2;
             }
         
             //ESEGUO LA TRANSAZIONE
@@ -66,12 +75,28 @@
 
         } catch (mysqli_sql_exception $exception) {
             mysqli_rollback($mysqli);
+            $comprato = false;
+            $err=4;
             throw $exception;
         }
 
-    }else{ //RICHIESTA NON VALIDA
-        echo 'richiesta non valida';
     }
+
+    //err=0 nessun errore oppure richiesta non valida
+    //err=1 fondi insufficienti
+    //err=2 blocco non in vendita
+    //err=3 il blocco è già dell'acquirente
+    //err=4 altro errore
+    echo '{
+            "richiesta_valida":'.$richiesta_valida.',
+            "comprato":'.$comprato.',
+            "errore":'.$err.', 
+            "idblocco":'.$id.',
+            "acquirente":.'$username'.,
+            "venditore":.'$seller_username.',
+            "nuovo_saldo_acquirente":'.$nuovo_saldo_buyer.'
+        }
+    ';
 
     include './footer.php';
 

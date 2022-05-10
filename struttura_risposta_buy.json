@@ -1,0 +1,9 @@
+{
+    "richiesta_valida": false,
+    "comprato": false,
+    "errore": 0, 
+    "idblocco": 0,
+    "acquirente": "username1",
+    "venditore": "username2",
+    "nuovo_saldo_acquirente": 0
+}
