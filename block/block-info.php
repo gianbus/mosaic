@@ -1,5 +1,5 @@
 <?php
-    include "config.php";
+    include "../config.php";
     $recuperauser = mysqli_query($mysqli, "SELECT id,proprietario,tipo,path,titolo,descrizione,price FROM blocchi LEFT JOIN market ON id = idBlocco   WHERE id=".$_GET["id"]);
     if($recuperauser){
         $contauser = mysqli_num_rows($recuperauser);

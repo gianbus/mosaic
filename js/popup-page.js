@@ -36,12 +36,13 @@ $(document).ready(function(){
         
         const xhttp = new XMLHttpRequest();
         xhttp.onload = function() {
+            console.log(this.responseText);
             let response =JSON.parse(this.responseText);
             
             let price = response.prezzo;
             let onSale=1;
                 if(price==''){
-                    price ="Non in vendita";
+                    price ="--";
                     onSale = 0; 
                 }
 
@@ -61,16 +62,16 @@ $(document).ready(function(){
             $(".card-text").text(description);
 
             let isDisabled= false;
-            if(onSale==0 && owner != $("#logged-username").text ){
+            if(owner == $("#logged-username").text() ){
+                $(".logged").text("Modifica");
+                $("#buy-if > button").toggleClass("_modify");
+                $(".logged").toggleClass(" _btn");
+            }
+            else if(onSale==0 && owner != $("#logged-username").text ){
                 $(".logged").text("Non disponibile");
                 isDisabled = true;
                 
                 
-            }
-            else if(owner == $("#logged-username").text() ){
-                $(".logged").text("Modifica");
-                $("#buy-if > button").toggleClass("_modify");
-                $(".logged").toggleClass(" _btn");
             }
             else if(onSale == 1 && owner != $("#logged-username").text) {
                 $(".logged").toggleClass("_buy");
@@ -113,16 +114,17 @@ $(document).ready(function(){
             });
 
             
-            $(".logged._buy").click(function(){
+            $("._buy").click(function(){
 
                 var buyButton =   $(".logged._buy").text();
                 $(".logged._buy").html("<i class='fa fa-spinner fa-spin'></i>Loading");
                 $(".logged._buy").prop('disabled',true);
 
-                //apro la conferma se i punti dell'utente sono abbastanza
+                //RICAVO I PUNTI DELL'ACQUIRENTE E DELL'ACQIST0
                 let myPoints = parseInt($("#points").text());
-                let purchasePoints = parseInt($("#price-block").text());
+                let purchasePoints = price
             
+                //SE I PUNTI DELL'ACQUIRENTE SONO INSUFFICIENTI ANCHE SOLO NELL'ATTUALE SESSIONE LO FERMO
                 if(myPoints<purchasePoints) {
                     $(".logged._buy").text("Saldo insufficiente");
                     setTimeout(function(){
@@ -134,15 +136,44 @@ $(document).ready(function(){
                 $("#purchase-confirm").css("display","block");
 
                 $(".buy-yes").click(function(){
-                    console.log("something");
+                    
                     const xhttp = new XMLHttpRequest();
                     xhttp.onload = function() {
-                        $(".logged._buy").text( this.responseText);
+                        console.log(this.responseText);
+                        let isBought =JSON.parse(this.responseText);
+                        let validRequest = isBought.richiesta_valida; 
+                        let bought = isBought.comprato;
+                        let err = isBought.errore;
+                        let id = isBought.idblocco; 
+                        let user = isBought.acquirente;
+                        let old_owner = isBought.venditore;
+                        let new_wallet = isBought.nuovo_saldo_acquirente;
                         $("#purchase-confirm").css("display","none");
-                        $(".logged._buy").text("compra");
-                        $(".logged._buy").prop('disabled',false);
+                        console.log(err);
+                        if(err == 0){
+                            $(".logged").toggleClass( "_buy");
+                            $(".logged").toggleClass( "_modify");
+                            
+                            $(".logged").text("Modifica");
+                            $(".logged").prop('disabled',false);
+                            $(".text-muted").text("Ultimo proprietario: " + user);
+                            $("#points").text(new_wallet);
+                        }
+                        else if(err==1){
+                            $(".logged").text("Fondi insufficienti");
+                            $(".logged").toggleClass("_buy");
+                            setTimeout(function(){
+                                $(".logged._buy").text("Compra");
+                                $(".logged._buy").prop('disabled',false);
+                            },2000,buyButton);
+                        }
+                        else if(err==2){
+                            $(".logged").text("Non disponibile");
+                            $(".logged").prop('disabled',true);
+                        } 
+                        
                     }
-                    xhttp.open("GET", "test-risposta.php",true);
+                    xhttp.open("GET", "/mosaic/block/buy.php?id="+nBlocco,true);
                     xhttp.send();
                 });
 
@@ -159,7 +190,7 @@ $(document).ready(function(){
             });
         }
 
-        xhttp.open("GET", "block-info.php?id="+nBlocco,true);
+        xhttp.open("GET", "/mosaic/block/block-info.php?id="+nBlocco,true);
         xhttp.send();
     })
     //Quando chiudo blocco

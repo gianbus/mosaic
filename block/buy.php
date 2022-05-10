@@ -92,13 +92,13 @@
             "comprato":'.$comprato.',
             "errore":'.$err.', 
             "idblocco":'.$id.',
-            "acquirente":'.$username.',
-            "venditore":'.$seller_username.',
+            "acquirente":"'.$username.'",
+            "venditore":"'.$seller_username.'",
             "nuovo_saldo_acquirente":'.$nuovo_saldo_buyer.'
         }
     ';
 
-    include '../footer.php';
+    //include '../footer.php';
 
 
 
