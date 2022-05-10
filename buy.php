@@ -92,7 +92,7 @@
             "comprato":'.$comprato.',
             "errore":'.$err.', 
             "idblocco":'.$id.',
-            "acquirente":.'$username'.,
+            "acquirente":'.$username.',
             "venditore":.'$seller_username.',
             "nuovo_saldo_acquirente":'.$nuovo_saldo_buyer.'
         }
