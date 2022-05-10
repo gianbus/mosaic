@@ -11,19 +11,17 @@
     }
 ?>
 
-<div id='myModal' class="modal" >
-    <!-- Modal content -->
-    <div class="modal-content">
-        <div class="modal-header">
-            <h2>Modal Header</h2>
+<div id='purchase-confirm'  >
+    <div class="confirm-content" >
+        <div class="confirm-header">
+            Desidera compiere l'acquisto del seguente blocco?
         </div>
-        <div class="modal-body">
-            <p>Some text in the Modal Body</p>
-            <button class="buy-yes"> si</button>
-            <button class="buy-no"> no</button>
-        </div>
-        <div class="modal-footer">
-            <h3>Modal Footer</h3>
+        <div class="confirm-body">
+            <span>Some text in the confirm Body</span>
+            <div>
+                <button class="buy-yes _btn"> si</button>
+                <button class="buy-no _btn"> no</button>
+            </div>
         </div>
     </div>
 </div>

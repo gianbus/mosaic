@@ -48,7 +48,7 @@
                     <p class="card-text" style="flex: 2 1 0%">Card text che dura una infinità poichè non so cosa scrivere potrei prendere un lorem ipsum ma non c'ho mai voglia </p>
                     <div class = "card-market">
                         <div class="placeholder-price" style="flex: 1 2 0%">
-                            <h1 id="price-block">_price</h1>
+                            <h1 id="price-block">10</h1>
                         </div>
                         <div id="buy-if"style="flex: 2 1 0%">
                             <?php
@@ -80,16 +80,31 @@
 <!--block-grid-->
     <div id="grid">
     <?php
-        $img="https://pixidisorg.files.wordpress.com/2019/07/dito-wuxi.jpg";
-        for ($i=0; $i<12; $i=$i+1){
-                echo "<div class= row-$i  >\n";
-                for ($j=1; $j<=12; $j=$j+1){
-
-                    echo "\t<div class='blocco' id='block-". ($j+$i*12)."'  >\n
-                        \t\t<img id=img-".($j+$i*12)." src=$img  style=\"width:100%\">\n
-                        \t</div>\n";
-                }
-                echo "</div>\n";
+        $sql = "SELECT id,tipo,path FROM blocchi";
+        $result = $mysqli->query($sql);
+        if ($result->num_rows > 0){
+            $img="https://pixidisorg.files.wordpress.com/2019/07/dito-wuxi.jpg";
+            for ($i=0; $i<12; $i=$i+1){
+                    echo "<div class= row-$i  >\n";
+                    for ($j=1; $j<=12; $j=$j+1){
+                        $row = $result->fetch_assoc();
+                        
+                        $type =$row["tipo"];
+                        $path = $row["path"];
+                        if($type=="img"){
+                            echo "  \t<div class='blocco' id='block-". ($j+$i*12)."'  >\n";
+                                echo "\t\t<img id=img-".($j+$i*12)." src=$path  style=\"width:100%\">\n";
+                        }else if($type=="color"){
+                            echo "  \t<div class='blocco' id='block-". ($j+$i*12)."' style=\"background-color:$path\"  >\n";
+                        }
+                        else if($type=="video"){
+                            echo "  \t<div class='blocco' id='block-". ($j+$i*12)."' style=\"background-color:$path\"  >\n";
+                            echo "\t\t<iframe id=video-".($j+$i*12)." src=$path  width=100%\"></iframe>\n";
+                        }
+                        echo "\t</div>\n";
+                    }
+                    echo "</div>\n";
+            }
         }
     ?>
     </div>
