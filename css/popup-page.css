@@ -29,7 +29,7 @@
 
 
 .info-pop a {
-  padding: 8px 8px 8px 8px;
+  
   display: block;
 
   text-decoration: none;
@@ -114,7 +114,7 @@ font-size: 30px;
 }
 
 /*Se si è loggati si vede invece questo*/
-.logged-buy{
+.logged{
   background-color: #0080ff;
   background-image: linear-gradient(-45deg, #00366d, #140353b4);
   border-radius: 5px;
@@ -127,14 +127,76 @@ font-size: 30px;
 
 
 
+/* purchase-confirm box*/
+#purchase-confirm {
+  display: none; 
+  position: fixed; 
+  z-index: 4; 
+  
+  top: 0;
+  
+  width: 100%; 
+  height: 100%; 
+  overflow: auto; 
+  background-color: rgb(0,0,0); 
+  background-color: rgba(0,0,0,0.4); 
+}
+
+.confirm-content {
+  position: absolute;
+  bottom: 0;
+  color: white;
+  background-color: #1e252e;
+  font-style: Roboto;
+
+  width: 100%;
+  height: 20%;
+  animation-name: btoup;
+  animation-duration: 0.4s
+}
+
+
+@keyframes btoup {
+  from {bottom:-300px; opacity:0}
+  to {bottom:0; opacity:1}
+}
+
+
+
+.confirm-header {
+  padding: 1vw;
+  background-color: #161b22;
+  
+}
+
+.confirm-body {padding: 1vw;}
+
+.confirm-body > div{text-align:right;}
+.confirm-body  ._btn {
+  width: 10%;
+  padding: 0.5vw 1vw;
+  border-radius: 0.5vw;
+  background-color: #8f8f8f;
+  border: 0px;
+}
+.confirm-body  ._btn:hover{
+  background-color: #8f8f8f5b;
+}
+
+
+
+
+
 /*--Responsiveness--*/
 @media screen and (max-height: 600px){
   .info-pop .closebtn{
-    font-size: 8px;
+    font-size: 10px;
+    padding: 8px;
   }
   .card-body{
     padding-bottom: 0.5rem!important;
     padding-top: 0rem!important;
+    
   }
   .card-title{
     font-size: 14px;
@@ -148,9 +210,7 @@ font-size: 30px;
     flex-direction: row;
     font-size: 15px;
   }
-  .not-logged.signup{
-    margin: 5px 10px 5px 0px;
-  }
+ 
   .card-footer{
     font-size: 10px;
   }
@@ -178,6 +238,7 @@ font-size: 30px;
 
   .info-pop .closebtn{
     font-size: 15px;
+    padding: 8px;
   }
 
 }
@@ -185,7 +246,7 @@ font-size: 30px;
 @media screen and (max-height: 915px) and (max-width: 425px){
   .info-pop {
       border-radius: 25px 25px 0px 0px ;
-      top: 25%;
+      top: 100%;
       height: 75%;
 
   }
@@ -196,5 +257,12 @@ font-size: 30px;
   .not-logged{
     margin: 5px;
   }
-
+  .confirm-body > div{
+    margin: auto;
+    
+    text-align: center;
+  }
+  .confirm-body ._btn{
+    width: 40%;
+  }
 }
