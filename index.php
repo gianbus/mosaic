@@ -40,8 +40,8 @@
         <div  class="info-pop  text-white ">
             <div class="card  h-100" >
                 <a href="#" class="closebtn carad-title "  >&times;</a>
-                <div class="pe-3 pb-3 ps-3 ">
-                    <img class=" card-img-top " src=".."  alt="..." >
+                <div id="container-block" class="pe-3 pb-3 ps-3 ">
+                    
                 </div>
                 <div class="card-body p-3" style="height: fit-content; display: flex;flex-direction: column; " >
                     <h5 class="card-title ">Titolo di immagine a caso</h5>
@@ -57,12 +57,12 @@
                                     echo "\t\t\t\t\t\t<a href='./login' class='not-logged login _btn '>Login</a>";
                                 }
                                 else {
-                                    echo "\t\t\t\t\t\t<button class='logged-buy  _btn '>Compra</button>";
+                                    echo "\t\t\t\t\t\t<button class='logged'>Compra</button>";
 
                                 }
 
                             ?>
-                            </div>
+                        </div>
                     </div>  
                 </div>
                 <div class="card-footer">
@@ -91,7 +91,7 @@
                         
                         $type =$row["tipo"];
                         $path = $row["path"];
-                        if($type=="img"){
+                        if($type=="image"){
                             echo "  \t<div class='blocco' id='block-". ($j+$i*12)."'  >\n";
                                 echo "\t\t<img id=img-".($j+$i*12)." src=$path  style=\"width:100%\">\n";
                         }else if($type=="color"){

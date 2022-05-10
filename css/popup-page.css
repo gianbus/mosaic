@@ -114,7 +114,7 @@ font-size: 30px;
 }
 
 /*Se si è loggati si vede invece questo*/
-.logged-buy{
+.logged{
   background-color: #0080ff;
   background-image: linear-gradient(-45deg, #00366d, #140353b4);
   border-radius: 5px;
@@ -124,6 +124,8 @@ font-size: 30px;
 
   color:aliceblue;
 }
+
+
 
 /* purchase-confirm box*/
 #purchase-confirm {
@@ -255,5 +257,12 @@ font-size: 30px;
   .not-logged{
     margin: 5px;
   }
-
+  .confirm-body > div{
+    margin: auto;
+    
+    text-align: center;
+  }
+  .confirm-body ._btn{
+    width: 40%;
+  }
 }
