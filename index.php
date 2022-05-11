@@ -83,7 +83,7 @@
         $sql = "SELECT id,tipo,path FROM blocchi";
         $result = $mysqli->query($sql);
         if ($result->num_rows > 0){
-            $img="https://pixidisorg.files.wordpress.com/2019/07/dito-wuxi.jpg";
+            
             for ($i=0; $i<12; $i=$i+1){
                     echo "<div class= row-$i  >\n";
                     for ($j=1; $j<=12; $j=$j+1){

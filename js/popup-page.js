@@ -4,10 +4,10 @@ function togglePopup(w,z,color){
     $("#pop-block").css("background-color",color);
 }
 
-function cancelPurchase(buyButton,classButton){
+function cancelPurchase(buyButton){
     $("#purchase-confirm").hide();
-    $(".logged."+classButton).text(buyButton);
-    $(".logged."+classButton).prop('disabled',false);
+    $(".logged").text(buyButton);
+    $(".logged").prop('disabled',false);
 }
 
 $(document).ready(function(){
@@ -19,7 +19,7 @@ $(document).ready(function(){
     let blur=false;
 
     
-
+    var nblocco,price ;
     //Quando apro un blocco 
     $("div[id|=block]").click(function(){       //|Serve ad attivare la popup page per ogni blocco
         //Design
@@ -28,31 +28,31 @@ $(document).ready(function(){
         else w=w_max;
 
         let idBlocco = $(this).attr("id");
-        let nBlocco= parseInt(idBlocco.match(/[0-9]+/));
+        nBlocco= parseInt(idBlocco.match(/[0-9]+/));
         togglePopup(w,z,black_medium);
-
+        console.log("Il blocco selezionato è: " + nBlocco );
 
         //loading della query dal database per caricare la popup page
         
         const xhttp = new XMLHttpRequest();
         xhttp.onload = function() {
-            console.log(this.responseText);
+            
             let response =JSON.parse(this.responseText);
             
-            let price = response.prezzo;
+            price = response.prezzo;
             let onSale=1;
                 if(price==''){
-                    price ="--";
+                    price ="Prezzo:\n--";
                     onSale = 0; 
                 }
 
             let owner = response.proprietario;
 
             let title = response.titolo;
-                if(title=='') title ="Titolo non disponibile"
+                if(title=='') title ="Titolo non è presente"
 
             let description = response.descrizione;
-                if(description=='') description ="Descrizione non disponibile";
+                if(description=='') description ="Descrizione non è presente";
 
             let type = response.tipo;
             let path = response.path;
@@ -62,21 +62,23 @@ $(document).ready(function(){
             $(".card-text").text(description);
 
             let isDisabled= false;
-            if(owner == $("#logged-username").text() ){
+            let userLogged = $("#logged-username").text(); //Da adattare con richiesta di variabile di sessione
+            if(owner == userLogged ){
                 $(".logged").text("Modifica");
-                $("#buy-if > button").toggleClass("_modify");
-                $(".logged").toggleClass(" _btn");
+                $("#buy-if > button").attr("id","_modify");
+                $(".logged").addClass(" _btn");
             }
-            else if(onSale==0 && owner != $("#logged-username").text ){
-                $(".logged").text("Non disponibile");
+            else if(onSale==0 && owner != userLogged ){
+                $(".logged").text("Non in vendita");
                 isDisabled = true;
-                
+                $(".logged").attr("id","disabled_buy");
+                $(".logged").removeClass(" _btn");
                 
             }
-            else if(onSale == 1 && owner != $("#logged-username").text) {
-                $(".logged").toggleClass("_buy");
+            else if(onSale == 1 && owner != userLogged) {
                 $(".logged").text("Compra");
-                $(".logged").toggleClass(" _btn");
+                $(".logged").attr("id","_buy");
+                $(".logged").addClass(" _btn");
             }
             $(".logged").prop('disabled',isDisabled);
             $(".text-muted").text("Ultimo proprietario: " + owner);
@@ -114,85 +116,98 @@ $(document).ready(function(){
             });
 
             
-            $("._buy").click(function(){
-
-                var buyButton =   $(".logged._buy").text();
-                $(".logged._buy").html("<i class='fa fa-spinner fa-spin'></i>Loading");
-                $(".logged._buy").prop('disabled',true);
-
-                //RICAVO I PUNTI DELL'ACQUIRENTE E DELL'ACQIST0
-                let myPoints = parseInt($("#points").text());
-                let purchasePoints = price
             
-                //SE I PUNTI DELL'ACQUIRENTE SONO INSUFFICIENTI ANCHE SOLO NELL'ATTUALE SESSIONE LO FERMO
-                if(myPoints<purchasePoints) {
-                    $(".logged._buy").text("Saldo insufficiente");
-                    setTimeout(function(){
-                        $(".logged._buy").text(buyButton);
-                        $(".logged._buy").prop('disabled',false);
-                    },2000,buyButton);
-                    return;
-                }
-                $("#purchase-confirm").css("display","block");
-
-                $(".buy-yes").click(function(){
-                    
-                    const xhttp = new XMLHttpRequest();
-                    xhttp.onload = function() {
-                        console.log(this.responseText);
-                        let isBought =JSON.parse(this.responseText);
-                        let validRequest = isBought.richiesta_valida; 
-                        let bought = isBought.comprato;
-                        let err = isBought.errore;
-                        let id = isBought.idblocco; 
-                        let user = isBought.acquirente;
-                        let old_owner = isBought.venditore;
-                        let new_wallet = isBought.nuovo_saldo_acquirente;
-                        $("#purchase-confirm").css("display","none");
-                        console.log(err);
-                        if(err == 0){
-                            $(".logged").toggleClass( "_buy");
-                            $(".logged").toggleClass( "_modify");
-                            
-                            $(".logged").text("Modifica");
-                            $(".logged").prop('disabled',false);
-                            $(".text-muted").text("Ultimo proprietario: " + user);
-                            $("#points").text(new_wallet);
-                        }
-                        else if(err==1){
-                            $(".logged").text("Fondi insufficienti");
-                            $(".logged").toggleClass("_buy");
-                            setTimeout(function(){
-                                $(".logged._buy").text("Compra");
-                                $(".logged._buy").prop('disabled',false);
-                            },2000,buyButton);
-                        }
-                        else if(err==2){
-                            $(".logged").text("Non disponibile");
-                            $(".logged").prop('disabled',true);
-                        } 
-                        
-                    }
-                    xhttp.open("GET", "/mosaic/block/buy.php?id="+nBlocco,true);
-                    xhttp.send();
-                });
-
-                $(".buy-no").click(function(){
-                    cancelPurchase(buyButton,"_buy");
-                });
-
-                window.onclick = function(event) {
-                    let conf =document.getElementById("purchase-confirm");
-                    if (event.target == conf ) {
-                        cancelPurchase(buyButton,"_buy");
-                    }
-                }
-            });
         }
 
         xhttp.open("GET", "/mosaic/block/block-info.php?id="+nBlocco,true);
         xhttp.send();
-    })
+    });
+
+
+    $(".logged").click(function(){
+        let whatToDo = $(".logged").attr("id");
+        if(whatToDo=="_modify"){
+            console.log("Hai premuto modifica");
+            return;
+        }
+        else if(whatToDo=="_buy"){
+            let buyButton =  $(".logged").text() ;
+            console.log(buyButton);
+            $(".logged").html("<i class='fa fa-spinner fa-spin'></i>Loading");
+            $(".logged").prop('disabled',true);
+
+            //RICAVO I PUNTI DELL'ACQUIRENTE E DELL'ACQIST0
+            let myPoints = parseInt($("#points").text());
+            let purchasePoints = price
+        
+            //SE I PUNTI DELL'ACQUIRENTE SONO INSUFFICIENTI ANCHE SOLO NELL'ATTUALE SESSIONE LO FERMO
+            if(myPoints<purchasePoints) {
+                $(".logged").text("Saldo insufficiente");
+                setTimeout(function(){
+                    $(".logged").text(buyButton);
+                    $(".logged").prop('disabled',false);
+                },2000,buyButton);
+                return;
+            }
+            $("#purchase-confirm").css("display","block");
+
+
+            
+        }
+    });
+
+    $(".buy-yes").click(function(){
+                
+        const xhttp = new XMLHttpRequest();
+        xhttp.onload = function() {
+            console.log(this.responseText);
+            let isBought =JSON.parse(this.responseText);
+            let validRequest = isBought.richiesta_valida; 
+            let bought = isBought.comprato;
+            let err = isBought.errore;
+            let id = isBought.idblocco; 
+            let user = isBought.acquirente;
+            let old_owner = isBought.venditore;
+            let new_wallet = isBought.nuovo_saldo_acquirente;
+            $("#purchase-confirm").css("display","none");
+            console.log(err);
+            if(err == 0 && validRequest==1){
+                $(".logged").attr("id", "_modify");
+                
+                $(".logged").text("Modifica");
+                $(".logged").prop('disabled',false);
+                $(".text-muted").text("Ultimo proprietario: " + user);
+                $("#points").text(new_wallet);
+            }
+            else if(err==1){
+                $(".logged").text("Fondi insufficienti");
+                $(".logged").attr("id","_buy");
+                setTimeout(function(){
+                    $(".logged").text("Compra");
+                    $(".logged").prop('disabled',false);
+                },2000,buyButton);
+            }
+            else if(err==2){
+                $(".logged").text("Non disponibile");
+                $(".logged").prop('disabled',true);
+            } 
+            
+        }
+        xhttp.open("GET", "/mosaic/block/buy.php?id="+nBlocco,true);
+        xhttp.send();
+    });
+
+    $(".buy-no").click(function(){
+        cancelPurchase("Compra");
+        return;
+    });
+
+    window.onclick = function(event) {
+        let conf =document.getElementById("purchase-confirm");
+        if (event.target == conf ) {
+            cancelPurchase(buyButton);
+        }
+    }
     //Quando chiudo blocco
     $(".closebtn").click(function(){ 
         w="0px"

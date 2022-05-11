@@ -98,9 +98,9 @@
         }
     ';
 
-    //include '../footer.php';
-
-
+    
+    $mysqli->close();
+    
 
 ?>
 

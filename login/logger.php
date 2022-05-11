@@ -27,7 +27,7 @@
             $password = mysqli_real_escape_string($mysqli, $_POST['password']);
 
             //CRIPTO LA PASSWORD
-            //$password = hash('sha256', $password);
+            $password = hash('sha256', $password);
 			
 			if($username == "" || $password == ""){ //CONTROLLO SIANO STATI INSERITI TUTTI I CAMPI
 				echo "Attenzione, devi compilare tutti i campi!";
