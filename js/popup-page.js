@@ -70,9 +70,10 @@ $(document).ready(function(){
             }
             requestUser.open('GET',"../mosaic/profile/actual-log.php",false);
             requestUser.send();
+
             if(owner == userLogged ){
                 $(".logged").text("Modifica");
-                $("#buy-if > button").attr("id","_modify");
+                $(".logged").attr("id","_modify");
                 $(".logged").addClass(" _btn");
             }
             else if(onSale==0 && owner != userLogged ){
