@@ -63,18 +63,13 @@ $(document).ready(function(){
 
             let isDisabled= false;
             let userLogged;
-            $("logged-username").load("../mosaic/profile/actual-log.php",function(responseTxt, statusTxt, xhr){
-                if(statusTxt == "success"){
-                    let resp = JSON.parse(responseTxt);
-                    userLogged = resp.user;
-                }
-                if(statusTxt == "error"){
-                    $(".logged").prop('disabled',true);
-                    return;
-                    
-                }
-            });
-            
+            const requestUser = new XMLHttpRequest();
+            requestUser.onload = function() {
+                let resp = JSON.parse(this.responseText);
+                userLogged = resp.user;
+            }
+            requestUser.open('GET',"../mosaic/profile/actual-log.php",false);
+            requestUser.send();
             if(owner == userLogged ){
                 $(".logged").text("Modifica");
                 $("#buy-if > button").attr("id","_modify");
