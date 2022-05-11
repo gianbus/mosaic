@@ -11,38 +11,28 @@ function cancelPurchase(buyButton){
 }
 
 $(document).ready(function(){
-    let w="0px"
-    let z="-1;"
-    let w_max="35%"; //popup page width when open by a desktop system
-    let w_sm="97%"
-    let black_medium=" rgba(18, 18, 18, 0.500)";
+    let w="0px"                                     //|Larghezza della popup page settata a 0
+    let z="-1;"                                     //|La popup page in principio è sotto la griglia
+    let w_max="35%";                                //|popup page larghezza massima solo quando aperta da schermo desktop
+    let w_sm="97%"                                  //|popup page larghezza minima solo quando aperta da schermo cellulare
+    let black_medium=" rgba(18, 18, 18, 0.500)";    //|colore di sfondo quando la popup page sale in primo piano
     let blur=false;
 
     
     var nblocco,price ;
     //Quando apro un blocco 
-    $("div[id|=block]").click(function(){       //|Serve ad attivare la popup page per ogni blocco
-        //Design
-        z="2";
-        if(window.innerWidth<425) w=w_sm;
-        else w=w_max;
-
+    $("div[id|=block]").click(function(){           //|Serve ad attivare la popup page per ogni blocco
         let idBlocco = $(this).attr("id");
         nBlocco= parseInt(idBlocco.match(/[0-9]+/));
-        togglePopup(w,z,black_medium);
-        console.log("Il blocco selezionato è: " + nBlocco );
-
         //loading della query dal database per caricare la popup page
-        
         const xhttp = new XMLHttpRequest();
         xhttp.onload = function() {
-            console.log(this.responseText);
             let response =JSON.parse(this.responseText);
             
             price = response.prezzo;
             let onSale=1;
                 if(price==null){
-                    price ="Prezzo:\n--";
+                    price ="--";
                     onSale = 0; 
                 }
 
@@ -57,7 +47,7 @@ $(document).ready(function(){
             let type = response.tipo;
             let path = response.path;
 
-            $("#price-block").text(price);
+            $("#price-block").text("Prezzo:\n" + price);
             $(".card-title").text(title);
             $(".card-text").text(description);
 
@@ -77,8 +67,8 @@ $(document).ready(function(){
                 $(".logged").addClass(" _btn");
             }
             else if(onSale==0 && owner != userLogged ){
-                $(".logged").text("Non in vendita");
                 isDisabled = true;
+                $(".logged").text("Non in vendita");
                 $(".logged").attr("id","disabled_buy");
                 $(".logged").removeClass(" _btn");
                 
@@ -100,18 +90,21 @@ $(document).ready(function(){
             else if(type=='video')
                 $('#container-block').html("<iframe class='card-img-top' src="+ path+"></iframe>");
 
-            
-            $("#grid").toggleClass("filter");
-            $("#navbar").toggleClass("filter");
-            blur=!blur;
-    
-            if(window.innerWidth<425) $(".info-pop").css("top","25%");
-        
-    
         }
 
-        xhttp.open("GET", "/mosaic/block/block-info.php?id="+nBlocco,true);
+        xhttp.open("GET", "/mosaic/block/block-info.php?id="+nBlocco,false); //|False perchè così aspetto la fine della query per avere il responso su schermo
         xhttp.send();
+
+        //Design, con il seguente codice la pagina è aperta ufficialmente. Prima era la funzione di caricamento dei dati da porre
+        z="2";
+        if(window.innerWidth<425) w=w_sm;
+        else w=w_max;
+        togglePopup(w,z,black_medium);
+        $("#grid").toggleClass("filter");
+        $("#navbar").toggleClass("filter");
+        blur=!blur;
+    
+        if(window.innerWidth<425) $(".info-pop").css("top","25%");
     });
 
     var buyButton;
@@ -123,23 +116,19 @@ $(document).ready(function(){
             return;
         }
         else if(whatToDo=="_buy"){
-            
-            console.log(buyButton);
             $(".logged").html("<i class='fa fa-spinner fa-spin'></i>Loading");
             $(".logged").prop('disabled',true);
 
-            //RICAVO I PUNTI DELL'ACQUIRENTE E DELL'ACQISTO
+            //RICAVO I PUNTI DELL'ACQUIRENTE E DELL'ACQUISTO
             let myPoints;
             let purchasePoints = price
             const xhttp = new XMLHttpRequest();
             xhttp.onload = function() {
-                myPoints = parseInt(this.responseText);
+                myPoints = parseInt(JSON.parse(this.responseText).points);
             }
             xhttp.open("GET", "../mosaic/profile/actual-log.php",false);
             xhttp.send();
 
-            
-            
         
             //SE I PUNTI DELL'ACQUIRENTE SONO INSUFFICIENTI ANCHE SOLO NELL'ATTUALE SESSIONE LO FERMO
             if(myPoints<purchasePoints) {
@@ -161,8 +150,8 @@ $(document).ready(function(){
                 
         const xhttp = new XMLHttpRequest();
         xhttp.onload = function() {
-            console.log(this.responseText);
             let isBought =JSON.parse(this.responseText);
+
             let validRequest = isBought.richiesta_valida; 
             let bought = isBought.comprato;
             let err = isBought.errore;
@@ -170,11 +159,10 @@ $(document).ready(function(){
             let user = isBought.acquirente;
             let old_owner = isBought.venditore;
             let new_wallet = isBought.nuovo_saldo_acquirente;
+
             $("#purchase-confirm").css("display","none");
-            console.log(err);
             if(err == 0 && validRequest==1){
                 $(".logged").attr("id", "_modify");
-                
                 $(".logged").text("Modifica");
                 $(".logged").prop('disabled',false);
                 $(".text-muted").text("Ultimo proprietario: " + user);
@@ -192,7 +180,12 @@ $(document).ready(function(){
                 $(".logged").text("Non disponibile");
                 $(".logged").prop('disabled',true);
             } 
-            
+            else if(err==3){
+                $(".logged").text("Blocco già posseduto");
+                $(".logged").attr("id", "_modify");
+                $(".logged").text("Modifica");
+                $(".logged").prop('disabled',false);
+            } 
         }
         xhttp.open("GET", "/mosaic/block/buy.php?id="+nBlocco,true);
         xhttp.send();
@@ -214,8 +207,8 @@ $(document).ready(function(){
         w="0px"
         z="-1";
         $(".info-pop").css("width",w);
-        $("#pop-block").animate({zIndex:z},1000);
         $("#pop-block").css("background-color"," transparent");
+        $("#pop-block").animate({zIndex:z},1000);
         $("#grid").toggleClass("filter");
         $("#navbar").toggleClass("filter")
         if(window.innerWidth<425) $(".info-pop").css("top","100%");
