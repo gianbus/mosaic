@@ -40,12 +40,10 @@
         <div  class="info-pop  text-white ">
             <div class="card  h-100" >
                 <a href="#" class="closebtn carad-title "  >&times;</a>
-                <div id="container-block" class="pe-3 pb-3 ps-3 ">
-                    
-                </div>
+                <div id="container-block" class="pe-3 pb-3 ps-3 "></div>
                 <div class="card-body p-3" style="height: fit-content; display: flex;flex-direction: column; " >
-                    <h5 class="card-title ">Titolo di immagine a caso</h5>
-                    <p class="card-text" style="flex: 2 1 0%">Card text che dura una infinità poichè non so cosa scrivere potrei prendere un lorem ipsum ma non c'ho mai voglia </p>
+                    <h5 class="card-title ">Titolo fac-simile</h5>
+                    <p class="card-text" style="flex: 2 1 0%">Fac-simile </p>
                     <div class = "card-market">
                         <div class="placeholder-price" style="flex: 1 2 0%">
                             <h1 id="price-block">10</h1>

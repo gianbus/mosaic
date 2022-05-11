@@ -36,12 +36,12 @@ $(document).ready(function(){
         
         const xhttp = new XMLHttpRequest();
         xhttp.onload = function() {
-            
+            console.log(this.responseText);
             let response =JSON.parse(this.responseText);
             
             price = response.prezzo;
             let onSale=1;
-                if(price==''){
+                if(price==null){
                     price ="Prezzo:\n--";
                     onSale = 0; 
                 }
@@ -49,11 +49,11 @@ $(document).ready(function(){
             let owner = response.proprietario;
 
             let title = response.titolo;
-                if(title=='') title ="Titolo non è presente"
-
+                if(title=='') title ="Titolo non è presente";
+                else if(title==null) title = "Blocco mai acquisito";
             let description = response.descrizione;
                 if(description=='') description ="Descrizione non è presente";
-
+                else if(description==null) description ="Descrizione assente";
             let type = response.tipo;
             let path = response.path;
 
@@ -62,7 +62,19 @@ $(document).ready(function(){
             $(".card-text").text(description);
 
             let isDisabled= false;
-            let userLogged = $("#logged-username").text(); //Da adattare con richiesta di variabile di sessione
+            let userLogged;
+            $("logged-username").load("../mosaic/profile/actual-log.php",function(responseTxt, statusTxt, xhr){
+                if(statusTxt == "success"){
+                    let resp = JSON.parse(responseTxt);
+                    userLogged = resp.user;
+                }
+                if(statusTxt == "error"){
+                    $(".logged").prop('disabled',true);
+                    return;
+                    
+                }
+            });
+            
             if(owner == userLogged ){
                 $(".logged").text("Modifica");
                 $("#buy-if > button").attr("id","_modify");
@@ -99,46 +111,39 @@ $(document).ready(function(){
     
             if(window.innerWidth<425) $(".info-pop").css("top","25%");
         
-            //Responsivess
-            $(window).resize(function(){                //|Agisce nel caso vi sia un resize, e quindi per evitare che la width si mantenga al w_sm% agisce 
-                if((window.innerWidth<425  && w==w_sm) ||  (window.innerWidth>=425 && w==w_max)){
-                    return
-                }
-                w="0px";
-                z="-1";
-                if(window.innerWidth>425) $(".info-pop").css("top","");
-                togglePopup(w,z,"transparent");
-                if(blur) {
-                    $("#grid").toggleClass("filter");
-                    $("#navbar").toggleClass("filter")
-                    blur=!blur;
-                }
-            });
-
-            
-            
+    
         }
 
         xhttp.open("GET", "/mosaic/block/block-info.php?id="+nBlocco,true);
         xhttp.send();
     });
 
-
+    var buyButton;
     $(".logged").click(function(){
         let whatToDo = $(".logged").attr("id");
+        buyButton =  $(".logged").text() ;
         if(whatToDo=="_modify"){
             console.log("Hai premuto modifica");
             return;
         }
         else if(whatToDo=="_buy"){
-            let buyButton =  $(".logged").text() ;
+            
             console.log(buyButton);
             $(".logged").html("<i class='fa fa-spinner fa-spin'></i>Loading");
             $(".logged").prop('disabled',true);
 
-            //RICAVO I PUNTI DELL'ACQUIRENTE E DELL'ACQIST0
-            let myPoints = parseInt($("#points").text());
+            //RICAVO I PUNTI DELL'ACQUIRENTE E DELL'ACQISTO
+            let myPoints;
             let purchasePoints = price
+            const xhttp = new XMLHttpRequest();
+            xhttp.onload = function() {
+                myPoints = parseInt(this.responseText);
+            }
+            xhttp.open("GET", "../mosaic/profile/actual-log.php",false);
+            xhttp.send();
+
+            
+            
         
             //SE I PUNTI DELL'ACQUIRENTE SONO INSUFFICIENTI ANCHE SOLO NELL'ATTUALE SESSIONE LO FERMO
             if(myPoints<purchasePoints) {
@@ -198,7 +203,7 @@ $(document).ready(function(){
     });
 
     $(".buy-no").click(function(){
-        cancelPurchase("Compra");
+        cancelPurchase(buyButton);
         return;
     });
 
@@ -219,5 +224,22 @@ $(document).ready(function(){
         $("#navbar").toggleClass("filter")
         if(window.innerWidth<425) $(".info-pop").css("top","100%");
         blur=!blur;
+    });
+
+    //Responsivess
+    $(window).resize(function(){                //|Agisce nel caso vi sia un resize, e quindi per evitare che la width si mantenga al w_sm% agisce 
+        if((window.innerWidth<425  && w==w_sm) ||  (window.innerWidth>=425 && w==w_max)){
+            return
+        }
+        w="0px";
+        z="-1";
+        if(window.innerWidth>425) $(".info-pop").css("top","");
+        togglePopup(w,z,"transparent");
+        cancelPurchase(buyButton);
+        if(blur) {
+            $("#grid").toggleClass("filter");
+            $("#navbar").toggleClass("filter")
+            blur=!blur;
+        }
     });
 });

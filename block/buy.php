@@ -87,7 +87,18 @@
     //err=2 blocco non in vendita
     //err=3 il blocco è già dell'acquirente
     //err=4 altro errore
-    echo '{
+    $resp = new stdClass();
+    $resp->richiesta_valida = $richiesta_valida;
+    $resp->comprato = $comprato;
+    $resp->errore = $err;
+    $resp->idblocco = $id;
+    $resp->acquirente = $username;
+    $resp->venditore = $seller_username;
+    $resp->nuovo_saldo_acquirente = $nuovo_saldo_buyer;
+            
+    echo json_encode($resp);
+    //Resa grafica della risposta json
+    /*echo '{
             "richiesta_valida":'.$richiesta_valida.',
             "comprato":'.$comprato.',
             "errore":'.$err.', 
@@ -96,7 +107,7 @@
             "venditore":"'.$seller_username.'",
             "nuovo_saldo_acquirente":'.$nuovo_saldo_buyer.'
         }
-    ';
+    ';*/
 
     
     $mysqli->close();
