@@ -55,9 +55,8 @@ div[class|=row]{
     }
 
     div[id|=block]:hover{
-        background-color: white;
-        /*border: 0px;
-        padding: 1px;*/
+        background-color: rgb(136, 0, 0)!important;
+        
         transform: scale(1.1,1.1);
         transition: transform 0.75s;
         cursor:pointer;
