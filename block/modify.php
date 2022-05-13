@@ -20,7 +20,7 @@
     
 
     //RECUPERO I VALORI DEL FORM
-    $new_tipo = mysqli_real_escape_string($mysqli, $_POST['tipo']);
+    $new_tipo = mysqli_real_escape_string($mysqli, $_GET['type']);
     $new_path = mysqli_real_escape_string($mysqli, $_POST['path']);
     $new_titolo = mysqli_real_escape_string($mysqli, $_POST['titolo']);
     $new_descrizione = mysqli_real_escape_string($mysqli, $_POST['descrizione']);
@@ -114,7 +114,7 @@
             "titolo":'.$titolo.',
             "descrizione":'.$descrizione.',
             "invendita":'.$invendita.',
-            "price":'.$price.'
+            "price":'.$new_price.'
         }
     ';
 
