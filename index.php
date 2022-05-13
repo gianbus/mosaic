@@ -51,9 +51,7 @@
                                 }
                                 else {
                                     echo "\t\t\t\t\t\t<button class='logged'>Compra</button>";
-
                                 }
-
                             ?>
                         </div>
                     </div>  
@@ -102,6 +100,7 @@
     ?>
     </div>
 <!--block-grid-->    
+    <!--Fare pulsantino per mettere la visione del mosaico senza bordi-->
     
     <?php
 		  include './footer.php';
