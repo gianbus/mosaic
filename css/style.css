@@ -1,8 +1,11 @@
 @import "navbar.css";
 @import "sign-up.css";
 /*@import "mobstyle.css" screen and (max-width: 768px);*/
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
 
-
+body{
+    font-family: 'Roboto', sans-serif;
+}
 .col{
     min-width: 150px;
     width: 150px;

@@ -14,11 +14,6 @@
     <link rel="stylesheet" href="css/style.css" type="text/css">
     <link rel="stylesheet" href="css/popup-page.css" type="text/css">
 
-    <!--font-style-->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
-    <!--font-style-->
 
     <!--icons-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -40,12 +35,10 @@
         <div  class="info-pop  text-white ">
             <div class="card  h-100" >
                 <a href="#" class="closebtn carad-title "  >&times;</a>
-                <div id="container-block" class="pe-3 pb-3 ps-3 ">
-                    
-                </div>
+                <div id="container-block" class="pe-3 pb-3 ps-3 "></div>
                 <div class="card-body p-3" style="height: fit-content; display: flex;flex-direction: column; " >
-                    <h5 class="card-title ">Titolo di immagine a caso</h5>
-                    <p class="card-text" style="flex: 2 1 0%">Card text che dura una infinità poichè non so cosa scrivere potrei prendere un lorem ipsum ma non c'ho mai voglia </p>
+                    <h5 class="card-title ">Titolo fac-simile</h5>
+                    <p class="card-text" style="flex: 2 1 0%">Fac-simile </p>
                     <div class = "card-market">
                         <div class="placeholder-price" style="flex: 1 2 0%">
                             <h1 id="price-block">10</h1>
@@ -58,15 +51,13 @@
                                 }
                                 else {
                                     echo "\t\t\t\t\t\t<button class='logged'>Compra</button>";
-
                                 }
-
                             ?>
                         </div>
                     </div>  
                 </div>
                 <div class="card-footer">
-                  <small class="text-muted">Last updated 3 mins ago</small>
+                  <small class="text-muted"></small>
                 </div>
             </div>
         </div>
@@ -83,7 +74,7 @@
         $sql = "SELECT id,tipo,path FROM blocchi";
         $result = $mysqli->query($sql);
         if ($result->num_rows > 0){
-            $img="https://pixidisorg.files.wordpress.com/2019/07/dito-wuxi.jpg";
+            
             for ($i=0; $i<12; $i=$i+1){
                     echo "<div class= row-$i  >\n";
                     for ($j=1; $j<=12; $j=$j+1){
@@ -109,6 +100,7 @@
     ?>
     </div>
 <!--block-grid-->    
+    <!--Fare pulsantino per mettere la visione del mosaico senza bordi-->
     
     <?php
 		  include './footer.php';

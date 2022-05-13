@@ -10,7 +10,7 @@ body{
 div[id|=block]{
     background-color: rgb(219, 92, 92);
 
-    border: 0.5px solid rgb(0, 0, 0);
+    border: 1px solid rgb(0, 0, 0);
     text-align: center;
     /*max-width: 8.4%;*/    /*|Potrebbe ritornare utile in futuro*/
     flex: 1 0 ;
@@ -55,9 +55,8 @@ div[class|=row]{
     }
 
     div[id|=block]:hover{
-        background-color: white;
-        /*border: 0px;
-        padding: 1px;*/
+        background-color: rgb(136, 0, 0)!important;
+        
         transform: scale(1.1,1.1);
         transition: transform 0.75s;
         cursor:pointer;
