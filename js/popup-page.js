@@ -19,7 +19,7 @@ $(document).ready(function(){
     let blur=false;
 
     
-    var nblocco,price ;
+    var nBlocco,price ;
     //Quando apro un blocco 
     $("div[id|=block]").click(function(){           //|Serve ad attivare la popup page per ogni blocco
         let idBlocco = $(this).attr("id");
@@ -41,12 +41,11 @@ $(document).ready(function(){
             let owner = response.proprietario;
 
             let title = response.titolo;
-                if(title=='') title ="Titolo non è presente";
-                else if(title==null) title = "Blocco mai acquisito";
+                if(title=='' || title==null) title ="Titolo non è presente";
+               
             let description = response.descrizione;
-                if(description=='') description ="Descrizione non è presente";
-                else if(description==null) description ="Descrizione assente";
-            
+                if(description=='' || description==null) description ="Descrizione non è presente";
+               
             let path = (response.path);
             let type = response.tipo;
                 if(type =="image") path = "../mosaic/" + path;
@@ -173,7 +172,7 @@ $(document).ready(function(){
                 $(".logged").attr("href","./block/modify-selection.php?id="+nBlocco);
                 $(".text-muted").text("Ultimo proprietario: " + user);
                 $("#points").text(new_wallet);
-                
+                $("#price-block").text("Prezzo:\n--");
             }
             else if(err==1){
                 $(".logged").text("Fondi insufficienti");
@@ -209,15 +208,16 @@ $(document).ready(function(){
             cancelPurchase(buyButton);
         }
     }
+
     //Quando chiudo blocco
     $(".closebtn").click(function(){ 
-        w="0px"
+        w="0px";
         z="-1";
         $(".info-pop").css("width",w);
         $("#pop-block").css("background-color"," transparent");
         $("#pop-block").animate({zIndex:z},1000);
         $("#grid").toggleClass("filter");
-        $("#navbar").toggleClass("filter")
+        $("#navbar").toggleClass("filter");
         if(window.innerWidth<425) $(".info-pop").css("top","100%");
         blur=!blur;
     });
