@@ -24,7 +24,8 @@ $(document).ready(function(){
     $("div[id|=block]").click(function(){           //|Serve ad attivare la popup page per ogni blocco
         let idBlocco = $(this).attr("id");
         nBlocco= parseInt(idBlocco.match(/[0-9]+/));
-        console.log(nBlocco);
+        $(".logged").attr("href","#");              //|Evito che cliccando su un blocco io possa influenzare il click sui successivi 
+        
         //loading della query dal database per caricare la popup page
         const xhttp = new XMLHttpRequest();
         xhttp.onload = function() {

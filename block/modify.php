@@ -25,26 +25,26 @@
     //RECUPERO I VALORI DEL FORM
     $new_tipo = mysqli_real_escape_string($mysqli, $_GET['type']);
     $new_path;
-    if($new_tipo == "image") {
+    if($new_tipo == "image") 
         $new_path = $_FILES["path"]["name"];
-    }else {
+    else 
         $new_path = mysqli_real_escape_string($mysqli, $_POST['path']);
-    }
+    
     $new_titolo = mysqli_real_escape_string($mysqli, $_POST['titolo']);
     $new_descrizione = mysqli_real_escape_string($mysqli, $_POST['descrizione']);
     
     //DATO CHE FACCIO USO DELLA CHECKBOX DEVO VERIFICARE CHE IL BLOCCO SIA VOLUTO IN VENDITA
     $new_invendita = 0;
-    if(isset($_POST['invendita']))
+    if(isset($_POST['invendita'])) 
         $new_invendita = 1;
     $new_price = intval(mysqli_real_escape_string($mysqli, $_POST['price']));
 
     //SE LE VARIABILI SONO PRESENTI
     if($id && $username && $new_tipo && $new_path && $new_titolo && isset($new_invendita) ){
         $richiesta_valida = 1;
+
         //INIZIO TRANSAZIONE
         mysqli_begin_transaction($mysqli);
-
         try {
 
             //RECUPERO LE INFORMAZIONI SUL PROPRIETARIO BLOCCO
@@ -60,6 +60,7 @@
                 }else{
                     $invendita = 0;
                 }
+
                 //SE IL CAMPO TIPO E' IMAGE FACCIO L'UPLOAD
                 if($new_tipo=="image"){
                     $target_dir = "assets/uploads/";
@@ -80,7 +81,7 @@
                     //VERIFICO GRANDEZZA IMMAGINE
                     if ($_FILES["path"]["size"] > 500000000) {
                         $uploadReady = 0;
-                        echo "troppo";
+                        
                     }
                     
                     // Allow certain file formats
@@ -88,20 +89,19 @@
                     && $imageExt != "gif" ) {
                         $uploadReady = 0;
                     }
-                    echo  $pathDaCambiare .$new_path;
+                    echo  $pathDaCambiare . $new_path;
                     //VERIFICO CHE uploadReady SIA 1 o 0 a seconda degli errori
                     if ($uploadReady == 0) {
                         $err=2;
                     
                     } else {
-                        move_uploaded_file($_FILES["path"]["tmp_name"], $pathDaCambiare .$new_path);
-                            
-
-                        
+                        if(move_uploaded_file($_FILES["path"]["tmp_name"], $pathDaCambiare .$new_path)){//VERIFICO CHE IL FILE SIA CARICATO EFFETTIVAMENTE
+                            $err=0;
+                        }else{
+                            $err=2;
+                        }
                     }
                 }
-
-
                 //AGGIORNO I CAMPI DEL BLOCCO
                 $aggiorna_blocco = mysqli_query($mysqli, "UPDATE blocchi SET tipo='$new_tipo', path='$new_path', titolo='$new_titolo', descrizione='$new_descrizione' WHERE id='$id' and proprietario='$username' ");
 
@@ -171,8 +171,9 @@
     $resp->invendita = $invendita;
     $resp->price = $price;
     echo json_encode($resp);
-    
-    /*
+    header("Refresh: 2; URL= ../index.php"); //A seconda di come implementiamo profile va levata o meno questa funzione
+
+    /*STRUTTURA RISPOSTA JSON
     echo '{
             "richiesta_valida":'.$richiesta_valida.',
             "modificato":'.$modificato.',
