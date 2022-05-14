@@ -28,7 +28,7 @@ $(document).ready(function(){
         $(".nav-menu").css("height", height);
     });
     //--------------------------------------------------------
-    $("#points").load("../profile/actual-log.php",function(responseTxt, statusTxt, xhr){
+    $("#points").load("../mosaic/profile/actual-log.php",function(responseTxt, statusTxt, xhr){
         if(statusTxt == "success"){
             let resp = JSON.parse(responseTxt);
             $("#points").text(resp.points)

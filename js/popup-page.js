@@ -24,6 +24,7 @@ $(document).ready(function(){
     $("div[id|=block]").click(function(){           //|Serve ad attivare la popup page per ogni blocco
         let idBlocco = $(this).attr("id");
         nBlocco= parseInt(idBlocco.match(/[0-9]+/));
+        console.log(nBlocco);
         //loading della query dal database per caricare la popup page
         const xhttp = new XMLHttpRequest();
         xhttp.onload = function() {
@@ -44,9 +45,10 @@ $(document).ready(function(){
             let description = response.descrizione;
                 if(description=='') description ="Descrizione non è presente";
                 else if(description==null) description ="Descrizione assente";
+            
+            let path = (response.path);
             let type = response.tipo;
-            let path = response.path;
-
+                if(type =="image") path = "../mosaic/" + path;
             $("#price-block").text("Prezzo:\n" + price);
             $(".card-title").text(title);
             $(".card-text").text(description);
@@ -65,6 +67,7 @@ $(document).ready(function(){
                 $(".logged").text("Modifica");
                 $(".logged").attr("id","_modify");
                 $(".logged").addClass(" _btn");
+                $(".logged").attr("href","./block/modify-selection.php?id="+nBlocco);
             }
             else if(onSale==0 && owner != userLogged ){
                 isDisabled = true;
@@ -111,11 +114,11 @@ $(document).ready(function(){
     $(".logged").click(function(){
         let whatToDo = $(".logged").attr("id");
         buyButton =  $(".logged").text() ;
-        if(whatToDo=="_modify"){
+        /*if(whatToDo=="_modify"){
             console.log("Hai premuto modifica");
             return;
-        }
-        else if(whatToDo=="_buy"){
+        }*/
+        if(whatToDo=="_buy"){
             $(".logged").html("<i class='fa fa-spinner fa-spin'></i>Loading");
             $(".logged").prop('disabled',true);
 
@@ -150,6 +153,7 @@ $(document).ready(function(){
                 
         const xhttp = new XMLHttpRequest();
         xhttp.onload = function() {
+            console.log(this.responseText);
             let isBought =JSON.parse(this.responseText);
 
             let validRequest = isBought.richiesta_valida; 
@@ -165,8 +169,10 @@ $(document).ready(function(){
                 $(".logged").attr("id", "_modify");
                 $(".logged").text("Modifica");
                 $(".logged").prop('disabled',false);
+                $(".logged").attr("href","./block/modify-selection.php?id="+nBlocco);
                 $(".text-muted").text("Ultimo proprietario: " + user);
                 $("#points").text(new_wallet);
+                
             }
             else if(err==1){
                 $(".logged").text("Fondi insufficienti");

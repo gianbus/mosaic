@@ -1,5 +1,8 @@
 <?php
     include '../config.php';
+    //---VANNO ASSOLUTAMENTE CAMBIATI I PATH PER SALVARE LE IMMAGINI
+    $pathDaCambiare = "C:/xampp/htdocs/mosaic/";
+
 
     //INIZIALIZZO I VALORI
     $richiesta_valida = 0;
@@ -21,11 +24,19 @@
 
     //RECUPERO I VALORI DEL FORM
     $new_tipo = mysqli_real_escape_string($mysqli, $_GET['type']);
-    $new_path = mysqli_real_escape_string($mysqli, $_POST['path']);
+    $new_path;
+    if($new_tipo == "image") {
+        $new_path = $_FILES["path"]["name"];
+    }else {
+        $new_path = mysqli_real_escape_string($mysqli, $_POST['path']);
+    }
     $new_titolo = mysqli_real_escape_string($mysqli, $_POST['titolo']);
     $new_descrizione = mysqli_real_escape_string($mysqli, $_POST['descrizione']);
-
-    $new_invendita = intval(mysqli_real_escape_string($mysqli, $_POST['invendita']));
+    
+    //DATO CHE FACCIO USO DELLA CHECKBOX DEVO VERIFICARE CHE IL BLOCCO SIA VOLUTO IN VENDITA
+    $new_invendita = 0;
+    if(isset($_POST['invendita']))
+        $new_invendita = 1;
     $new_price = intval(mysqli_real_escape_string($mysqli, $_POST['price']));
 
     //SE LE VARIABILI SONO PRESENTI
@@ -49,6 +60,47 @@
                 }else{
                     $invendita = 0;
                 }
+                //SE IL CAMPO TIPO E' IMAGE FACCIO L'UPLOAD
+                if($new_tipo=="image"){
+                    $target_dir = "assets/uploads/";
+                    $new_path = $target_dir . basename($_FILES["path"]["name"]);
+                    $uploadReady = 1;
+                    $imageExt = strtolower(pathinfo($pathDaCambiare . $new_path,PATHINFO_EXTENSION));
+                    //VERIFICO CHE L'IMMAGINE SIA EFFETTIVAMENTE UNA IMMAGINE
+                    if(isset($_POST["submit"])) {
+                        $checkSize = getimagesize($_FILES["path"]["tmp_name"]);
+                        if($checkSize !== false) 
+                            $uploadReady = 1;
+                        else 
+                            $uploadReady = 0;
+                        
+                    }
+                    
+                    
+                    //VERIFICO GRANDEZZA IMMAGINE
+                    if ($_FILES["path"]["size"] > 500000000) {
+                        $uploadReady = 0;
+                        echo "troppo";
+                    }
+                    
+                    // Allow certain file formats
+                    if($imageExt != "jpg" && $imageExt != "png" && $imageExt != "jpeg"
+                    && $imageExt != "gif" ) {
+                        $uploadReady = 0;
+                    }
+                    echo  $pathDaCambiare .$new_path;
+                    //VERIFICO CHE uploadReady SIA 1 o 0 a seconda degli errori
+                    if ($uploadReady == 0) {
+                        $err=2;
+                    
+                    } else {
+                        move_uploaded_file($_FILES["path"]["tmp_name"], $pathDaCambiare .$new_path);
+                            
+
+                        
+                    }
+                }
+
 
                 //AGGIORNO I CAMPI DEL BLOCCO
                 $aggiorna_blocco = mysqli_query($mysqli, "UPDATE blocchi SET tipo='$new_tipo', path='$new_path', titolo='$new_titolo', descrizione='$new_descrizione' WHERE id='$id' and proprietario='$username' ");
@@ -63,12 +115,15 @@
                 //AGGIORNO EVENTUALI ANNUNCI VENDITA
                 if($invendita == $new_invendita && $invendita ==1){
                     $aggiorna_prezzo_annuncio = mysqli_query($mysqli, "UPDATE market SET price='$new_price' WHERE idblocco='$id' "); 
+                    $price = $new_price;
                 }elseif($invendita == 0 && $new_invendita == 1){
                     $crea_annuncio = mysqli_query($mysqli, "INSERT INTO market (idblocco,price) VALUES ('$id','$new_price') "); 
                     $invendita = 1;
+                    $price = $new_price;
                 }elseif($invendita == 1 && $new_invendita == 0){
                     $elimina_annuncio = mysqli_query($mysqli, "DELETE FROM market WHERE idblocco='$id' ");
                     $invendita = 0;
+                    $price = 0;
                 }
                 
                 $modificato = 1;
@@ -103,6 +158,21 @@
     //err=0 nessun errore oppure richiesta non valida
     //err=1 il blocco non è tuo
     //err=2 altro errore - possibile errore di query
+    $resp = new stdClass();
+    $resp->richiesta_valida = $richiesta_valida;
+    $resp->modificato = $modificato;
+    $resp->errore = $err;
+    $resp->id= $id;
+    $resp->proprietario = $proprietario;
+    $resp->tipo = $tipo;
+    $resp->path = $path;
+    $resp->titolo= $titolo;
+    $resp->descrizione = $descrizione;
+    $resp->invendita = $invendita;
+    $resp->price = $price;
+    echo json_encode($resp);
+    
+    /*
     echo '{
             "richiesta_valida":'.$richiesta_valida.',
             "modificato":'.$modificato.',
@@ -114,9 +184,10 @@
             "titolo":'.$titolo.',
             "descrizione":'.$descrizione.',
             "invendita":'.$invendita.',
-            "price":'.$new_price.'
+            "price":'.$price.'
         }
     ';
+    */
 
     include '../footer.php';
 

@@ -50,7 +50,7 @@
                                     echo "\t\t\t\t\t\t<a href='./login' class='not-logged login _btn '>Login</a>";
                                 }
                                 else {
-                                    echo "\t\t\t\t\t\t<button class='logged'>Compra</button>";
+                                    echo "\t\t\t\t\t\t<a href ='#' class='logged'>Compra</a>";
                                 }
                             ?>
                         </div>
@@ -84,7 +84,7 @@
                         $path = $row["path"];
                         if($type=="image"){
                             echo "  \t<div class='blocco' id='block-". ($j+$i*12)."'  >\n";
-                                echo "\t\t<img id=img-".($j+$i*12)." src=$path  style=\"width:100%\">\n";
+                                echo "\t\t<img id=img-".($j+$i*12)." src='".$path."'  style=\"width:100%\">\n";
                         }else if($type=="color"){
                             echo "  \t<div class='blocco' id='block-". ($j+$i*12)."' style=\"background-color:$path\"  >\n";
                         }

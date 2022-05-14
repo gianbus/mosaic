@@ -118,10 +118,13 @@ height: 100%;
   background-image: linear-gradient(-45deg, #00366d, #140353b4);
   border-radius: 5px;
   border: 0px;
+  margin: 5px 0 5px;
   box-shadow: 2px 2px  5px 1px rgba(27, 27, 27, 0.575);
-  flex: 1 1 0%;
   
+  flex: 1 1 0%;
+  text-align: center;
   color:aliceblue;
+  font-size: 30px;
 }
 
 
