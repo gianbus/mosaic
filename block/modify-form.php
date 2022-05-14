@@ -1,6 +1,7 @@
 <!--PAGINA CARICATA ADINAMICAMENTE CON AJAX-->
 <br>
 <div id="divmodificablocco">
+
     <!--COLONNA1 = TITOLO & DESCRIZIONE-->
     <div id = "formCol-1" class = "modifyForm-column">
         <label for="titolo" >Titolo:</label>
@@ -9,6 +10,7 @@
             <label sfor="descrizione">Descrizione:</label>
             <textarea rows="4" cols="50" name="descrizione" form="modifyform" placeholder="Descrizione"></textarea><br>
     </div>
+    
     <!--COLONNA2 = PATH & PREZZO-->
     <div id = "formCol-2" class = "modifyForm-column">    
         <?php

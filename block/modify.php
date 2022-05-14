@@ -64,9 +64,10 @@
                 //SE IL CAMPO TIPO E' IMAGE FACCIO L'UPLOAD
                 if($new_tipo=="image"){
                     $target_dir = "assets/uploads/";
-                    $new_path = $target_dir . basename($_FILES["path"]["name"]);
                     $uploadReady = 1;
-                    $imageExt = strtolower(pathinfo($pathDaCambiare . $new_path,PATHINFO_EXTENSION));
+                    $imageExt = strtolower(pathinfo(basename($_FILES["path"]["name"]),PATHINFO_EXTENSION));
+                    $new_path =  $target_dir . "block-" . $id . ".". $imageExt; //QUESTO SARA' IL NOME DEL FILE UNA VOLTA SALVATO NELLA CARTELLA UPLOADS 
+
                     //VERIFICO CHE L'IMMAGINE SIA EFFETTIVAMENTE UNA IMMAGINE
                     if(isset($_POST["submit"])) {
                         $checkSize = getimagesize($_FILES["path"]["tmp_name"]);
@@ -74,28 +75,23 @@
                             $uploadReady = 1;
                         else 
                             $uploadReady = 0;
-                        
                     }
-                    
                     
                     //VERIFICO GRANDEZZA IMMAGINE
-                    if ($_FILES["path"]["size"] > 500000000) {
+                    if ($_FILES["path"]["size"] > 500000000) 
                         $uploadReady = 0;
-                        
-                    }
                     
-                    // Allow certain file formats
-                    if($imageExt != "jpg" && $imageExt != "png" && $imageExt != "jpeg"
-                    && $imageExt != "gif" ) {
+                    //VERIFICO IL TIPO DI ESTESIONE
+                    if($imageExt != "jpg" && $imageExt != "png" && $imageExt != "jpeg" && $imageExt != "gif" ) 
                         $uploadReady = 0;
-                    }
-                    echo  $pathDaCambiare . $new_path;
-                    //VERIFICO CHE uploadReady SIA 1 o 0 a seconda degli errori
+                    
+                   
+                    //VERIFICO CHE uploadReady SIA 1/0 A SECONDA DEGLI ERRORI
                     if ($uploadReady == 0) {
                         $err=2;
                     
                     } else {
-                        if(move_uploaded_file($_FILES["path"]["tmp_name"], $pathDaCambiare .$new_path)){//VERIFICO CHE IL FILE SIA CARICATO EFFETTIVAMENTE
+                        if(move_uploaded_file($_FILES["path"]["tmp_name"], $pathDaCambiare . $new_path)){//VERIFICO CHE IL FILE SIA CARICATO EFFETTIVAMENTE
                             $err=0;
                         }else{
                             $err=2;
