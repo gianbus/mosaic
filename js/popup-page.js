@@ -193,7 +193,7 @@ $(document).ready(function(){
                 $(".logged").prop('disabled',false);
             } 
         }
-        xhttp.open("GET", "/mosaic/block/buy.php?id="+nBlocco,true);
+        xhttp.open("GET", "../mosaic/block/buy.php?id="+nBlocco,true);
         xhttp.send();
     });
 

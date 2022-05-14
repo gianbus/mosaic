@@ -16,9 +16,9 @@
                     $type = $_GET['type'];
                     $id = $_GET['id'];
                     //CAMBIO IL COMPORTAMENTO DI MODIFICA A SECONDA DELL'INPUT
-                     
+                    
                     if($type == "color"){
-                        echo   "<form action='modify.php?id=1&type=". $type ."' method='POST' id='modifyform'></form>";
+                        echo   "<form action='modify.php?id=$id&type=". $type ."' method='POST' id='modifyform'></form>";
                         echo       "<label style=' display:inline'>Scegli il colore:</label>
                                     <input type='color' id='path' name='path' form='modifyform' required><br><br>";
                     }

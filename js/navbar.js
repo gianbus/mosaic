@@ -1,3 +1,6 @@
+//VARIABILE SETTABILE PER FARE TEST
+const pathURL = "http://localhost/mosaic/profile/actual-log.php";
+
 $(document).ready(function(){
     $("#dropup-btn").click(function(){
         $("#dropup-btn").toggleClass("change");
@@ -28,7 +31,7 @@ $(document).ready(function(){
         $(".nav-menu").css("height", height);
     });
     //--------------------------------------------------------
-    $("#points").load("../mosaic/profile/actual-log.php",function(responseTxt, statusTxt, xhr){
+    $("#points").load(pathURL,function(responseTxt, statusTxt, xhr){
         if(statusTxt == "success"){
             let resp = JSON.parse(responseTxt);
             $("#points").text(resp.points)
