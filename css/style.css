@@ -18,3 +18,7 @@ body{
         margin-top: 12vw;
     }
 }
+
+.owner_block{
+    border: 1px solid blue !important;
+}
