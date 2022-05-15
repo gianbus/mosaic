@@ -7,7 +7,7 @@
         <label for="titolo" >Titolo:</label>
             <input type="text" id="titolo" name="titolo" form="modifyform" placeholder="Titolo" required><br>
             
-            <label sfor="descrizione">Descrizione:</label>
+            <label for="descrizione">Descrizione:</label>
             <textarea rows="4" cols="50" name="descrizione" form="modifyform" placeholder="Descrizione"></textarea><br>
     </div>
     
@@ -30,7 +30,12 @@
                 echo   "<form action='modify.php?id=$id&type=". $type ."' method='POST' id='modifyform' enctype='multipart/form-data'></form>";
                 echo       "<label >Scegli la tua immagine:</label>
                             <input type='file' id='path' name='path' form='modifyform' required><br><br>";
-            }                    
+            }
+            else if($type == "video"){
+                echo   "<form action='modify.php?id=$id&type=". $type ."' method='POST' id='modifyform'></form>";
+                echo       "<label>Copia il link del video su youtube:</label>
+                            <input type='url' id='path' name='path' form='modifyform' placeholder='link video' required><br><br>";
+            }                      
         ?>      
 
         <!--INIZIO INPUT SWITCH VENDITA-->                
@@ -53,4 +58,4 @@
     </div>      
 
 </div>
-<input type="submit" value="Modifica" form="modifyform" ><br><br><br>
+<input id="submit-modify" type="submit" value="Modifica" form="modifyform" ><br><br><br>

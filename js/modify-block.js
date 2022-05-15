@@ -35,8 +35,6 @@ $(document).ready(function(){
                     else $("#ifOnSale").show();
                 },false);
                 
-                    
-                
             });
         });
        

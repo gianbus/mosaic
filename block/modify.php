@@ -24,11 +24,16 @@
 
     //RECUPERO I VALORI DEL FORM
     $new_tipo = mysqli_real_escape_string($mysqli, $_GET['type']);
-    $new_path;
     if($new_tipo == "image") 
         $new_path = $_FILES["path"]["name"];
     else 
         $new_path = mysqli_real_escape_string($mysqli, $_POST['path']);
+    
+    //SE VIDEO, RECUPERO L'ID DEL VIDEO SU YOUTUBE
+    if($new_tipo == "video"){
+        parse_str( parse_url( $new_path, PHP_URL_QUERY ), $urlVideoArray );
+        $new_path = $urlVideoArray['v'];
+    }
     
     $new_titolo = mysqli_real_escape_string($mysqli, $_POST['titolo']);
     $new_descrizione = mysqli_real_escape_string($mysqli, $_POST['descrizione']);

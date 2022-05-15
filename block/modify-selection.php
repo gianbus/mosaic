@@ -19,7 +19,6 @@
         include '../navbar.php';
         if(!isset($_SESSION['utente'])) header( "refresh:0;url=../index.php" );
         $id = $_GET["id"];
-        echo $id;
     ?>
     <!--SCELGO IL TIPO DI CONTENUTO CHE VOGLIO CARICARE-->
     <div id="container" class="container-fluid"> 

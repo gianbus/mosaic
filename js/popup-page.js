@@ -49,6 +49,7 @@ $(document).ready(function(){
             let path = (response.path);
             let type = response.tipo;
                 if(type =="image") path = "../mosaic/" + path;
+            
             $("#price-block").text("Prezzo:\n" + price);
             $(".card-title").text(title);
             $(".card-text").text(description);
@@ -87,18 +88,19 @@ $(document).ready(function(){
 
             //task richiesta al blocco
             if(type=='color')
-                $('#container-block').html("<div style='height:50px; background-color:"+path+";' class='card-img-top'></div>");
+                $('#container-block').html("<div style='height:100%; background-color:"+path+";' class='card-img-top'></div>");
             else if(type=='image')
                 $('#container-block').html("<img class='card-img-top' src="+ path+"  alt="+ idBlocco+" >");
-            else if(type=='video')
-                $('#container-block').html("<iframe class='card-img-top' src="+ path+"></iframe>");
-
+            else if(type=='video'){
+                $('#container-block').html("<iframe class='card-img-top' src='https://www.youtube.com/embed/"+ path +"?controls=0'  frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'></iframe>");
+            }
+           
         }
 
         xhttp.open("GET", "/mosaic/block/block-info.php?id="+nBlocco,false); //|False perchè così aspetto la fine della query per avere il responso su schermo
         xhttp.send();
 
-        //Design, con il seguente codice la pagina è aperta ufficialmente. Prima era la funzione di caricamento dei dati da porre
+        //Design, con il seguente codice la pagina è aperta ufficialmente. 
         z="2";
         if(window.innerWidth<425) w=w_sm;
         else w=w_max;
@@ -218,6 +220,9 @@ $(document).ready(function(){
         $("#pop-block").animate({zIndex:z},1000);
         $("#grid").toggleClass("filter");
         $("#navbar").toggleClass("filter");
+
+        $('#container-block').html(''); //NECESSARIO AFFINCHE' NEL CASO CI SIA UN VIDEO VIENE FERMATO E CHIUSO
+        
         if(window.innerWidth<425) $(".info-pop").css("top","100%");
         blur=!blur;
     });
