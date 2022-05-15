@@ -65,18 +65,18 @@
             if($type == "color"){
                 echo   "<form action='modify.php?id=$id&type=". $type ."' method='POST' id='modifyform'></form>";
                 echo       "<label style=' display:inline'>Scegli il colore:</label>
-                            <input type='color' id='path' value=".$pathcolor." name='path' form='modifyform' required><br><br>";
+                            <input type='color' id='path' value=\"".$pathcolor."\" name='path' form='modifyform' required><br><br>";
             }
             //A CAUSA DELL'UPLOAD SONO COSTRETTO A STAMPARE DUE FORM DIFFERENTI (QUESTO USA UN ENCTYPE DIFFERENTE)
             else if($type == "image"){
                 echo   "<form action='modify.php?id=$id&type=". $type ."' method='POST' id='modifyform' enctype='multipart/form-data'></form>";
                 echo       "<label >Scegli la tua immagine:</label>
-                            <input type='file' id='path' value=".$pathimg." name='path' form='modifyform' required><br><br>";
+                            <input type='file' id='path' value=\"".$pathimg."\" name='path' form='modifyform' required><br><br>";
             }
             else if($type == "video"){
                 echo   "<form action='modify.php?id=$id&type=". $type ."' method='POST' id='modifyform'></form>";
                 echo       "<label>Copia il link del video su youtube:</label>
-                            <input type='url' id='path' value=".$pathvideo." name='path' form='modifyform' placeholder='link video' required><br><br>";
+                            <input type='url' id='path' value=\"".$pathvideo."\" name='path' form='modifyform' placeholder='link video' required><br><br>";
             }                      
               
         echo '<!--INIZIO INPUT SWITCH VENDITA-->                
