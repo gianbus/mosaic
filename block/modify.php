@@ -31,8 +31,10 @@
     
     //SE VIDEO, RECUPERO L'ID DEL VIDEO SU YOUTUBE
     if($new_tipo == "video"){
-        parse_str( parse_url( $new_path, PHP_URL_QUERY ), $urlVideoArray );
-        $new_path = $urlVideoArray['v'];
+        //parse_str( parse_url( $new_path, PHP_URL_QUERY ), $urlVideoArray );
+        preg_match("#(?<=v=)[a-zA-Z0-9-]+(?=&)|(?<=v\/)[^&\n]+(?=\?)|(?<=v=)[^&\n]+|(?<=youtu.be/)[^&\n]+#", $new_path, $matches);
+        $new_path = $matches[0];
+        
     }
     
     $new_titolo = mysqli_real_escape_string($mysqli, $_POST['titolo']);

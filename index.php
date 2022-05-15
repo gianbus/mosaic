@@ -84,13 +84,13 @@
                         $path = $row["path"];
                         if($type=="image"){
                             echo "  \t<div class='blocco' id='block-". ($j+$i*12)."'  >\n";
-                                echo "\t\t<img id=img-".($j+$i*12)." src='".$path."'  style=\"width:100%\">\n";
+                                echo "\t\t<img id=img-".($j+$i*12)." src='".$path."'  >\n";
                         }else if($type=="color"){
                             echo "  \t<div class='blocco' id='block-". ($j+$i*12)."' style=\"background-color:$path\"  >\n";
                         }
                         else if( $type=="video"){
                             echo "  \t<div class='blocco' id='block-". ($j+$i*12)."'  >\n";
-                                echo "\t\t<img id=img-".($j+$i*12)." src='http://img.youtube.com/vi/".$path."/default.jpg'  style=\"width:100%\">\n";
+                                echo "\t\t<img id=img-".($j+$i*12)." src='http://img.youtube.com/vi/".$path."/default.jpg' >\n";
                         }
                         echo "\t</div>\n";
                     }

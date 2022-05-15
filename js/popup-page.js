@@ -29,6 +29,7 @@ $(document).ready(function(){
         //loading della query dal database per caricare la popup page
         const xhttp = new XMLHttpRequest();
         xhttp.onload = function() {
+            
             let response =JSON.parse(this.responseText);
             
             price = response.prezzo;
@@ -53,30 +54,43 @@ $(document).ready(function(){
             $("#price-block").text("Prezzo:\n" + price);
             $(".card-title").text(title);
             $(".card-text").text(description);
+            
+            //STAMPA DEL BLOCCO
+            if(type=='color')
+                $('#container-block').html("<div style='height:100%; background-color:"+path+";' class='card-img-top'></div>");
+            else if(type=='image')
+                $('#container-block').html("<img class='card-img-top' src="+ path+"  alt="+ idBlocco+" >");
+            else if(type=='video'){
+                $('#container-block').html("<iframe class='card-img-top' src='https://www.youtube.com/embed/"+ path +"?controls=0'  frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'></iframe>");
+            }
 
+            //SE L'UTENTE E' LOGGATO ALLORA PUO' FARE ACQUISTO O MODIFICA A SECONDA DEL CASO
             let isDisabled= false;
             let userLogged;
             const requestUser = new XMLHttpRequest();
             requestUser.onload = function() {
+                if(this.responseText == '') return;
                 let resp = JSON.parse(this.responseText);
                 userLogged = resp.user;
             }
             requestUser.open('GET',"../mosaic/profile/actual-log.php",false);
             requestUser.send();
-
+            
+            //UTENTE PROPRIETARIO = MODIFICA
             if(owner == userLogged ){
                 $(".logged").text("Modifica");
                 $(".logged").attr("id","_modify");
                 $(".logged").addClass(" _btn");
                 $(".logged").attr("href","./block/modify-selection.php?id="+nBlocco);
             }
+            //UTENTE NON PROPRIETARIO E BLOCCO NON VENDITA = NON IN VENDITA
             else if(onSale==0 && owner != userLogged ){
                 isDisabled = true;
                 $(".logged").text("Non in vendita");
                 $(".logged").attr("id","disabled_buy");
                 $(".logged").removeClass(" _btn");
-                
             }
+            //UTENTE NON PROPRIETARIO E BLOCCO IN VENDITA = COMPRA
             else if(onSale == 1 && owner != userLogged) {
                 $(".logged").text("Compra");
                 $(".logged").attr("id","_buy");
@@ -85,16 +99,6 @@ $(document).ready(function(){
             $(".logged").prop('disabled',isDisabled);
             $(".text-muted").text("Ultimo proprietario: " + owner);
             
-
-            //task richiesta al blocco
-            if(type=='color')
-                $('#container-block').html("<div style='height:100%; background-color:"+path+";' class='card-img-top'></div>");
-            else if(type=='image')
-                $('#container-block').html("<img class='card-img-top' src="+ path+"  alt="+ idBlocco+" >");
-            else if(type=='video'){
-                $('#container-block').html("<iframe class='card-img-top' src='https://www.youtube.com/embed/"+ path +"?controls=0'  frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'></iframe>");
-            }
-           
         }
 
         xhttp.open("GET", "/mosaic/block/block-info.php?id="+nBlocco,false); //|False perchè così aspetto la fine della query per avere il responso su schermo
