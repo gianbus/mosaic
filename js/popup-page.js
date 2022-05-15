@@ -105,7 +105,7 @@ $(document).ready(function(){
         xhttp.send();
 
         //Design, con il seguente codice la pagina è aperta ufficialmente. 
-        z="2";
+        z="3";
         if(window.innerWidth<425) w=w_sm;
         else w=w_max;
         togglePopup(w,z,black_medium);

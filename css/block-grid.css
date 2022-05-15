@@ -79,7 +79,7 @@ img[id|=img]{               /*|Le immagini occupano il massimo dello spazio*/
         transform: scale(1.1,1.1);
         transition: transform 0.75s;
         cursor:pointer;
-        z-index: 4;
+        z-index: 1;
     }
     div[id|=block]:active{
     
