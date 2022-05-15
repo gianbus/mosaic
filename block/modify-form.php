@@ -48,7 +48,7 @@
         echo '<!--COLONNA1 = TITOLO & DESCRIZIONE-->
               <div id = "formCol-1" class = "modifyForm-column">
                 <label for="titolo" >Titolo:</label>
-                <input type="text" id="titolo" name="titolo" form="modifyform" placeholder="Titolo" value='.$titolo.' required><br>
+                <input type="text" id="titolo" name="titolo" form="modifyform" placeholder="Titolo" value="'.$titolo.'" required><br>
                 <label for="descrizione">Descrizione:</label>
                 <textarea rows="4" cols="50" name="descrizione" form="modifyform" placeholder="Descrizione">'.$descrizione.'</textarea><br>
               </div>';
