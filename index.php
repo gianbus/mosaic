@@ -71,7 +71,10 @@
 <!--block-grid-->
     <div id="grid">
     <?php
-        $sql = "SELECT id,tipo,path FROM blocchi";
+        
+        if(isset($_SESSION['utente']) $logged_username = $_SESSION['utente'];
+
+        $sql = "SELECT id,tipo,path,proprietario FROM blocchi";
         $result = $mysqli->query($sql);
         if ($result->num_rows > 0){
             
@@ -80,16 +83,22 @@
                     for ($j=1; $j<=12; $j=$j+1){
                         $row = $result->fetch_assoc();
                         
+                        //VISIONE PERSONALIZZATA BLOCCO DAL PROPRIETARIO
+                        $owner_class = "";
+                        if($logged_username == $row['proprietario']){
+                            $owner_class = "owner_block";
+                        }
+
                         $type =$row["tipo"];
                         $path = $row["path"];
                         if($type=="image"){
-                            echo "  \t<div class='blocco' id='block-". ($j+$i*12)."'  >\n";
+                            echo "  \t<div class='blocco ".$owner_class."' id='block-". ($j+$i*12)."'  >\n";
                                 echo "\t\t<img id=img-".($j+$i*12)." src='".$path."'  >\n";
                         }else if($type=="color"){
-                            echo "  \t<div class='blocco' id='block-". ($j+$i*12)."' style=\"background-color:$path\"  >\n";
+                            echo "  \t<div class='blocco ".$owner_class."' id='block-". ($j+$i*12)."' style=\"background-color:$path\"  >\n";
                         }
                         else if( $type=="video"){
-                            echo "  \t<div class='blocco' id='block-". ($j+$i*12)."'  >\n";
+                            echo "  \t<div class='blocco ".$owner_class."' id='block-". ($j+$i*12)."'  >\n";
                                 echo "\t\t<img id=img-".($j+$i*12)." src='http://img.youtube.com/vi/".$path."/default.jpg' >\n";
                         }
                         echo "\t</div>\n";
