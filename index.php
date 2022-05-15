@@ -71,6 +71,9 @@
 <!--block-grid-->
     <div id="grid">
     <?php
+        
+        if(isset($_SESSION['utente']) $logged_username = $_SESSION['utente'];
+
         $sql = "SELECT id,tipo,path,proprietario FROM blocchi";
         $result = $mysqli->query($sql);
         if ($result->num_rows > 0){
@@ -82,7 +85,7 @@
                         
                         //VISIONE PERSONALIZZATA BLOCCO DAL PROPRIETARIO
                         $owner_class = "";
-                        if(isset($_SESSION['utente']) && $_SESSION['utente'] == $row['proprietario']){
+                        if($logged_username == $row['proprietario']){
                             $owner_class = "owner_block";
                         }
 
