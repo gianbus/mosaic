@@ -28,7 +28,7 @@ $(document).ready(function(){
 
                 //QUANDO DECIDO DI NON METTERE IN VENDITA UN BLOCCO FACCIO SCOMPARIRE LO SLIDER
                 let onSaleSwitch = document.getElementById("onSale");
-                if(!onSaleSwitch.checked) $("#onSale").hide();
+                if(!onSaleSwitch.checked) $("#ifOnSale").hide();
 
                 onSaleSwitch.addEventListener("change",function(){
                     if(!onSaleSwitch.checked) $("#ifOnSale").hide();
