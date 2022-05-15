@@ -36,7 +36,7 @@
             <div class="card  h-100" >
                 <a href="#" class="closebtn carad-title "  >&times;</a>
                 <div id="container-block" class="pe-3 pb-3 ps-3 "></div>
-                <div class="card-body p-3" style="height: fit-content; display: flex;flex-direction: column; " >
+                <div class="card-body p-3"  >
                     <h5 class="card-title ">Titolo fac-simile</h5>
                     <p class="card-text" style="flex: 2 1 0%">Fac-simile </p>
                     <div class = "card-market">
@@ -50,7 +50,7 @@
                                     echo "\t\t\t\t\t\t<a href='./login' class='not-logged login _btn '>Login</a>";
                                 }
                                 else {
-                                    echo "\t\t\t\t\t\t<button class='logged'>Compra</button>";
+                                    echo "\t\t\t\t\t\t<a href ='#' class='logged'>Compra</a>";
                                 }
                             ?>
                         </div>
@@ -84,13 +84,13 @@
                         $path = $row["path"];
                         if($type=="image"){
                             echo "  \t<div class='blocco' id='block-". ($j+$i*12)."'  >\n";
-                                echo "\t\t<img id=img-".($j+$i*12)." src=$path  style=\"width:100%\">\n";
+                                echo "\t\t<img id=img-".($j+$i*12)." src='".$path."'  >\n";
                         }else if($type=="color"){
                             echo "  \t<div class='blocco' id='block-". ($j+$i*12)."' style=\"background-color:$path\"  >\n";
                         }
-                        else if($type=="video"){
-                            echo "  \t<div class='blocco' id='block-". ($j+$i*12)."' style=\"background-color:$path\"  >\n";
-                            echo "\t\t<iframe id=video-".($j+$i*12)." src=$path  width=100%\"></iframe>\n";
+                        else if( $type=="video"){
+                            echo "  \t<div class='blocco' id='block-". ($j+$i*12)."'  >\n";
+                                echo "\t\t<img id=img-".($j+$i*12)." src='http://img.youtube.com/vi/".$path."/default.jpg' >\n";
                         }
                         echo "\t</div>\n";
                     }

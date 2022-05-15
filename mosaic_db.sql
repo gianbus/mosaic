@@ -369,8 +369,8 @@ CREATE TABLE `utenti` (
 --
 
 INSERT INTO `utenti` (`username`, `nome`, `cognome`, `email`, `password`, `punti`, `verificato`, `codiceconferma`) VALUES
-('mosaic', 'nome', 'cognome', 'mosaic@ltw-mosaic.it', 'e7cf3ef4f17c3999a94f2c6f612e8a888e5b1026878e4e19398b23bd38ec221a', 100, 1, 'bacaa10df2fa2174abad8feb187dc8e0');
-
+('mosaic', 'nome', 'cognome', 'mosaic@ltw-mosaic.it', 'e7cf3ef4f17c3999a94f2c6f612e8a888e5b1026878e4e19398b23bd38ec221a', 100, 1, 'bacaa10df2fa2174abad8feb187dc8e0'),
+('vale', 'valerio', 'bosco', 'valerio@ltw-mosaic.it', 'e7cf3ef4f17c3999a94f2c6f612e8a888e5b1026878e4e19398b23bd38ec221a', 100, 1, 'bacaa10df2fa2174abad8feb187dc8e0');
 --
 -- Indici per le tabelle scaricate
 --

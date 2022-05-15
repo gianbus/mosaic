@@ -7,6 +7,12 @@ body{
 }
 
 
+img[id|=img]{               /*|Le immagini occupano il massimo dello spazio*/
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
 div[id|=block]{
     background-color: rgb(219, 92, 92);
 
