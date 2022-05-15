@@ -43,7 +43,7 @@
   text-align: end;
   color: #818181;
 
-  flex: 1%;
+  flex: 0 1 1%;
 }
 
 /*| More deep in details*/
@@ -58,7 +58,9 @@
   display: flex;
   flex-direction: column;
 }
-
+#container-block{
+  flex: 1 1 0%;
+}
 
 .card-img-top{
   margin: 0px auto 0px;
@@ -197,7 +199,7 @@ height: 100%;
 }
 
 .card-footer{
-  flex: 4%;
+  flex: 0 1 4%;
 }
 
 
