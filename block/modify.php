@@ -8,7 +8,6 @@
     $richiesta_valida = 0;
     $modificato = 0;
     $err = 0;
-
     $proprietario = "";
     $tipo = "";
     $path = "";
@@ -24,17 +23,13 @@
 
     //RECUPERO I VALORI DEL FORM
     $new_tipo = mysqli_real_escape_string($mysqli, $_GET['type']);
-    if($new_tipo == "image") 
-        $new_path = $_FILES["path"]["name"];
-    else 
-        $new_path = mysqli_real_escape_string($mysqli, $_POST['path']);
+    if($new_tipo == "image") $new_path = $_FILES["path"]["name"];
+    else $new_path = mysqli_real_escape_string($mysqli, $_POST['path']);
     
     //SE VIDEO, RECUPERO L'ID DEL VIDEO SU YOUTUBE
     if($new_tipo == "video"){
-        //parse_str( parse_url( $new_path, PHP_URL_QUERY ), $urlVideoArray );
         preg_match("#(?<=v=)[a-zA-Z0-9-]+(?=&)|(?<=v\/)[^&\n]+(?=\?)|(?<=v=)[^&\n]+|(?<=youtu.be/)[^&\n]+#", $new_path, $matches);
         $new_path = $matches[0];
-        
     }
     
     $new_titolo = mysqli_real_escape_string($mysqli, $_POST['titolo']);
@@ -42,8 +37,7 @@
     
     //DATO CHE FACCIO USO DELLA CHECKBOX DEVO VERIFICARE CHE IL BLOCCO SIA VOLUTO IN VENDITA
     $new_invendita = 0;
-    if(isset($_POST['invendita'])) 
-        $new_invendita = 1;
+    if(isset($_POST['invendita'])) $new_invendita = 1;
     $new_price = intval(mysqli_real_escape_string($mysqli, $_POST['price']));
 
     //SE LE VARIABILI SONO PRESENTI
@@ -92,12 +86,11 @@
                     if($imageExt != "jpg" && $imageExt != "png" && $imageExt != "jpeg" && $imageExt != "gif" ) 
                         $uploadReady = 0;
                     
-                   
                     //VERIFICO CHE uploadReady SIA 1/0 A SECONDA DEGLI ERRORI
                     if ($uploadReady == 0) {
                         $err=2;
                     
-                    } else {
+                    }else {
                         if(move_uploaded_file($_FILES["path"]["tmp_name"], $pathDaCambiare . $new_path)){//VERIFICO CHE IL FILE SIA CARICATO EFFETTIVAMENTE
                             $err=0;
                         }else{
@@ -174,7 +167,8 @@
     $resp->invendita = $invendita;
     $resp->price = $price;
     echo json_encode($resp);
-    header("Refresh: 2; URL= ../index.php"); //A seconda di come implementiamo profile va levata o meno questa funzione
+
+    //header("Refresh: 2; URL= ../index.php"); //A seconda di come implementiamo profile va levata o meno questa funzione
 
     /*STRUTTURA RISPOSTA JSON
     echo '{
