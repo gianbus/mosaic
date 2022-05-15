@@ -71,8 +71,8 @@
 <!--block-grid-->
     <div id="grid">
     <?php
-        
-        if(isset($_SESSION['utente']) $logged_username = $_SESSION['utente'];
+        $logged_username ="";
+        if(isset($_SESSION['utente'])) $logged_username = $_SESSION['utente'];
 
         $sql = "SELECT id,tipo,path,proprietario FROM blocchi";
         $result = $mysqli->query($sql);

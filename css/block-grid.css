@@ -5,12 +5,14 @@ body{
     background-color: rgb(255, 255, 255);
     overflow-x: hidden;
 }
+#grid {
+    background-color: #1eff00;
+}
 
-
-img[id|=img]{               /*|Le immagini occupano il massimo dello spazio*/
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+div[class|=row]{
+    
+    display: flex;         
+    flex-wrap: wrap;  
 }
 
 div[id|=block]{
@@ -28,12 +30,23 @@ div[id|=block]{
     
 }
 
-div[class|=row]{
-    
-    display: flex;         
-    flex-wrap: wrap;  
+
+img[id|=img]{               /*|Le immagini occupano il massimo dello spazio*/
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
+.owner_block{
+    border: 1px solid #1eff00 !important;
+    
+    -webkit-mask-image:url(../assets/logos/mask.png);
+    mask-image: url(../assets/logos/mask.png);
+    -webkit-mask-size: 100%;
+    mask-size: 100%;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;  
+}
 /*Scrollbar personalizzata, magari da utilizzare*/
 
 ::-webkit-scrollbar {
@@ -66,7 +79,7 @@ div[class|=row]{
         transform: scale(1.1,1.1);
         transition: transform 0.75s;
         cursor:pointer;
-       
+        z-index: 4;
     }
     div[id|=block]:active{
     
@@ -75,5 +88,14 @@ div[class|=row]{
         background-color: rgb(63, 44, 44);
        
     }
-    
+    .owner_block:hover{
+        border: 1px solid #1eff00 !important;
+        
+        -webkit-mask-image:url(../assets/logos/mask.png);
+        mask-image: url(../assets/logos/mask.png);
+        -webkit-mask-size: 150%;
+        mask-size: 150%;
+        -webkit-mask-repeat: no-repeat;
+        mask-repeat: no-repeat;  
+    }
 }
