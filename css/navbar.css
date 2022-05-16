@@ -7,7 +7,6 @@
     font-weight: 300;
     background-color: #161b22;
     align-items: center;
-
    
 }
 
@@ -24,6 +23,7 @@
 }
 #logo > img{
     max-width:100%;
+    padding:5%;
 }
 
 .nav-btn{

@@ -3,11 +3,11 @@
     <div id="navbar">
         <div class="nav-menu nav-menu-resp ">
             <div id="logo">
-                <img style="padding:5%;" src="/mosaic/assets/logos/logo2.png">
+                <img src="/mosaic/assets/logos/logo2.png">
             </div>
             <span style="flex: 2 2 auto; "></span>
             <div id="home" >
-                <a  class="nav-btn" href="/" >HOME</a>
+                <a class="nav-btn" href="/" >HOME</a>
             </div>  
             
             <div id="profile" >
