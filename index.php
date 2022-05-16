@@ -34,7 +34,7 @@
     <div id="pop-block">
         <div  class="info-pop  text-white ">
             <div class="card  h-100" >
-                <a href="#" class="closebtn carad-title "  >&times;</a>
+                <span  class="closebtn carad-title "  >&times;</span>
                 <div id="container-block" class="pe-3 pb-3 ps-3 "></div>
                 <div class="card-body p-3"  >
                     <h5 class="card-title ">Titolo fac-simile</h5>

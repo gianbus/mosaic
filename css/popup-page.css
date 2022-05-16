@@ -34,16 +34,16 @@
   
 }
 
-.info-pop a:hover {
-  color: #f1f1f1;
-}
-
 .info-pop .closebtn {  
   font-size: 36px;
   text-align: end;
   color: #818181;
 
   flex: 0 1 1%;
+}
+.info-pop .closebtn:hover{
+  color: #f1f1f1;
+  cursor: pointer;
 }
 
 /*| More deep in details*/

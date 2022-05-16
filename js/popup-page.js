@@ -111,6 +111,7 @@ $(document).ready(function(){
         togglePopup(w,z,black_medium);
         $("#grid").toggleClass("filter");
         $("#navbar").toggleClass("filter");
+        $(".closebtn").show();                  //Per evitare che si blurri per doppio click su barra della x, scoperta fatta a caso
         blur=!blur;
     
         if(window.innerWidth<425) $(".info-pop").css("top","25%");
@@ -225,6 +226,7 @@ $(document).ready(function(){
         $("#pop-block").animate({zIndex:z},1000);
         $("#grid").toggleClass("filter");
         $("#navbar").toggleClass("filter");
+        $(".closebtn").hide();
 
         $('#container-block').html(''); //NECESSARIO AFFINCHE' NEL CASO CI SIA UN VIDEO VIENE FERMATO E CHIUSO
         
