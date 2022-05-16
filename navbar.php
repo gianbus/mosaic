@@ -13,7 +13,8 @@
                       echo "\t\t\t\t\t\t<a class='signup nav-btn' href='/registrazione' >_sign up</a>\n";
                       echo "\t\t\t\t\t\t<a class='login nav-btn' href='/login' >_login</a>\n";
                     }else{
-                      echo "\t\t\t\t\t\t".$_SESSION['punti']."</span>\n";
+                        echo "\t\t\t\t\t\t<span id='points' class=' nav-btn'>".$_SESSION['punti']." <i class=\"fa fa-money\" aria-hidden=\"true\"></i></span>\n";
+
                       echo "\t\t\t\t\t\t<a id='logged-username' class=' nav-btn' href='/profile' >".$_SESSION['utente']."</a>\n";
                       echo "\t\t\t\t\t\t<a class='login nav-btn' href='/logout' >_logout</a>\n";
                     }

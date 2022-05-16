@@ -47,7 +47,6 @@
     flex: 0 1 auto;
     display: flex;
     flex-wrap: nowrap;
-    align-items: center;
 }
 
 #profile > i{

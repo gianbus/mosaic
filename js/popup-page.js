@@ -159,7 +159,7 @@ $(document).ready(function(){
                 
         const xhttp = new XMLHttpRequest();
         xhttp.onload = function() {
-            console.log(this.responseText);
+            
             let isBought =JSON.parse(this.responseText);
 
             let validRequest = isBought.richiesta_valida; 
@@ -177,8 +177,9 @@ $(document).ready(function(){
                 $(".logged").prop('disabled',false);
                 $(".logged").attr("href","./block/modify-selection.php?id="+nBlocco);
                 $(".text-muted").text("Ultimo proprietario: " + user);
-                $("#points").text(new_wallet);
+                $("#points").html(new_wallet + "\t<i class=\"fa fa-money\" aria-hidden=\"true\"></i>");
                 $("#price-block").text("Prezzo:\n--");
+                $("#block-"+ id ).addClass("owner_block");
             }
             else if(err==1){
                 $(".logged").text("Fondi insufficienti");
