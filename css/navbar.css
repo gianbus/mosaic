@@ -138,13 +138,13 @@
         font-size: 7vw;
         
         
-        display: none;
+        
         
         
     }
     
     .visible{
-        display: block;
+        display: flex !important;
     }
 
     .nav-menu-resp {
@@ -156,7 +156,17 @@
     }
 
     #logo{
-        display: none;
+        display: block;
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 10vh;
+        width: 100%;
+        background-color: #161b22;
+    }
+    #logo > img{
+        max-height: 10vh;
+        max-width: 100%;
     }
 
     #home{
@@ -165,6 +175,7 @@
     #profile {
         flex-flow: column nowrap;
         width: 100%;
+        display: none;
     }
     .nav-btn{
         margin: 2px 0px;

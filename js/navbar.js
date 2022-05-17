@@ -4,7 +4,7 @@ const pathURL = "http://localhost/mosaic/profile/actual-log.php";
 $(document).ready(function(){
     $("#dropup-btn").click(function(){
         $("#dropup-btn").toggleClass("change");
-        $(".nav-menu-resp").toggleClass("visible");
+        $("#profile").toggleClass("visible");
     });
 
 

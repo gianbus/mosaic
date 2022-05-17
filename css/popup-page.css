@@ -38,7 +38,7 @@
   font-size: 36px;
   text-align: end;
   color: #818181;
-
+  margin-right: 16px;
   flex: 0 1 1%;
 }
 .info-pop .closebtn:hover{
@@ -258,7 +258,7 @@ height: 100%;
 
   .info-pop .closebtn{
     font-size: 15px;
-    padding: 8px;
+    padding: 8px 0px;
   }
 
 }
