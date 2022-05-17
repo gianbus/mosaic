@@ -11,15 +11,24 @@ function cancelPurchase(buyButton){
 }
 
 $(document).ready(function(){
+    let width_smartphone = 425;
+    let height_smartphone = 425;
+    
+    let width_tablet = 628;
+    let height_tablet = 628;
+    //LE VARIABILI SOPRA DEFINITE NON SONO UTILIZZATE TUTTE AL MOMENTO. QUELLE CHE NON SI RIVELERANNO UTILI VERRANNO CANCELLATE
+    
+
     let w="0px"                                     //|Larghezza della popup page settata a 0
     let z="-1;"                                     //|La popup page in principio è sotto la griglia
-    let w_max="35%";                                //|popup page larghezza massima solo quando aperta da schermo desktop
+    let w_max="40%";                                //|popup page larghezza massima solo quando aperta da schermo desktop
     let w_sm="97%"                                  //|popup page larghezza minima solo quando aperta da schermo cellulare
     let black_medium=" rgba(18, 18, 18, 0.500)";    //|colore di sfondo quando la popup page sale in primo piano
     let blur=false;
 
     
     var nBlocco,price ;
+
     //Quando apro un blocco 
     $("div[id|=block]").click(function(){           //|Serve ad attivare la popup page per ogni blocco
         let idBlocco = $(this).attr("id");
@@ -106,25 +115,24 @@ $(document).ready(function(){
 
         //Design, con il seguente codice la pagina è aperta ufficialmente. 
         z="3";
-        if(window.innerWidth<425) w=w_sm;
+        if(window.innerWidth<=width_smartphone) w=w_sm;
         else w=w_max;
         togglePopup(w,z,black_medium);
         $("#grid").toggleClass("filter");
-        $("#navbar").toggleClass("filter");
+        if(window.innerWidth<=width_smartphone) 
+            $("#logo").toggleClass("filter")
+        else
+            $("#navbar").toggleClass("filter");
         $(".closebtn").show();                  //Per evitare che si blurri per doppio click su barra della x, scoperta fatta a caso
         blur=!blur;
     
-        if(window.innerWidth<425) $(".info-pop").css("top","25%");
+        if(window.innerWidth<=width_smartphone) $(".info-pop").css("top","25%");
     });
 
     var buyButton;
     $(".logged").click(function(){
         let whatToDo = $(".logged").attr("id");
         buyButton =  $(".logged").text() ;
-        /*if(whatToDo=="_modify"){
-            console.log("Hai premuto modifica");
-            return;
-        }*/
         if(whatToDo=="_buy"){
             $(".logged").html("<i class='fa fa-spinner fa-spin'></i>Loading");
             $(".logged").prop('disabled',true);
@@ -219,34 +227,46 @@ $(document).ready(function(){
 
     //Quando chiudo blocco
     $(".closebtn").click(function(){ 
-        w="0px";
+        //PER CHIUSURA A SECONDA DEGLI SCHERMI DEFINISCO LO SLIDE VERSO DX CIOE' W=0 OPPURE LO SLIDE VERSO L'ALTO OVVERO W=97%
+        if(window.innerWidth>width_smartphone) w="0px";
+        else w="97%";
         z="-1";
         $(".info-pop").css("width",w);
         $("#pop-block").css("background-color"," transparent");
         $("#pop-block").animate({zIndex:z},1000);
         $("#grid").toggleClass("filter");
-        $("#navbar").toggleClass("filter");
+
+        //BLURRO SOLO IL LOGO O L'INTERA NAVBAR A SECONDA DELLO SCHERMO SU CUI MI TROVO
+        if(window.innerWidth<=width_smartphone) 
+            $("#logo").toggleClass("filter")
+        else 
+            $("#navbar").toggleClass("filter");
+        
         $(".closebtn").hide();
 
         $('#container-block').html(''); //NECESSARIO AFFINCHE' NEL CASO CI SIA UN VIDEO VIENE FERMATO E CHIUSO
         
-        if(window.innerWidth<425) $(".info-pop").css("top","100%");
+        if(window.innerWidth<=width_smartphone) $(".info-pop").css("top","100%");
         blur=!blur;
     });
 
     //Responsivess
     $(window).resize(function(){                //|Agisce nel caso vi sia un resize, e quindi per evitare che la width si mantenga al w_sm% agisce 
-        if((window.innerWidth<425  && w==w_sm) ||  (window.innerWidth>=425 && w==w_max)){
+        if((window.innerWidth<=width_smartphone  && w==w_sm) ||  (window.innerWidth>width_smartphone && w==w_max)){
             return
         }
-        w="0px";
+        if(window.innerWidth>width_smartphone)w="0px";
+        else w="97%";
         z="-1";
-        if(window.innerWidth>425) $(".info-pop").css("top","");
+        if(window.innerWidth>width_smartphone) $(".info-pop").css("top","");
         togglePopup(w,z,"transparent");
         cancelPurchase(buyButton);
         if(blur) {
             $("#grid").toggleClass("filter");
-            $("#navbar").toggleClass("filter")
+            if(window.innerWidth>width_smartphone) 
+                $("#logo").toggleClass("filter")
+            else 
+                $("#navbar").toggleClass("filter")
             blur=!blur;
         }
     });
