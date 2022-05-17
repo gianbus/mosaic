@@ -99,7 +99,7 @@
                         }
                         else if( $type=="video"){
                             echo "  \t<div class='blocco ".$owner_class."' id='block-". ($j+$i*12)."'  >\n";
-                                echo "\t\t<img id=img-".($j+$i*12)." src='http://img.youtube.com/vi/".$path."/default.jpg' >\n";
+                                echo "\t\t<img id=img-".($j+$i*12)." src='https://img.youtube.com/vi/".$path."/default.jpg' >\n";
                         }
                         echo "\t</div>\n";
                     }
