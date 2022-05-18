@@ -10,16 +10,13 @@
    
 }
 
-
 .nav-menu-resp {
-    
     display: flex;
     flex-flow: row nowrap;
 }
 
 #logo {
     flex: 1 2 0%;
-    
 }
 
 #logo > img{
@@ -41,7 +38,6 @@
     /*box-shadow: 2px 2px 5px 0px #4152634d;*/
     color: rgb(255, 255, 255);
 }
-
 
 #profile {
     flex: 0 1 auto;
@@ -87,6 +83,7 @@
     background-color: #4b5561;
     color: aliceblue;
 }
+
 /*--------items da cellulare------------*/
 #dropup-btn {
     cursor: pointer;
@@ -187,5 +184,3 @@
         background-color: #24292f;
     }
 }
-
-
