@@ -64,7 +64,7 @@
 
                 //SE IL CAMPO TIPO E' IMAGE FACCIO L'UPLOAD
                 if($new_tipo=="image"){
-                    $target_dir = "assets/uploads/";
+                    $target_dir = "../assets/uploads/";
                     $uploadReady = 1;
                     $imageExt = strtolower(pathinfo(basename($_FILES["path"]["name"]),PATHINFO_EXTENSION));
                     $new_path =  $target_dir . "block-" . $id . ".". $imageExt; //QUESTO SARA' IL NOME DEL FILE UNA VOLTA SALVATO NELLA CARTELLA UPLOADS 
@@ -88,13 +88,13 @@
                     
                     //VERIFICO CHE uploadReady SIA 1/0 A SECONDA DEGLI ERRORI
                     if ($uploadReady == 0) {
-                        $err=2;
+                        $err=3;
                     
                     }else {
                         if(move_uploaded_file($_FILES["path"]["tmp_name"], $pathDaCambiare . $new_path)){//VERIFICO CHE IL FILE SIA CARICATO EFFETTIVAMENTE
                             $err=0;
                         }else{
-                            $err=2;
+                            $err=4;
                         }
                     }
                 }
@@ -154,6 +154,7 @@
     //err=0 nessun errore oppure richiesta non valida
     //err=1 il blocco non è tuo
     //err=2 altro errore - possibile errore di query
+    //err=3 altro errore upload
     $resp = new stdClass();
     $resp->richiesta_valida = $richiesta_valida;
     $resp->modificato = $modificato;
