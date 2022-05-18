@@ -38,8 +38,9 @@ body{
 }
 
 #footer-logo img{
+    max-width: 35%;
     margin-top: 10px;
-    flex-grow: 2;
+    flex: 2 2 auto;
 }
 
 #footer-logo img:hover{
