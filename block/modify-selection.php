@@ -25,7 +25,7 @@
         <h2 style="padding-top:1vw;">Modifica Blocco</h2>
         <div id = "modify-form">
             <label for="chosen-content" style="display:inline">Scegli il contenuto del blocco:</label>
-            <select name="chosen-content" id="chosen-content" >
+            <select name="chosen-content" id="chosen-content" class="custom-select my-1 mr-sm-2" >
                 <option selected disabled value="none">None</option>
                 <option value="image">Immagine/GIF</option>
                 <option value="color">Colore</option>
