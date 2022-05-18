@@ -1,8 +1,5 @@
 <?php
     include '../config.php';
-    //---VANNO ASSOLUTAMENTE CAMBIATI I PATH PER SALVARE LE IMMAGINI
-    $pathDaCambiare = "";
-
 
     //INIZIALIZZO I VALORI
     $richiesta_valida = 0;
@@ -20,7 +17,6 @@
     $id = mysqli_real_escape_string($mysqli, $_GET['id']);
     $username = $_SESSION['utente'];
     
-
     //RECUPERO I VALORI DEL FORM
     $new_tipo = mysqli_real_escape_string($mysqli, $_GET['type']);
     if($new_tipo == "image") $new_path = $_FILES["path"]["name"];
@@ -64,7 +60,7 @@
 
                 //SE IL CAMPO TIPO E' IMAGE FACCIO L'UPLOAD
                 if($new_tipo=="image"){
-                    $target_dir = "../assets/uploads/";
+                    $target_dir = "assets/uploads/";
                     $uploadReady = 1;
                     $imageExt = strtolower(pathinfo(basename($_FILES["path"]["name"]),PATHINFO_EXTENSION));
                     $new_path =  $target_dir . "block-" . $id . ".". $imageExt; //QUESTO SARA' IL NOME DEL FILE UNA VOLTA SALVATO NELLA CARTELLA UPLOADS 
@@ -78,12 +74,8 @@
                             $uploadReady = 0;
                     }
                     
-                    //VERIFICO GRANDEZZA IMMAGINE
-                    if ($_FILES["path"]["size"] > 500000000) 
-                        $uploadReady = 0;
-                    
-                    //VERIFICO IL TIPO DI ESTESIONE
-                    if($imageExt != "jpg" && $imageExt != "png" && $imageExt != "jpeg" && $imageExt != "gif" ) 
+                    //VERIFICO GRANDEZZA IMMAGINE E IL TIPO DI ESTESIONE
+                    if ($_FILES["path"]["size"] > 500000000 || ($imageExt != "jpg" && $imageExt != "png" && $imageExt != "jpeg" && $imageExt != "gif")) 
                         $uploadReady = 0;
                     
                     //VERIFICO CHE uploadReady SIA 1/0 A SECONDA DEGLI ERRORI
@@ -91,7 +83,7 @@
                         $err=3;
                     
                     }else {
-                        if(move_uploaded_file($_FILES["path"]["tmp_name"], $pathDaCambiare . $new_path)){//VERIFICO CHE IL FILE SIA CARICATO EFFETTIVAMENTE
+                        if(move_uploaded_file($_FILES["path"]["tmp_name"], '../'.$new_path)){//VERIFICO CHE IL FILE SIA CARICATO EFFETTIVAMENTE
                             $err=0;
                         }else{
                             $err=4;
