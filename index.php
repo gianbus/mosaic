@@ -114,7 +114,6 @@
 		  include './footer.php';
     ?>    
     
-    <script src="js/navbar.js"></script>
     <script src="js/popup-page.js"></script>
 
     </body>
