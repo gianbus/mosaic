@@ -78,7 +78,7 @@
                 
                 <div>
                     <input type="checkbox" name="checktermini" id="checktermini">
-                    <label style="display:inline" for="checktermini">Accetto i <a href="termini-servizio.html"><strong>Termini di servizio</strong></a> di Mosaic</label><br><br>
+                    <label style="display:inline" for="checktermini">Accetto i <a href="termini-servizio.php"><strong>Termini di servizio</strong></a> di Mosaic</label><br><br>
                     <small></small>
 
                     <input class="buttonSubmit" type="submit" value="Registrati">
