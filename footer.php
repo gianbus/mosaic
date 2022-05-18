@@ -23,7 +23,7 @@
 <script src="https://ltw-mosaic.it/bootstrap/js/bootstrap.bundle.min.js"></script>
 
 <!-- Navbar JS -->
-<script src="js/navbar.js"></script>
+<script src="https://ltw-mosaic.it/bootstrap/js/navbar.js"></script>
 
 <?php
     $mysqli->close();
