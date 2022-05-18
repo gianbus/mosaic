@@ -1,7 +1,7 @@
 <?php
     include '../config.php';
     //---VANNO ASSOLUTAMENTE CAMBIATI I PATH PER SALVARE LE IMMAGINI
-    $pathDaCambiare = "C:/xampp/htdocs/mosaic/";
+    $pathDaCambiare = "";
 
 
     //INIZIALIZZO I VALORI
