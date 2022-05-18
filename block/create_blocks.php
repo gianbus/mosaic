@@ -10,7 +10,7 @@
     $MIN_BLOCK = 0;
     $MAX_BLOCK = 0;
 
-    include './config.php';
+    include 'navbar.php';
 
     if(isset($_SESSION['utente']) && $_SESSION['utente']==mosaic){
         try{
@@ -29,5 +29,5 @@
         }
     }
 
-    include './footer.php';
+    include 'footer.php';
 ?>

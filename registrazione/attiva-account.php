@@ -19,7 +19,7 @@
         <h2>Attivazione account</h2>
 
         <?php
-			include '../config.php';
+			include '../navbar.php';
 
             //RECUPERO IL PASSKEY PASSATO TRAMITE GET RIPULENDOLO DA POSSIBILI CARATTERI PERIOCOLOSI
 			$passkey = mysqli_real_escape_string($mysqli, $_GET['passkey']);

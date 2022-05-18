@@ -53,6 +53,7 @@
                 <textarea rows="4" cols="50" name="descrizione" form="modifyform" placeholder="Descrizione">'.$descrizione.'</textarea><br>
               </div>';
 
+        
     ?>
 
 
@@ -96,6 +97,8 @@
                 <!--SWITCH-->
             </div>                
             <br>';
+
+        $mysqli->close();
         ?>           
     </div>      
 

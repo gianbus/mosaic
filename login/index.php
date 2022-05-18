@@ -14,15 +14,12 @@
 <body>
     <?php
         include '../navbar.php';
+        if(isset($_SESSION['utente'])) header( "refresh:0;url=../index.php" );
     ?>
     <div id="container" class="container-fluid">
         
         <div id="divlogin">
             <h2>Login</h2>
-            <?php
-                include '../config.php';
-                if(isset($_SESSION['utente'])) header( "refresh:0;url=../index.php" );
-            ?>
 
             <form action="logger.php" method="POST" id="formlogin"> 
 

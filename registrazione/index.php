@@ -14,15 +14,12 @@
 <body>
     <?php
         include '../navbar.php';
+        if(isset($_SESSION['utente'])) header("refresh:0;url=../index.php");
     ?>
     <div id="container" class="container-fluid">
 
         <div id="divregistrazione">
             
-            <?php
-                include '../config.php';
-                if(isset($_SESSION['utente'])) header("refresh:0;url=../index.php");
-            ?>
             <form action="registar.php" method="POST" id="formregistrazione" onsubmit="return verificaForm()"> 
                 
                 <div class = "campoform">

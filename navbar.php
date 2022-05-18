@@ -1,3 +1,6 @@
+<?php
+    include 'config.php';
+?>
 
 <!--navbar-->
     <div id="navbar">

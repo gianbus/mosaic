@@ -15,7 +15,6 @@
 </head>
 <body>
     <?php
-        include '../config.php';
         include '../navbar.php';
         if(!isset($_SESSION['utente'])) header( "refresh:0;url=../index.php" );
         $id = $_GET["id"];

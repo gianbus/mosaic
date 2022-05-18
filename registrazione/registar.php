@@ -19,7 +19,7 @@
         <h2>Registrazione</h2>
 
         <?php
-			include '../config.php';
+			include '../navbar.php';
 
 			//RECUPERO I DATI DAL FORM - PULENDO EVENTUALI CARATTERI DI ESCAPE CHE POTREBBERO CAUSARE SQL INJECTION
 			$nome = mysqli_real_escape_string($mysqli, $_POST['nome']);
