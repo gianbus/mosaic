@@ -38,7 +38,6 @@ body{
 #footer{
     background-color: #161b22;
     text-align: center;
-    width: 100%;
     padding: 0;
     margin: 0;
     border-top: 3px solid #06b497;
@@ -48,18 +47,17 @@ body{
     display: flex;
 }
 
-#footer-logo img{
-    max-width: 35%;
+#footer-logo div{
     margin-top: 10px;
-    flex: 2 2 auto;
+    flex: 1 2 0%;
 }
 
-#footer-logo img:hover{
-    cursor: pointer;
+#footer-logo img{
+    max-width: 100%;
 }
 
 #footer-logo span{
-    flex: 2 2 auto;
+    flex: 2 2 0%;
 }
 
 .credits{
@@ -67,6 +65,16 @@ body{
     font-weight: 100;
     padding: 3px 0;
     margin: 0;
-    flex-grow: 2;
 }
 
+@media screen and (max-width: 425px){
+
+    #footer-logo div{
+        margin-top: 10px;
+        flex: 2 2 0%;
+    }
+
+    #footer-logo span{
+        flex: 1 2 0%;
+    }
+}
