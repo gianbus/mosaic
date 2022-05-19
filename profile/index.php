@@ -9,7 +9,6 @@
     <!-- My CSS -->
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/profile.css">
-    
     <title>Mosaic |Profilo</title>
 </head>
 <body>
@@ -55,7 +54,7 @@
                         echo "</div>";
                     }
                 
-                    echo "<div id='info-myblock-". ($id)."'  class='col-5'>";
+                    echo "<div id='info-myblock-". ($id)."'  class='col-3'>";
                     echo "<div>$title</div>";
                     echo "<div>$description</div>";
                     echo "</div>\n";

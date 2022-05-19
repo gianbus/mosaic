@@ -1,5 +1,4 @@
 <!--PAGINA CARICATA ADINAMICAMENTE CON AJAX-->
-<br>
 <div id="divmodificablocco">
 
     <?php
@@ -48,9 +47,9 @@
         echo '<!--COLONNA1 = TITOLO & DESCRIZIONE-->
               <div id = "formCol-1" class = "modifyForm-column">
                 <label for="titolo" >Titolo:</label>
-                <input type="text" id="titolo" name="titolo" form="modifyform" placeholder="Titolo" value="'.$titolo.'" required><br>
+                <input type="text" id="titolo" name="titolo" form="modifyform-'.$id.'" placeholder="Titolo" value="'.$titolo.'" required>
                 <label for="descrizione">Descrizione:</label>
-                <textarea rows="4" cols="50" name="descrizione" form="modifyform" placeholder="Descrizione">'.$descrizione.'</textarea><br>
+                <textarea rows="4" cols="50" name="descrizione" form="modifyform-'.$id.'" placeholder="Descrizione">'.$descrizione.'</textarea>
               </div>';
 
         
@@ -64,26 +63,26 @@
 
             //CAMBIO IL COMPORTAMENTO DI MODIFICA A SECONDA DELL'INPUT
             if($type == "color"){
-                echo   "<form action='modify.php?id=$id&type=". $type ."' method='POST' id='modifyform'></form>";
+                echo   "<form action='/mosaic/block/modify.php?id=$id&type=". $type ."' method='POST' id='modifyform-$id'></form>";
                 echo       "<label style=' display:inline'>Scegli il colore:</label>
-                            <input type='color' id='path' value=\"".$pathcolor."\" name='path' form='modifyform' required><br><br>";
+                            <input type='color' id='path' value=\"".$pathcolor."\" name='path' form='modifyform-$id' required><br><br>";
             }
             //A CAUSA DELL'UPLOAD SONO COSTRETTO A STAMPARE DUE FORM DIFFERENTI (QUESTO USA UN ENCTYPE DIFFERENTE)
             else if($type == "image"){
-                echo   "<form action='modify.php?id=$id&type=". $type ."' method='POST' id='modifyform' enctype='multipart/form-data'></form>";
+                echo   "<form action='/mosaic/block/modify.php?id=$id&type=". $type ."' method='POST' id='modifyform-$id' enctype='multipart/form-data'></form>";
                 echo       "<label >Scegli la tua immagine:</label>
-                            <input type='file' id='path' value=\"".$pathimg."\" name='path' form='modifyform' required><br><br>";
+                            <input type='file' id='path' value=\"".$pathimg."\" name='path' form='modifyform-$id' required><br><br>";
             }
             else if($type == "video"){
-                echo   "<form action='modify.php?id=$id&type=". $type ."' method='POST' id='modifyform'></form>";
+                echo   "<form action='/mosaic/block/modify.php?id=$id&type=". $type ."' method='POST' id='modifyform-$id'></form>";
                 echo       "<label>Copia il link del video su youtube:</label>
-                            <input type='url' id='path' value=\"".$pathvideo."\" name='path' form='modifyform' placeholder='link video' required><br><br>";
+                            <input type='url' id='path' value=\"".$pathvideo."\" name='path' form='modifyform-$id' placeholder='link video' required><br><br>";
             }                      
               
         echo '<!--INIZIO INPUT SWITCH VENDITA-->                
             <label style="margin-bottom:0; display:inline" >Vuoi metterlo in vendita?</label>
             <label class="switch"  >
-                <input id ="onSale" type="checkbox" name="invendita" form="modifyform" '.$check.'>
+                <input id ="onSale" type="checkbox" name="invendita" form="modifyform-'.$id.'" '.$check.'>
                 <span class="slider round"></span>
             </label>               
             <!--FINE INPUT SWITCH VENDITA-->
@@ -92,15 +91,17 @@
             <div id = "ifOnSale">
                 <!--SWITCH-->
                 <label for="price-slider" style="margin:0px auto;">Prezzo:</label> 
-                <input type="range" id="price-slider" style="padding:0px;" name="price" min="0" max="100"  value ="'.$prezzoattuale.'" form="modifyform">
+                <input type="range" id="price-slider" style="padding:0px;" name="price" min="0" max="100"  value ="'.$prezzoattuale.'" form="modifyform-'.$id.'">
                 <span id="show-price"></span>
                 <!--SWITCH-->
             </div>                
-            <br>';
+            ';
 
         $mysqli->close();
         ?>           
     </div>      
 
 </div>
-<input id="submit-modify" type="submit" value="Modifica" form="modifyform" ><br><br><br>
+<?php
+    echo '<input id="submit-modify" type="submit" value="Modifica" form="modifyform-'.$id.'" >'
+?>
