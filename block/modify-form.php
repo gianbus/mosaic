@@ -47,7 +47,7 @@
         echo '<!--COLONNA1 = TITOLO & DESCRIZIONE-->
               <div id = "formCol-1" class = "modifyForm-column">
                 <label for="titolo" >Titolo:</label>
-                <input type="text" id="titolo" name="titolo" form="modifyform-'.$id.'" placeholder="Titolo" value="'.$titolo.'" required>
+                <input type="text" id="titolo" name="titolo" form="modifyform-'.$id.'" placeholder="Titolo" value="'.$titolo.'" required><br>
                 <label for="descrizione">Descrizione:</label>
                 <textarea rows="4" cols="50" name="descrizione" form="modifyform-'.$id.'" placeholder="Descrizione">'.$descrizione.'</textarea>
               </div>';
@@ -64,7 +64,7 @@
             //CAMBIO IL COMPORTAMENTO DI MODIFICA A SECONDA DELL'INPUT
             if($type == "color"){
                 echo   "<form action='/mosaic/block/modify.php?id=$id&type=". $type ."' method='POST' id='modifyform-$id'></form>";
-                echo       "<label style=' display:inline'>Scegli il colore:</label>
+                echo       "<label>Scegli il colore:</label>
                             <input type='color' id='path' value=\"".$pathcolor."\" name='path' form='modifyform-$id' required><br><br>";
             }
             //A CAUSA DELL'UPLOAD SONO COSTRETTO A STAMPARE DUE FORM DIFFERENTI (QUESTO USA UN ENCTYPE DIFFERENTE)
@@ -82,17 +82,18 @@
         echo '<!--INIZIO INPUT SWITCH VENDITA-->                
             <label style="margin-bottom:0; display:inline" >Vuoi metterlo in vendita?</label>
             <label class="switch"  >
-                <input id ="onSale" type="checkbox" name="invendita" form="modifyform-'.$id.'" '.$check.'>
+                <input id ="onSale-'.$id.'"" type="checkbox" name="invendita" form="modifyform-'.$id.'" '.$check.'>
                 <span class="slider round"></span>
             </label>               
             <!--FINE INPUT SWITCH VENDITA-->
 
             <!--SCELTA DEL PREZZO MOSTRATA SOLO IN CASO DI CERTEZZA DELLA VENDITA-->
-            <div id = "ifOnSale">
+            <div id = "ifOnSale-'.$id.'"">
                 <!--SWITCH-->
-                <label for="price-slider" style="margin:0px auto;">Prezzo:</label> 
-                <input type="range" id="price-slider" style="padding:0px;" name="price" min="0" max="100"  value ="'.$prezzoattuale.'" form="modifyform-'.$id.'">
-                <span id="show-price"></span>
+                <label for="price-slider-'.$id.'" style="margin:0px auto;display:inline">Prezzo:</label> 
+                <span id="show-price-'.$id.'"></span>
+                <input type="range" id="price-slider-'.$id.'" style="padding:0px;" name="price" min="0" max="100"  value ="'.$prezzoattuale.'" form="modifyform-'.$id.'">
+                
                 <!--SWITCH-->
             </div>                
             ';
