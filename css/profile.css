@@ -1,0 +1,24 @@
+div[id|=myblock]{
+    width: 100%;
+    height: 15vw;
+    margin-right: 0 ;
+    
+    
+}
+div[id|=myblock]> div{
+   
+    height: 100%;
+    
+}
+div[id|=myblock]  img{
+    width: 100%;
+    height: 100%;
+    
+    object-fit: contain;
+}
+div[id|=myvideo],div[id|=myimg],div[id|=mycolor]{
+    padding: 0;
+}
+div[id|=myblock] > div[id|=info-myblock]{
+    overflow-y: scroll;
+}
