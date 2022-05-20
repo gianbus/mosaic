@@ -99,7 +99,7 @@ div[id|=color]{
         -webkit-mask-image:url(../assets/logos/mask.png);
         mask-image: url(../assets/logos/mask.png);
         -webkit-mask-size: 150%;
-        mask-size: 200%;
+        mask-size: 150%;
         -webkit-mask-repeat: no-repeat;
         mask-repeat: no-repeat;  
     }

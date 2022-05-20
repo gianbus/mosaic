@@ -1,3 +1,4 @@
+//ADATTO LA LISTA DEI BLOCCHI A SECONDA DI QUALE è IN PRIMIS LA GRANDEZZA DELLA PAGINA MA ANCHE A SECONDA DI CIO' CHE E' APERTO
 function adaptList(){
     if(window.innerWidth<425 ) {
         $("div[id|=info-myblock]:not(.opened)").hide();
@@ -23,8 +24,10 @@ function adaptList(){
     }
 }
 
+    
+    
 $(document).ready(function(){
-    console.log(window.innerWidth)
+    
     
     $("div[id|=myblock]").each(function(){
         
@@ -33,11 +36,21 @@ $(document).ready(function(){
         $(this).children("div[id|=modify-myblock]").load("../block/modify-selection.php?id="+nBlocco+ " #container",function(){
             adaptList();
 
+            //PER CENTRARE L'OGGETTO CHE POTREBBE ESSERE STATO APPENA MODIFICATO
+            let center = window.location.href.match(/myblock-[0-9]+/);
+            if(center){
+                document.getElementById(center[0]).scrollIntoView({
+                    behavior: 'auto',
+                    block: 'center',
+                    inline: 'center'
+                });
+            }
+
             let myBlock = $(this).parent();
             let infoMyBlock  = $(this).prev();
             
             $(this).children().children("#modify-form").children("#chosen-content").on("change",function(){
-                console.log(myBlock.css("height","fit-content"));
+                myBlock.css("height","fit-content");
                 infoMyBlock.hide();
                 infoMyBlock.addClass("opened");
                 
@@ -47,7 +60,7 @@ $(document).ready(function(){
                 let selected = $("#modify-myblock-"+ nBlocco+" #chosen-content").prop("value");
 
         
-                console.log("#modify-myblock-"+ nBlocco+" #modify-selected");
+                
                 //Ora faccio la richiesta del form di modifica
                 $("#modify-myblock-"+ nBlocco+" #modify-selected").load("../block/modify-form.php?id="+nBlocco+"&type="+selected,function(){
                     $("#modify-myblock-"+ nBlocco+" #modify-selected").ready(function(){
@@ -74,9 +87,12 @@ $(document).ready(function(){
             });
 
         });
+
         
     });
+    
     $(window).resize(function(){  
         adaptList();
     });
 });
+

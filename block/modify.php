@@ -161,7 +161,7 @@
     $resp->price = $price;
     echo json_encode($resp);
 
-    header("Refresh: 1; URL= ../index.php"); //A seconda di come implementiamo profile va levata o meno questa funzione
+    header("Location: ../profile/#myblock-$id"); //A seconda di come implementiamo profile va levata o meno questa funzione
 
     /*STRUTTURA RISPOSTA JSON
     echo '{
