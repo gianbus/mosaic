@@ -12,6 +12,7 @@
         $path = "";
         $check = "";
         $prezzoattuale = "10";
+        $required_img = "required";
 
         try {
 
@@ -26,9 +27,12 @@
                 $pathcolor = $blocco_row['path'];
             }else if($tipoblocco == "video"){
                 $pathvideo = "https://www.youtube.com/watch?v=".$blocco_row['path'];
-            }else if($tipoblocco == "img"){
+            }else if($tipoblocco == "image"){
                 $pathimg = $blocco_row['path'];
+                $required_img = "";
             }
+
+            
 
             $recupera_market = mysqli_query($mysqli, "SELECT * FROM market WHERE idblocco='$id' ");
             $market_num = mysqli_num_rows($recupera_market);
@@ -63,20 +67,20 @@
 
             //CAMBIO IL COMPORTAMENTO DI MODIFICA A SECONDA DELL'INPUT
             if($type == "color"){
-                echo   "<form action='/mosaic/block/modify.php?id=$id&type=". $type ."' method='POST' id='modifyform-$id'></form>";
+                echo   "<form action='/block/modify.php?id=$id&type=". $type ."' method='POST' id='modifyform-$id'></form>";
                 echo       "<label>Scegli il colore:</label>
-                            <input type='color' id='path' value=\"".$pathcolor."\" name='path' form='modifyform-$id' required><br><br>";
+                            <input type='color' id='path' value=".$pathcolor." name='path' form='modifyform-$id' required><br><br>";
             }
             //A CAUSA DELL'UPLOAD SONO COSTRETTO A STAMPARE DUE FORM DIFFERENTI (QUESTO USA UN ENCTYPE DIFFERENTE)
             else if($type == "image"){
-                echo   "<form action='/mosaic/block/modify.php?id=$id&type=". $type ."' method='POST' id='modifyform-$id' enctype='multipart/form-data'></form>";
+                echo   "<form action='/block/modify.php?id=$id&type=". $type ."' method='POST' id='modifyform-$id' enctype='multipart/form-data'></form>";
                 echo       "<label >Scegli la tua immagine:</label>
-                            <input type='file' id='path' value=\"".$pathimg."\" name='path' form='modifyform-$id' required><br><br>";
+                            <input type='file' id='path' name='path' form='modifyform-$id' ".$required_img."><br><br>";
             }
             else if($type == "video"){
-                echo   "<form action='/mosaic/block/modify.php?id=$id&type=". $type ."' method='POST' id='modifyform-$id'></form>";
+                echo   "<form action='/block/modify.php?id=$id&type=". $type ."' method='POST' id='modifyform-$id'></form>";
                 echo       "<label>Copia il link del video su youtube:</label>
-                            <input type='url' id='path' value=\"".$pathvideo."\" name='path' form='modifyform-$id' placeholder='link video' required><br><br>";
+                            <input type='url' id='path' value=".$pathvideo." name='path' form='modifyform-$id' placeholder='link video' required><br><br>";
             }                      
               
         echo '<!--INIZIO INPUT SWITCH VENDITA-->                
@@ -104,5 +108,6 @@
 
 </div>
 <?php
-    echo '<input id="submit-modify" type="submit" value="Modifica" form="modifyform-'.$id.'" >'
+    echo '<input id="submit-modify" type="submit" value="Modifica" form="modifyform-'.$id.'" >';
+    echo $pathimg;
 ?>
