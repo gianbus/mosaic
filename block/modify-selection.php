@@ -38,6 +38,6 @@
     <?php
         include '../footer.php';
     ?>
-    <script src="../js/navbar.js"></script>
+    
     <script src="../js/modify-block.js"></script>
 </body>
