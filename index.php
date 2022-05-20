@@ -94,7 +94,8 @@
                             echo "  \t<div class='blocco ".$owner_class."' id='block-". ($j+$i*12)."'  >\n";
                                 echo "\t\t<img id=img-".($j+$i*12)." src='".$path."'  >\n";
                         }else if($type=="color"){
-                            echo "  \t<div class='blocco ".$owner_class."' id='block-". ($j+$i*12)."' style=\"background-color:$path\"  >\n";
+                            echo "  \t<div class='blocco ".$owner_class."' id='block-". ($j+$i*12)."'>\n";
+                                echo "  \t<div id='color-". ($j+$i*12)."' style=\"background-color:$path\"  ></div>\n";
                         }
                         else if( $type=="video"){
                             echo "  \t<div class='blocco ".$owner_class."' id='block-". ($j+$i*12)."'  >\n";

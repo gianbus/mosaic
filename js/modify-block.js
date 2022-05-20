@@ -20,19 +20,19 @@ $(document).ready(function(){
             $("#modify-selected").ready(function(){
                 
                 //QUANDO LO SLIDER VIENE MOSSO VIENE DINAMICAMENTE MOSTRATO IL CAMBIO DI PREZZO
-                let slider = document.getElementById("price-slider");
-                $("#show-price").text(slider.value);
+                let slider = document.getElementById("price-slider-"+id);
+                $("#show-price-"+id).text(slider.value);
                 slider.addEventListener("input",function(){
-                    $("#show-price").text(slider.value);
+                    $("#show-price-"+id).text(slider.value);
                 },false);
 
                 //QUANDO DECIDO DI NON METTERE IN VENDITA UN BLOCCO FACCIO SCOMPARIRE LO SLIDER
-                let onSaleSwitch = document.getElementById("onSale");
-                if(!onSaleSwitch.checked) $("#ifOnSale").hide();
+                let onSaleSwitch = document.getElementById("onSale-"+id);
+                if(!onSaleSwitch.checked) $("#ifOnSale-"+id).hide();
 
                 onSaleSwitch.addEventListener("change",function(){
-                    if(!onSaleSwitch.checked) $("#ifOnSale").hide();
-                    else $("#ifOnSale").show();
+                    if(!onSaleSwitch.checked) $("#ifOnSale-"+id).hide();
+                    else $("#ifOnSale-"+id).show();
                 },false);
                 
             });
