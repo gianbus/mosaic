@@ -59,6 +59,8 @@
                 if($_FILES["path"]["name"] != "" || $blocco_row['tipo'] == "image"){
                     $richiesta_valida = 1;
                 }
+            }else{
+                $richiesta_valida = 1;
             }
 
             if($richiesta_valida){
