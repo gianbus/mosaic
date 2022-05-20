@@ -21,14 +21,17 @@
         
         $result = $mysqli->query($sql);
         $result_user = $mysqli->query($sql_user);
+
+        $user_profile = $result_user->fetch_assoc();
+        $nome = $user_profile["nome"];
+        $cognome = $user_profile["cognome"];
+        echo "<div id='profile-list' class= 'ms-3 mx-3' >";
+        echo "<h3>Ciao,<b> $nome $cognome</b>.</h3>";
+
         if ($result->num_rows > 0  && $result_user->num_rows == 1 ){
             $number = $result->num_rows;
 
-            $user_profile = $result_user->fetch_assoc();
-            $nome = $user_profile["nome"];
-            $cognome = $user_profile["cognome"];
-            echo "<div id='profile-list' class= 'ms-3 mx-3' >";
-            echo "<h3>Ciao,<b> $nome $cognome</b>.</h3>";
+            
             echo "<h3>Attualmente possiedi: <b>$number blocchi</b> </h3>";
             for ($i=1; $i<=$number; $i=$i+1){
                 $row = $result->fetch_assoc();
@@ -65,8 +68,12 @@
                 echo "</div >\n";
                 
             }
-            echo "</div>";
+            
         }
+        else{
+            echo "<h3>Attualmente non possiedi alcun blocco, inizia a comprarli </h3>";
+        }
+        echo "</div>";
     ?>
 
     
