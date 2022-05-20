@@ -80,7 +80,7 @@
             else if($type == "video"){
                 echo   "<form action='/mosaic/block/modify.php?id=$id&type=". $type ."' method='POST' id='modifyform-$id'></form>";
                 echo       "<label>Copia il link del video su youtube:</label>
-                            <input type='url' id='path' value=".$pathvideo." name='path' form='modifyform-$id' placeholder='link video' required><br><br>";
+                            <input type='url' id='path' value='$pathvideo' name='path' form='modifyform-$id' placeholder='link video' required><br><br>";
             }                      
               
         echo '<!--INIZIO INPUT SWITCH VENDITA-->                
