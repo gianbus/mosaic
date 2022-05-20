@@ -27,14 +27,14 @@
     //RECUPERO IL PATH IN BASE AL TIPO
     if($new_tipo == "image" && isset($_FILES["path"]["name"])){
         $new_path = mysqli_real_escape_string($mysqli, $_FILES["path"]["name"]);
-
-    }else if($new_tipo == "video"){
-        preg_match("#(?<=v=)[a-zA-Z0-9-]+(?=&)|(?<=v\/)[^&\n]+(?=\?)|(?<=v=)[^&\n]+|(?<=youtu.be/)[^&\n]+#", $new_path, $matches);
-        $new_path = mysqli_real_escape_string($mysqli, $matches[0]);
-
-    }else{
-        $new_path = mysqli_real_escape_string($mysqli, $_POST['path']);
     }
+    else $new_path = mysqli_real_escape_string($mysqli, $_POST['path']);
+    
+    if($new_tipo == "video"){
+        preg_match("#(?<=v=)[a-zA-Z0-9-]+(?=&)|(?<=v\/)[^&\n]+(?=\?)|(?<=v=)[^&\n]+|(?<=youtu.be/)[^&\n]+#", $new_path, $matches);
+        $new_path = $matches[0];
+    }
+
 
     //DATO CHE FACCIO USO DELLA CHECKBOX DEVO VERIFICARE CHE IL BLOCCO SIA VOLUTO IN VENDITA
     if(isset($_POST['invendita'])){
