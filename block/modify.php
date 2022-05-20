@@ -43,7 +43,7 @@
     }
 
     //CONTROLLO DATI INSERITI FORM
-    if($id && $username && $new_tipo && $new_titolo && isset($_POST['invendita'])){
+    if($id && $username && $new_tipo && $new_titolo){
 
         //INIZIO TRANSAZIONE
         mysqli_begin_transaction($mysqli);
