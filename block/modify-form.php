@@ -109,5 +109,4 @@
 </div>
 <?php
     echo '<input id="submit-modify" type="submit" value="Modifica" form="modifyform-'.$id.'" >';
-    echo $pathimg;
 ?>

@@ -38,5 +38,6 @@
     <?php
         include '../footer.php';
     ?>
+    
     <script src="../js/modify-block.js"></script>
 </body>

@@ -97,7 +97,7 @@
                                 $err=3;
                             
                             }else{
-                                if(move_uploaded_file($_FILES["path"]["tmp_name"], '../'.$new_path)){//VERIFICO CHE IL FILE SIA CARICATO EFFETTIVAMENTE
+                                if(move_uploaded_file($_FILES["path"]["tmp_name"], '/'.$new_path)){//VERIFICO CHE IL FILE SIA CARICATO EFFETTIVAMENTE
                                     $err=0;
                                 }else{
                                     $err=4;
