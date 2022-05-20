@@ -84,7 +84,7 @@ div[id|=color]{
         transform: scale(1.1,1.1);
         transition: transform 0.75s;
         cursor:pointer;
-        z-index: 0;
+        z-index: 1;
     }
     div[id|=block]:active{
     
