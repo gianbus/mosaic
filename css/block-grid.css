@@ -2,11 +2,10 @@
 @import "block-grid-min.css";
 
 body{ 
-    background-color: rgb(255, 255, 255);
     overflow-x: hidden;
 }
 #grid {
-    background-color: #ffffff;
+    background-color: #000000;
     margin-bottom: 0;
 }
 
