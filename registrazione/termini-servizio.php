@@ -13,7 +13,7 @@
         include '../navbar.php';
     ?>
     
-    <div id="container" class="container-fluid">
+    <div id="container" class="my-container container-fluid">
         <div id="termini-servizio">
             <h2>Termini di servizio</h2>
             <p>

@@ -15,7 +15,7 @@
         include '../navbar.php';
     ?>
     
-    <div id="container" class="container-fluid">
+    <div id="container" class="my-container container-fluid">
 
     <?php
             //RECUPERO GLI ELEMENTI TRAMITE GET E POST + PROTEZIONE SQL INJECTION

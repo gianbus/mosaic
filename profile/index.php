@@ -25,7 +25,7 @@
         $user_profile = $result_user->fetch_assoc();
         $nome = $user_profile["nome"];
         $cognome = $user_profile["cognome"];
-        echo "<div id='profile-list' class= 'ms-3 mx-3' >";
+        echo "<div id='profile-list' class= 'p-3 my-container' >";
         echo "<h3>Ciao,<b> $nome $cognome</b>.</h3>";
 
         if ($result->num_rows > 0  && $result_user->num_rows == 1 ){

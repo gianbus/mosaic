@@ -16,7 +16,7 @@
         include '../navbar.php';
         if(isset($_SESSION['utente'])) header("refresh:0;url=../index.php");
     ?>
-    <div id="container" class="container-fluid">
+    <div id="container" class="container-fluid my-container">
 
         <div id="divregistrazione">
             

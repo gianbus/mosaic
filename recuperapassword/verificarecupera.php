@@ -14,7 +14,7 @@
     <?php
             include '../navbar.php';
     ?>
-    <div id="container" class="container-fluid">
+    <div id="container" class="my-container container-fluid">
         <h2>Recupera Password</h2>
         <?php
             //IMPORTO USERNAME E PASSWORD CON REAL ESCAPE STRING - PROTEZIONE SQL INJECTION

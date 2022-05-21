@@ -12,7 +12,7 @@
     <?php
         include '../navbar.php';
     ?>
-    <div id="container" class="container-fluid">
+    <div id="container" class="my-container container-fluid">
 
     <?php
             //RECUPERO TRAMITE GET LA KEY E LA RELATIVA EMAIL + PROTEZIONE SQL INJECTION

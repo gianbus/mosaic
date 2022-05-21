@@ -14,7 +14,7 @@
 </head>
 
 <body>
-    <div id="container" class="container-fluid">
+    <div id="container" class="my-container container-fluid">
 		<h1>M O S A I C</h1>
         <h2>Registrazione</h2>
 
