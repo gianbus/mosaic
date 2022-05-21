@@ -19,6 +19,7 @@
             <p>
             L'utente si impegna a caricare sul sito ltw-mosaic.it soltanto contenuti di cui possiede i diritti e/o la proprietà intellettuale.<br>
             Si solleva ltw-mosaic.it da qualsiasi responsabilità derivante dall'upload di contenuti coperti da copyright.<br>
+            L'utente accetta l'utilizzo di cookie per il funzionamento del sito ed in particolare per il sistema di autenticazione.<br>
             L'utente inoltre è a conoscenza del fatto che ltw-mosaic.it è un sito a puro scopo progettuale e di sperimentazione dei vari linguaggi e tecnologie per il web.
             </p>
         </div>
