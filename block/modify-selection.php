@@ -20,7 +20,7 @@
         $id = $_GET["id"];
     ?>
     <!--SCELGO IL TIPO DI CONTENUTO CHE VOGLIO CARICARE-->
-    <div id="container" class="container-fluid"> 
+    <div id="container" class="container-fluid my-container"> 
         <h2 style="padding-top:1vw;">Modifica Blocco</h2>
         <div id = "modify-form">
             <label for="chosen-content" style="display:inline">Scegli il contenuto del blocco:</label>

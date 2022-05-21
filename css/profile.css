@@ -77,6 +77,11 @@ div[id|=modify-myblock] textarea{
    
 }
 
+div[id|=modify-myblock] .my-container{
+   background-color: transparent;
+}
+
+
 #container{
     margin: 0;
 }
