@@ -84,10 +84,12 @@
                             //VERIFICO CHE L'IMMAGINE SIA EFFETTIVAMENTE UNA IMMAGINE
                             if(isset($_POST["submit"])) {
                                 $checkSize = getimagesize($_FILES["path"]["tmp_name"]);
-                                if($checkSize !== false) 
+                                if($checkSize !== false){
                                     $uploadReady = 1;
-                                else 
+                                    throw new Exception('Errore upload file.');
+                                }else{ 
                                     $uploadReady = 0;
+                                }
                             }
                             
                             //VERIFICO GRANDEZZA IMMAGINE E IL TIPO DI ESTESIONE
@@ -97,12 +99,13 @@
                             //VERIFICO CHE uploadReady SIA 1/0 A SECONDA DEGLI ERRORI
                             if ($uploadReady == 0){
                                 $err=3;
-                            
+                                throw new Exception('Errore upload file 3.');
                             }else{
-                                if(move_uploaded_file($_FILES["path"]["tmp_name"], '/'.$new_path)){//VERIFICO CHE IL FILE SIA CARICATO EFFETTIVAMENTE
+                                if(move_uploaded_file($_FILES["path"]["tmp_name"], '../'.$new_path)){//VERIFICO CHE IL FILE SIA CARICATO EFFETTIVAMENTE
                                     $err=0;
                                 }else{
                                     $err=4;
+                                    throw new Exception('Errore upload file 4.');
                                 }
                             }
 
@@ -145,9 +148,8 @@
                 mysqli_commit($mysqli);
             
             }
-        
-
-        }catch (mysqli_sql_exception $exception) {
+            
+        }catch (Exception $exception) {
             mysqli_rollback($mysqli);
             
             //INIZIALIZZO I VALORI
@@ -161,30 +163,37 @@
             $price = 0;
             $proprietario = "";
             $err=2;
-            throw $exception;
+
+
         }
 
     }
 
-    //err=0 nessun errore oppure richiesta non valida
-    //err=1 il blocco non è tuo
-    //err=2 altro errore - possibile errore di query
-    //err=3 altro errore upload
-    $resp = new stdClass();
-    $resp->richiesta_valida = $richiesta_valida;
-    $resp->modificato = $modificato;
-    $resp->errore = $err;
-    $resp->id= $id;
-    $resp->proprietario = $proprietario;
-    $resp->tipo = $tipo;
-    $resp->path = $path;
-    $resp->titolo= $titolo;
-    $resp->descrizione = $descrizione;
-    $resp->invendita = $invendita;
-    $resp->price = $price;
-    echo json_encode($resp);
-    
-    header("Location: /profile/#myblock-$id"); //A seconda di come implementiamo profile va levata o meno questa funzione
+    $delay = 0;
+    if($err || !$richiesta_valida){
+        //err=0 nessun errore oppure richiesta non valida
+        //err=1 il blocco non è tuo
+        //err=2 altro errore - possibile errore di query
+        //err=3 altro errore upload
+        $resp = new stdClass();
+        $resp->richiesta_valida = $richiesta_valida;
+        $resp->modificato = $modificato;
+        $resp->errore = $err;
+        $resp->id= $id;
+        $resp->proprietario = $proprietario;
+        $resp->tipo = $tipo;
+        $resp->path = $path;
+        $resp->titolo= $titolo;
+        $resp->descrizione = $descrizione;
+        $resp->invendita = $invendita;
+        $resp->price = $price;
+        echo json_encode($resp);
+        $delay = 4;
+        echo '<br><br>Si è verificato un problema. Riprova più tardi.';
+
+    }
+
+    header("refresh:$delay; url= /profile/#myblock-$id"); //A seconda di come implementiamo profile va levata o meno questa funzione
 
     /*STRUTTURA RISPOSTA JSON
     echo '{
