@@ -7,7 +7,7 @@
     <title>Mosaic</title>
 
     <!-- Bootstrap CSS -->
-    <link href="./bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
     
     <!-- My CSS -->
     <link rel="stylesheet" href="css/block-grid.css" type="text/css">
@@ -39,6 +39,7 @@
     <!--favicons-->
     
 </head>
+
 <body>
     
     <?php
@@ -46,7 +47,7 @@
     ?>
     
     
-<!--popup-page-->
+    <!--popup-page-->
     <div id="pop-block">
         <div  class="info-pop  text-white ">
             <div class="card  h-100" >
@@ -82,54 +83,55 @@
         if(isset($_SESSION['utente'])) 
             include "purchase-block.php";
     ?>
-<!--popup-page-->
+    <!--popup-page-->
 
-<!--block-grid-->
+    <!--block-grid-->
     <div id="grid">
-    <?php
-        $logged_username ="";
-        if(isset($_SESSION['utente'])) $logged_username = $_SESSION['utente'];
+        <?php
+            $logged_username ="";
+            if(isset($_SESSION['utente'])) $logged_username = $_SESSION['utente'];
 
-        $sql = "SELECT id,tipo,path,proprietario FROM blocchi";
-        $result = $mysqli->query($sql);
-        if ($result->num_rows > 0){
-            
-            for ($i=0; $i<12; $i=$i+1){
-                    echo "<div class= row-$i  >\n";
-                    for ($j=1; $j<=12; $j=$j+1){
-                        $row = $result->fetch_assoc();
-                        
-                        //VISIONE PERSONALIZZATA BLOCCO DAL PROPRIETARIO
-                        $owner_class = "";
-                        if($logged_username == $row['proprietario']){
-                            $owner_class = "owner_block";
-                        }
+            $sql = "SELECT id,tipo,path,proprietario FROM blocchi";
+            $result = $mysqli->query($sql);
+            if ($result->num_rows > 0){
+                
+                for ($i=0; $i<12; $i=$i+1){
+                        echo "<div class= row-$i  >\n";
+                        for ($j=1; $j<=12; $j=$j+1){
+                            $row = $result->fetch_assoc();
+                            
+                            //VISIONE PERSONALIZZATA BLOCCO DAL PROPRIETARIO
+                            $owner_class = "";
+                            if($logged_username == $row['proprietario']){
+                                $owner_class = "owner_block";
+                            }
 
-                        $type =$row["tipo"];
-                        $path = $row["path"];
-                        if($type=="image"){
-                            echo "  \t<div class='blocco ".$owner_class."' id='block-". ($j+$i*12)."'  >\n";
-                                echo "\t\t<img id=img-".($j+$i*12)." src='".$path."'  >\n";
-                        }else if($type=="color"){
-                            echo "  \t<div class='blocco ".$owner_class."' id='block-". ($j+$i*12)."'>\n";
-                                echo "  \t<div id='color-". ($j+$i*12)."' style=\"background-color:$path\"  ></div>\n";
+                            $type =$row["tipo"];
+                            $path = $row["path"];
+                            if($type=="image"){
+                                echo "  \t<div class='blocco ".$owner_class."' id='block-". ($j+$i*12)."'  >\n";
+                                    echo "\t\t<img id=img-".($j+$i*12)." src='".$path."'  >\n";
+                            }else if($type=="color"){
+                                echo "  \t<div class='blocco ".$owner_class."' id='block-". ($j+$i*12)."'>\n";
+                                    echo "  \t<div id='color-". ($j+$i*12)."' style=\"background-color:$path\"  ></div>\n";
+                            }
+                            else if( $type=="video"){
+                                echo "  \t<div class='blocco ".$owner_class."' id='block-". ($j+$i*12)."'  >\n";
+                                    echo "\t\t<img id=img-".($j+$i*12)." src='https://img.youtube.com/vi/".$path."/default.jpg' >\n";
+                            }
+                            echo "\t</div>\n";
                         }
-                        else if( $type=="video"){
-                            echo "  \t<div class='blocco ".$owner_class."' id='block-". ($j+$i*12)."'  >\n";
-                                echo "\t\t<img id=img-".($j+$i*12)." src='https://img.youtube.com/vi/".$path."/default.jpg' >\n";
-                        }
-                        echo "\t</div>\n";
-                    }
-                    echo "</div>\n";
+                        echo "</div>\n";
+                }
             }
-        }
-    ?>
+        ?>
     </div>
-<!--block-grid-->    
+    <!--block-grid-->    
+
     <!--Fare pulsantino per mettere la visione del mosaico senza bordi-->
     
     <?php
-		  include './footer.php';
+		  include 'footer.php';
     ?>    
     
     <script src="js/popup-page.js"></script>
