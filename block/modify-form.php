@@ -22,26 +22,30 @@
             $titolo = $blocco_row['titolo'];
             $descrizione = $blocco_row['descrizione'];
             $tipoblocco = $blocco_row['tipo'];
-            
-            if($tipoblocco == "color"){
-                $pathcolor = $blocco_row['path'];
-            }else if($tipoblocco == "video"){
-                $pathvideo = "https://www.youtube.com/watch?v=".$blocco_row['path'];
-            }else if($tipoblocco == "image"){
-                $pathimg = $blocco_row['path'];
-                $required_img = "";
-            }
 
-            
+            if($_SESSION['utente'] == $blocco_row['proprietario']){
+    
+                if($tipoblocco == "color"){
+                    $pathcolor = $blocco_row['path'];
+                }else if($tipoblocco == "video"){
+                    $pathvideo = "https://www.youtube.com/watch?v=".$blocco_row['path'];
+                }else if($tipoblocco == "image"){
+                    $pathimg = $blocco_row['path'];
+                    $required_img = "";
+                }            
 
-            $recupera_market = mysqli_query($mysqli, "SELECT * FROM market WHERE idblocco='$id' ");
-            $market_num = mysqli_num_rows($recupera_market);
-            if($market_num == 1){
-                $check = "checked";
-                $market_row =  mysqli_fetch_array($recupera_market);
-                $prezzoattuale = strval($market_row['price']);
+                $recupera_market = mysqli_query($mysqli, "SELECT * FROM market WHERE idblocco='$id' ");
+                $market_num = mysqli_num_rows($recupera_market);
+                if($market_num == 1){
+                    $check = "checked";
+                    $market_row =  mysqli_fetch_array($recupera_market);
+                    $prezzoattuale = strval($market_row['price']);
+                }else{
+                    $check = ""; 
+                }
+
             }else{
-                $check = ""; 
+                echo '<meta http-equiv="refresh" content="0; URL=\'/\'" />';
             }
 
         }catch (mysqli_sql_exception $exception) {
