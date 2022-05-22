@@ -88,20 +88,20 @@
                             //VISIONE PERSONALIZZATA BLOCCO DAL PROPRIETARIO
                             $owner_class = "";
                             if($logged_username == $row['proprietario']){
-                                $owner_class = "owner_block";
+                                $owner_class = " owner_block";
                             }
 
                             $type =$row["tipo"];
                             $path = $row["path"];
                             if($type=="image"){
-                                echo "<div class='blocco ".$owner_class."' id='block-". ($j+$i*12)."'>";
+                                echo "<div class='blocco".$owner_class."' id='block-". ($j+$i*12)."'>";
                                 echo "<img id=img-".($j+$i*12)." src='".$path."'>";
                             }else if($type=="color"){
-                                echo "<div class='blocco ".$owner_class."' id='block-". ($j+$i*12)."'>";
+                                echo "<div class='blocco".$owner_class."' id='block-". ($j+$i*12)."'>";
                                 echo "<div id='color-". ($j+$i*12)."' style=\"background-color:$path\"></div>";
                             }
                             else if( $type=="video"){
-                                echo "<div class='blocco ".$owner_class."' id='block-". ($j+$i*12)."'>";
+                                echo "<div class='blocco".$owner_class."' id='block-". ($j+$i*12)."'>";
                                 echo "<img id=img-".($j+$i*12)." src='https://img.youtube.com/vi/".$path."/default.jpg'>";
                             }
                             echo "</div>";
