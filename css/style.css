@@ -11,9 +11,8 @@ body{
 
 .my-container{
     background-color: white;
-    margin-top: 14vw;
-    padding-top: 3vw;
-    padding-bottom: 2vw;
+    margin-top: 10vh;
+    padding: 2vw 0;
 
 }
 
@@ -25,7 +24,7 @@ body{
 }
 
 @media screen and (min-width: 426px){
-    #container{
+    .my-container{
         margin-top: 12vw;
     }
 }
@@ -86,3 +85,23 @@ body{
         flex: 1 2 0%;
     }
 }
+
+/*Scrollbar personalizzata, magari da utilizzare*/
+
+body::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+
+body::-webkit-scrollbar-track {
+    background: #000000; 
+}
+
+body::-webkit-scrollbar-thumb {
+    background: #161b22; 
+}
+  
+body::-webkit-scrollbar-thumb:hover {
+    background: #2f3947; 
+}
+/*fine scrollbar personalizzata */

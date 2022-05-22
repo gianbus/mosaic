@@ -16,10 +16,10 @@
         include '../navbar.php';
         if(isset($_SESSION['utente'])) header("refresh:0;url=../index.php");
     ?>
-    <div id="container" class="container-fluid my-container">
+    <div class="container-fluid my-container">
 
         <div id="divregistrazione">
-            
+            <h2>Registrazione</h2>
             <form action="registar.php" method="POST" id="formregistrazione" onsubmit="return verificaForm()"> 
                 
                 <div class = "campoform">
@@ -52,7 +52,7 @@
                     </div>
 
 
-                    <div style="width: 5%;"></div>
+                    <div style="width: 5%;"></div><br>
 
                     <div class = "campoform">
                         <label for="password2">Conferma la password:</label><br>

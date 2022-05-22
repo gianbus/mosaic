@@ -53,26 +53,6 @@ div[id|=color]{
     -webkit-mask-repeat: no-repeat;
     mask-repeat: no-repeat;  
 }
-/*Scrollbar personalizzata, magari da utilizzare*/
-
-::-webkit-scrollbar {
-    width: 10px;
-  }
-  
-
-::-webkit-scrollbar-track {
-    background: #000000; 
-}
-
-::-webkit-scrollbar-thumb {
-    background: #161b22; 
-}
-  
- 
-::-webkit-scrollbar-thumb:hover {
-    background: #2f3947; 
-}
-/*fine scrollbar personalizzata */
 
 @media screen and (min-width: 426px){
     #grid{
