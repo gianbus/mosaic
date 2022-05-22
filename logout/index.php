@@ -2,6 +2,11 @@
 <html>
 <head>
 	<title>Mosaic |Logout</title>
+	<!--favicons-->
+	<?php
+        include '../favicon.php';
+    ?>
+    <!--favicons-->
 </head>
 <body>
 			<?php

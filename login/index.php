@@ -10,6 +10,12 @@
     <link rel="stylesheet" href="../css/style.css">
     
     <title>Mosaic |Login</title>
+    
+    <!--favicons-->
+    <?php
+        include '../favicon.php';
+    ?>
+    <!--favicons-->
 </head>
 <body>
     <?php

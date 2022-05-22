@@ -7,12 +7,18 @@
     <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../css/style.css">
     <title>Mosaic |Modifica password</title>
+
+    <!--favicons-->
+    <?php
+        include '../favicon.php';
+    ?>
+    <!--favicons-->
 </head>
 <body>
     <?php
         include '../navbar.php';
     ?>
-    <div id="container" class="my-container container-fluid">
+    <div class="my-container container-fluid">
 
     <?php
             //RECUPERO TRAMITE GET LA KEY E LA RELATIVA EMAIL + PROTEZIONE SQL INJECTION

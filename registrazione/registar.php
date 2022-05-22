@@ -11,6 +11,12 @@
     <!-- My CSS -->
     <link rel="stylesheet" href="../css/style.css">
     <title>Mosaic |Registrazione</title>
+
+	<!--favicons-->
+	<?php
+        include '../favicon.php';
+    ?>
+    <!--favicons-->
 </head>
 
 <body>

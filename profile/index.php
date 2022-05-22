@@ -10,6 +10,12 @@
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/profile.css">
     <title>Mosaic |Profilo</title>
+    
+    <!--favicons-->
+    <?php
+        include '../favicon.php';
+    ?>
+    <!--favicons-->
 </head>
 <body>
 

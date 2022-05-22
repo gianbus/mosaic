@@ -8,6 +8,12 @@
     <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../css/style.css">
     <title>Mosaic |Modifica password</title>
+    
+    <!--favicons-->
+    <?php
+        include '../favicon.php';
+    ?>
+    <!--favicons-->
 </head>
 
 <body>
