@@ -197,7 +197,7 @@
 }
 
 /*--Responsiveness--*/
-@media screen and (max-height: 600px){
+@media screen and (max-height: 475px){
   .info-pop .closebtn{
     font-size: 10px;
     padding: 8px;
@@ -205,7 +205,6 @@
   .card-body{
     padding-bottom: 0.5rem!important;
     padding-top: 0rem!important;
-    
   }
   .card-title{
     font-size: 14px;
@@ -226,7 +225,6 @@
 @media screen and (max-width: 1000px){
   .card-market{
     flex-direction: column;
-    
   }
   .placeholder-price{
     margin:0px;
