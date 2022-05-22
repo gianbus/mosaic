@@ -79,6 +79,7 @@
 #points{
     background-color: #24292f00;
 }
+
 #logged-username{
     background-color: #4b5561;
     color: aliceblue;
@@ -115,12 +116,12 @@
         top: 0;
         z-index: 2;
     }
+    
     .nav-menu{
         height: 12vw;
         transition: 0.5s;
     }
 }
-
 
 @media  screen and (max-width: 425px){
     #navbar{
@@ -155,6 +156,7 @@
         width: 100%;
         background-color: #161b22;
     }
+
     #logo > img{
         max-height: 10vh;
         max-width: 100%;
@@ -163,23 +165,28 @@
     #home{
         width: 100%;
     }
+
     #profile {
         flex-flow: column nowrap;
         width: 100%;
         display: none;
     }
+
     .nav-btn{
         margin: 2px 0px;
         border-radius: 2vw;
     }
+
     #dropup-btn {
         display: block;
         background-color: #18263b;
         float: right;
     }
+
     #dropup-btn:active{
         opacity: 0.95;
     }
+
     #points{
         background-color: #24292f;
     }

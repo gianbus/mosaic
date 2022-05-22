@@ -1,9 +1,7 @@
 @import "block-grid-md.css";
 @import "block-grid-min.css";
 
-body{ 
-    overflow-x: hidden;
-}
+
 #grid {
     background-color: #000000;
     margin-bottom: 0;

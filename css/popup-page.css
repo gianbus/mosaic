@@ -54,10 +54,10 @@
   background-image: linear-gradient(to bottom left, #111, #313131);
   border: 1px solid rgba(70, 70, 70, 0.507);
   border-radius: 25px;
-
   display: flex;
   flex-direction: column;
 }
+
 #container-block{
   flex: 0 1 40%;
   max-height: 50%;
@@ -68,7 +68,6 @@
   max-width: 100%;
   height: 100%;
   object-fit: contain;
-
   box-shadow: 0px 0px  5px 5px rgba(17, 17, 17, 0.575);
   border-radius: 15px;
   background-color: #161b22cc;
@@ -82,22 +81,21 @@
   overflow-x: hidden;
 }
 
-
 .card-market{
-display: flex; 
-flex-direction: row;
-
+  display: flex; 
+  flex-direction: row;
 }
+
 .placeholder-price{
-margin:10px;
+  margin:10px;
 }
 
 /* signup button and login button ready to become buy and details button */
 #buy-if{
-display: flex;
-flex-direction: column ;
-font-size: 30px;
-height: 100%;
+  display: flex;
+  flex-direction: column ;
+  font-size: 30px;
+  height: 100%;
 }   
 
 #buy-if > ._btn:hover{
@@ -138,23 +136,18 @@ height: 100%;
   border: 0px;
   margin: 5px 0 5px;
   box-shadow: 2px 2px  5px 1px rgba(27, 27, 27, 0.575);
-  
   flex: 1 1 0%;
   text-align: center;
   color:aliceblue;
   font-size: 30px;
 }
 
-
-
 /* purchase-confirm box*/
 #purchase-confirm {
   display: none; 
   position: fixed; 
   z-index: 4; 
-  
   top: 0;
-  
   width: 100%; 
   height: 100%; 
   overflow: auto; 
@@ -173,13 +166,10 @@ height: 100%;
   animation-duration: 0.4s
 }
 
-
 @keyframes btoup {
   from {bottom:-300px; opacity:0}
   to {bottom:0; opacity:1}
 }
-
-
 
 .confirm-header {
   padding: 1vw;
@@ -190,6 +180,7 @@ height: 100%;
 .confirm-body {padding: 1vw;}
 
 .confirm-body > div{text-align:right;}
+
 .confirm-body  ._btn {
   width: 10%;
   padding: 0.5vw 1vw;
@@ -204,8 +195,6 @@ height: 100%;
 .card-footer{
   flex: 0 1 4%;
 }
-
-
 
 /*--Responsiveness--*/
 @media screen and (max-height: 600px){
@@ -225,12 +214,10 @@ height: 100%;
     font-size: 11px;
     margin: 0px;
   }
-
   #buy-if{
     flex-direction: row;
     font-size: 15px;
   }
- 
   .card-footer{
     font-size: 10px;
   }
@@ -252,16 +239,16 @@ height: 100%;
     width: 100%;
     margin: 5px 0px  ;
   }
+}
 
-  }
-  @media screen and (max-height: 915px) and (min-height: 401px){
-
+@media screen and (max-height: 915px) and (min-height: 401px){
   .info-pop .closebtn{
     font-size: 15px;
     padding: 8px 0px;
   }
-
 }
+
+
 
 @media screen and (max-height: 915px) and (max-width: 425px){
   .info-pop {
@@ -273,7 +260,6 @@ height: 100%;
   .card{
     border-radius:25px 25px 0px 0px;
   }
-
   .not-logged{
     margin: 5px;
   }
