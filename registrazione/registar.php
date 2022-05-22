@@ -86,17 +86,97 @@
 						
 						if($inviautentitemp){
 
-							//INVIO EMAIL CON LINK DI ATTIVAZIONE
 							$to=$email;
 							$oggetto='Registrazione Mosaic';
-							$message="Benvenuto in Mosaic! \r\n ";
-							$message.="Ecco i tuoi dati per accedere al sito: \r\n ";
-							$message.="Username: $username \r\n ";
-							$message.="Password: INSERITA IN FASE DI REGISTRAZIONE \r\n ";
-							$message.="Clicca sul link per confermare la tua email!\r\n";
-							$message.="https://ltw-mosaic.it/registrazione/attiva-account.php?passkey=$codiceconferma";
-							$header = 'From: "Mosaic" <no-reply@ltw-mosaic.it>';
-							$sentmail=mail($to, $oggetto, $message, $header);
+							$message="<html>
+							<head>
+							<style>
+								#email-body{
+									background-color: #161b22;
+									text-align: center;
+									font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+									padding: 30px;
+									border-radius: 20px;
+									width: fit-content;
+									margin:auto;
+								}
+				
+								h3, h4{
+									color: rgb(255, 255, 255);
+									font-weight: 500;
+									margin:10px;
+								}
+								
+								#bottone{
+									background-color: transparent;
+									border-radius: 5px;
+									border: 0px;
+									background-image: linear-gradient(-75deg, #3a3d42, rgba(0, 34, 73, 0.843));
+									color: white;
+									padding: 5px;
+									width:fit-content;
+									margin:auto;
+								}
+				
+								p{
+									color: rgb(255, 255, 255);
+								}
+				
+								#testo{
+									margin: 15px auto;
+									padding: 20px;
+									border-radius: 20px;
+									width: fit-content;
+									background-color: rgba(255, 255, 255, 0.034);
+									border: 1px solid rgba(255, 255, 255, 0.221);
+								}
+				
+								#bottone:hover{
+									cursor: pointer;
+									background-image: linear-gradient(75deg, #3a3d42, rgba(0, 34, 73, 0.843));
+									background-color: transparent;
+								}
+				
+								.link-attivazione{
+									text-decoration:none;
+									color: white;
+								}
+				
+							</style>
+							</head>
+				
+						<body>
+							<div id='email-body'>
+								<img width='300px' src='https://www.ltw-mosaic.it/assets/logos/logo2.png'>
+								<div id='testo'>
+									<h3>Benvenuto $nome $cognome!</h3>
+									<h4>Grazie per esserti iscritto a Mosaic!</h4>
+				
+									<p> Ecco i tuoi dati per accedere al sito:<br>
+										<b>Username:</b> <i>$username</i><br>
+										<b>Password:</b> <i>INSERITA IN FASE DI REGISTRAZIONE</i></p>
+				
+										<a class='link-attivazione' href='https://ltw-mosaic.it/registrazione/attiva-account.php?passkey=$codiceconferma'><div id='bottone'>Clicca qui per attivare il tuo account.</div></a>
+									
+								</div>
+								<div>
+									<p style='color:#ccc; font-size:12px;'>Se il bottone non funziona clicca sul link o copia e incolla sul browser:<br>
+									<a class='link-attivazione' style='color:#ccc;' href='https://ltw-mosaic.it/registrazione/attiva-account.php?passkey=$codiceconferma'>http://ltw-mosaic.it/registrazione/attiva-account.php?passkey=$codiceconferma</a></p><br>
+									<p>MOSAIC &copy; 2022</p>
+								</div>
+							</div>
+
+							
+						</body>
+				
+						</html>";
+							
+							$headers[] = 'MIME-Version: 1.0';
+							$headers[] = 'Content-type: text/html; charset=iso-8859-1';
+							$headers[] = "To: <$email>";
+							$headers[] = 'From: "Mosaic" <no-reply@ltw-mosaic.it>';
+						
+							$sentmail=mail($to, $oggetto, $message, implode("\r\n", $headers));
 							
 							if($sentmail){
 								echo "Ti sei registrato con successo!<br>Ti abbiamo inviato una mail contenente i tuoi dati di accesso e il link di attivazione.";

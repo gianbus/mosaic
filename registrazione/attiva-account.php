@@ -63,10 +63,12 @@
 
 			}
 
-            include '../footer.php';
+            
 		?>
     </div><!-- CONTAINER END -->
-
+		<?php
+			include '../footer.php';
+		?>
 </body>
 
 </html>

@@ -31,19 +31,19 @@
             $password2 = mysqli_real_escape_string($mysqli, $_POST['password2']);
 
             if(!$key || !$email){ //VERIFICO PRESENZA PARAMETRI
-                echo 'Link non valido';
+                echo '<h3>Link non valido</h3>';
                 header( "refresh:4;url=../index.php" );
             
             }else if($password1=="" || $password2 == ""){ //VERIFICO LA COMPILAZIONE DI TUTTI I CAMPI
-                echo 'Devi riempire tutti i campi!';
+                echo '<h3>Devi riempire tutti i campi!</h3>';
 			    header("refresh:4;url=index.php?key=$key&email=$email");	
 
             }else if($password1 != $password2){ //VERIFICO CHE LE PASSWORD COINCIDANO
-                echo 'Le password devono coincidere!';
+                echo '<h3>Le password devono coincidere!</h3>';
 			    header("refresh:4;url=index.php?key=$key&email=$email");	
 
             }elseif(strlen($password1)<8 || !preg_match("/[A-Z]+/",$password1) || !preg_match("/[a-z]+/",$password1)){ //CONTROLLO COMPLESSITA PASSWORD
-				echo "Password troppo semplice, deve avere almeno una maiuscola e una minuscola ed almeno 8 caratteri!";
+				echo "<h3>Password troppo semplice, deve avere almeno una maiuscola e una minuscola ed almeno 8 caratteri!</h3>";
 			    header("refresh:4;url=index.php?key=$key&email=$email");	
 
             }else{
@@ -57,18 +57,21 @@
                 $risultatouser = mysqli_query($mysqli, "UPDATE utenti SET password='$password1', codiceconferma = '$codiceconferma' WHERE codiceconferma = '$key' and email = '$email' ");
 					
                 if($risultatouser){ //SE L'UPDATE E' ANDATO A BUON FINE
-                    echo 'Password cambiata con successo!';
+                    echo '<h3>Password cambiata con successo!</h3>';
                     header( "refresh:4;url=../login" );
                 }else{ //SE SI E' VERIICATO UN ERRORE
-                    echo 'Si è verificato un errore!';
+                    echo '<h3>Si è verificato un errore!</h3>';
                     header( "refresh:4;url=../index.php" );
                 }
             }
 
-            include '../footer.php';
+            
         ?>
     </div><!-- CONTAINER END -->
-
+        
+        <?php
+            include '../footer.php';
+        ?>
 </body>
 
 </html>
