@@ -34,7 +34,7 @@ $(document).ready(function(){
     $("#points").load(pathURL,function(responseTxt, statusTxt, xhr){
         if(statusTxt == "success"){
             let resp = JSON.parse(responseTxt);
-            $("#points").html(resp.points + "\t<i class=\"fa fa-money\" aria-hidden=\"true\"></i>");
+            $("#points").html(resp.points + "<i class=\"fa fa-money\" aria-hidden=\"true\"></i>");
         }
     });
 });

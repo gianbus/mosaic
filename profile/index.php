@@ -48,35 +48,34 @@
                 $description = $row["descrizione"];
                 
                 
-                echo "  \t<div  id='myblock-". ($id)."' class='row mt-2 mb-2 mx-0'>\n";
+                echo "<div  id='myblock-". ($id)."' class='row mt-2 mb-2 mx-0'>";
                     if($type=="image"){
-                        echo "<div  id='myimg-". ($id)."' >\n";
-                        echo "<img id=img-".($id)." src='../".$path."' >\n";
+                        echo "<div  id='myimg-". ($id)."' >";
+                        echo "<img id=img-".($id)." src='../".$path."' >";
                         echo "</div>";
                     }else if($type=="color"){
-                        echo "<div  id='mycolor-". ($id)."' style=\"background-color:$path\"   >\n";
+                        echo "<div  id='mycolor-". ($id)."' style=\"background-color:$path\">";
                         echo "</div>";
                     }
                     else if( $type=="video"){
-                        echo "<div  id='myvideo-". ($id)."' class='col-2'>\n";
-                        echo "<img id=img-".($id)." src='https://img.youtube.com/vi/".$path."/default.jpg'  >\n";
+                        echo "<div  id='myvideo-". ($id)."' class='col-2'>";
+                        echo "<img id=img-".($id)." src='https://img.youtube.com/vi/".$path."/default.jpg'>";
                         echo "</div>";
                     }
                 
                     echo "<div id='info-myblock-". ($id)."'  class='col-7'>";
                     echo "<div><b>$title</b></div><hr>";
                     echo "<div>$description</div>";
-                    echo "</div>\n";
+                    echo "</div>";
                     
                     echo "<div id='modify-myblock-". ($id)."'  class='col-2'>";
-                    echo "</div>\n";
+                    echo "</div>";
 
-                echo "</div >\n";
+                echo "</div >";
                 
             }
             
-        }
-        else{
+        }else{
             echo "<h3>Attualmente non possiedi alcun blocco, inizia a comprarli </h3>";
         }
         echo "</div>";
@@ -88,6 +87,6 @@
         include '../footer.php';
     ?>
      <script src="../js/profile.js"></script>
-     <script src="../js/navbar.js"></script>
+     
 </body>
 </html>

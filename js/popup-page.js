@@ -60,7 +60,7 @@ $(document).ready(function(){
             let type = response.tipo;
                 if(type =="image") path = "../mosaic/" + path;
             
-            $("#price-block").text("Prezzo:\n" + price);
+            $("#price-block").text("Prezzo:" + price);
             $(".card-title").text(title);
             $(".card-text").text(description);
             
@@ -186,8 +186,8 @@ $(document).ready(function(){
                 $(".logged").prop('disabled',false);
                 $(".logged").attr("href","./block/modify-selection.php?id="+nBlocco);
                 $(".text-muted").text("Ultimo proprietario: " + user);
-                $("#points").html(new_wallet + "\t<i class=\"fa fa-money\" aria-hidden=\"true\"></i>");
-                $("#price-block").text("Prezzo:\n--");
+                $("#points").html(new_wallet + "<i class=\"fa fa-money\" aria-hidden=\"true\"></i>");
+                $("#price-block").text("Prezzo:--");
                 $("#block-"+ id ).addClass("owner_block");
             }
             else if(err==1){

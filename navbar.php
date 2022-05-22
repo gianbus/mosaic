@@ -15,12 +15,12 @@
             <div id="profile" >
                 <?php
                     if(!isset($_SESSION['utente'])){
-                      echo "<a class='signup nav-btn' href='/registrazione' >_sign up</a>\n";
-                      echo "<a class='login nav-btn' href='/login' >_login</a>\n";
+                        echo "<a class='signup nav-btn' href='/registrazione' >_sign up</a>";
+                        echo "<a class='login nav-btn' href='/login' >_login</a>";
                     }else{
-                        echo "<span id='points' class=' nav-btn'>".$_SESSION['punti']." <i class=\"fa fa-money\" aria-hidden=\"true\"></i></span>\n";
-                      echo "<a id='logged-username' class=' nav-btn' href='/profile' >".$_SESSION['utente']."</a>\n";
-                      echo "<a class='login nav-btn' href='/logout' >_logout</a>\n";
+                        echo "<span id='points' class=' nav-btn'>".$_SESSION['punti']." <i class=\"fa fa-money\" aria-hidden=\"true\"></i></span>";
+                        echo "<a id='logged-username' class=' nav-btn' href='/profile'>".$_SESSION['utente']."</a>";
+                        echo "<a class='login nav-btn' href='/logout' >_logout</a>";
                     }
                 ?> 
             </div>

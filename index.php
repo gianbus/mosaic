@@ -29,7 +29,7 @@
 <body>
     
     <?php
-      include './navbar.php';
+      include 'navbar.php';
     ?>
     
     
@@ -49,11 +49,10 @@
                         <div id="buy-if"style="flex: 2 1 0%">
                             <?php
                                 if(!isset($_SESSION['utente'])){
-                                    echo "\t\t\t\t\t\t<a href='./registrazione' class='not-logged signup _btn '>Sign up</a>";
-                                    echo "\t\t\t\t\t\t<a href='./login' class='not-logged login _btn '>Login</a>";
-                                }
-                                else {
-                                    echo "\t\t\t\t\t\t<a href ='#' class='logged'>Compra</a>";
+                                    echo "<a href='./registrazione' class='not-logged signup _btn '>Sign up</a>";
+                                    echo "<a href='./login' class='not-logged login _btn '>Login</a>";
+                                }else{
+                                    echo "<a href ='#' class='logged'>Compra</a>";
                                 }
                             ?>
                         </div>
@@ -82,7 +81,7 @@
             if ($result->num_rows > 0){
                 
                 for ($i=0; $i<12; $i=$i+1){
-                        echo "<div class= row-$i  >\n";
+                        echo "<div class= row-$i  >";
                         for ($j=1; $j<=12; $j=$j+1){
                             $row = $result->fetch_assoc();
                             
@@ -95,19 +94,19 @@
                             $type =$row["tipo"];
                             $path = $row["path"];
                             if($type=="image"){
-                                echo "  \t<div class='blocco ".$owner_class."' id='block-". ($j+$i*12)."'  >\n";
-                                    echo "\t\t<img id=img-".($j+$i*12)." src='".$path."'  >\n";
+                                echo "<div class='blocco ".$owner_class."' id='block-". ($j+$i*12)."'>";
+                                echo "<img id=img-".($j+$i*12)." src='".$path."'>";
                             }else if($type=="color"){
-                                echo "  \t<div class='blocco ".$owner_class."' id='block-". ($j+$i*12)."'>\n";
-                                    echo "  \t<div id='color-". ($j+$i*12)."' style=\"background-color:$path\"  ></div>\n";
+                                echo "<div class='blocco ".$owner_class."' id='block-". ($j+$i*12)."'>";
+                                echo "<div id='color-". ($j+$i*12)."' style=\"background-color:$path\"></div>";
                             }
                             else if( $type=="video"){
-                                echo "  \t<div class='blocco ".$owner_class."' id='block-". ($j+$i*12)."'  >\n";
-                                    echo "\t\t<img id=img-".($j+$i*12)." src='https://img.youtube.com/vi/".$path."/default.jpg' >\n";
+                                echo "<div class='blocco ".$owner_class."' id='block-". ($j+$i*12)."'>";
+                                echo "<img id=img-".($j+$i*12)." src='https://img.youtube.com/vi/".$path."/default.jpg'>";
                             }
-                            echo "\t</div>\n";
+                            echo "</div>";
                         }
-                        echo "</div>\n";
+                        echo "</div>";
                 }
             }
         ?>
