@@ -11,6 +11,10 @@ body{
 
 .my-container{
     background-color: white;
+    margin-top: 14vw;
+    padding-top: 3vw;
+    padding-bottom: 2vw;
+
 }
 
 .col{
