@@ -1,53 +1,64 @@
-small{
-    color:red;
+.campoform > label{
+    flex:1 1 5%;
+    
 }
+.campoform > input{
+    flex: 3 0 0%;
+    padding: 10px;
+    margin: 4px;
+    height: 25%;
+    border-radius: 25px;
+    border: 0px ;
+    background-color: rgba(255, 255, 255, 0.863);
+    box-shadow: 0px 0px 3px 1px rgba(0, 0, 0, 0.39);
+}
+
+span.campoform{
+    flex: 0%;
+    align-items: center;
+    position:relative;
+    margin:5px;
+}
+.campoform > input:focus-visible{
+    border: 1px solid black;
+}
+.check_termini{
+    text-align: center;
+}
+
+.logo-blocchi > div {
+    margin: 15px;
+    height: 70px;
+    width: 70px;
+    background-color: rgb(26, 77, 82);
+}
+
+.buttonSubmit {
+    border-radius: 10vw;
+    margin: 10px;
+}
+
+/*.campoform > small{
+    color:rgb(195, 0, 0);
+    position: absolute; 
+    left:30%;
+    top:5%;
+    font-size: 0.5vw;
+}*/
+
+
+.error::placeholder {
+    color: red;
+    opacity: 1;
+}
+
+
 
 .error{
     border-color: red;
 }
 
-.campoform{
-	margin-bottom: 0.75rem;
-}
 
-input{
-	border: solid 1px #ccc;
-	border-radius: 3px;
-	display: inline-block;
-	padding: 0.5rem 0.75rem;
-	font-family: inherit;
-	font-size: 1rem;
-}
-
-
-label{
-	display: inline-block;
-	margin-bottom: 5px;
-	vertical-align: top;
-	width: 100%;
-}
-
-
-.buttonSubmit{
-	background: #4d4d72;
-	color: #fff;
-	border-radius: 0.25rem;
-	font-size: 1rem;
-	font-weight: 400;
-	border: 1px solid #4d4d72;
-	transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out,
-		box-shadow 0.15s ease-in-out;
-	text-align: center;
-	padding: 0.375rem 0.75rem;
-}
-
-.signin{
-    background-color: #f1f1f1;
-    max-width: 250px;
-    height: 50px;
-    padding: 10px;
-    text-align: center;
-}
 
 
 #sicurezzaPassword{
@@ -66,3 +77,45 @@ div[id|=pass]{
     border: 1px solid rgba(128, 128, 128, 0.644);
     height: 100%;
 }
+
+
+#mostra {
+    position: absolute;
+    right: 10px;
+}
+
+
+.tooltip {
+    position: relative;
+
+  }
+  
+  .tooltip ~ .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    top: 150%;
+    left: 50%;
+    margin-left: -60px;
+  }
+  
+  .tooltip ~ .tooltiptext::after {
+    content: "";
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent black transparent;
+  }
+  
+  .tooltip:focus ~ .tooltiptext {
+    visibility: visible;
+  }
