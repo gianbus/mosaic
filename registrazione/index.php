@@ -18,11 +18,13 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-    <div class="my-container">
-        <div style="background-color: #0d1117af; filter: blur(5px);position: fixed;top:0;left: 0; width: 100%; height: 100%;">
-            
-        </div>
-        <div style="position: fixed; top:30%; left: 15%;width:70% ;height: 40%; border: 1px solid black; border-radius: 20px; display: flex; background-color: rgb(255, 255, 255); height: fit-content;">
+    <?php
+        include '../navbar.php';
+        if(isset($_SESSION['utente'])) header("refresh:0;url=../index.php");
+    ?>
+    <div class="my-container" style="background-color: #202936af; ">
+       
+        <div style="margin:auto;width:70%; border: 1px solid black; border-radius: 20px; display: flex; background-color: rgb(255, 255, 255); height: fit-content;">
                 
             <div style="display:flex; justify-content: center; align-items: center; flex: 40%;">
                 <!--<img style="height: 400px; width: 400px;" src="../../../Backgrounds/istockphoto-666262220-612x612.jpeg">-->
@@ -87,7 +89,7 @@
                         <div style="flex: 0%;">
                             <span  class="campoform" style="display: flex; position: relative;">
                                 <label for="password1">Password</label>
-                                <input id="password1" name="password1" type="text"  class= "tooltip" placeholder="Password" form="formregistrazione">
+                                <input id="password1" name="password1" type="text"  class= "mytooltip" placeholder="Password" form="formregistrazione">
                                 <i class="fa fa-eye" id="mostra" aria-hidden="true"></i>
                                 <div id="commentoPassword" class="tooltiptext"></div>
                                 <small></small>
@@ -125,6 +127,10 @@
             </div>
         </div>
     </div>
+    <?php
+        include '../footer.php';
+    ?>
+
     <script src="../js/verifica-campi-inseriti.js"></script>
 
 </body>
