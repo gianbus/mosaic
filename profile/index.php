@@ -64,6 +64,9 @@
                     }
                 
                     echo "<div id='info-myblock-". ($id)."'  class='col-7'>";
+                    if($title==NULL) $title = "Titolo non presente";
+                    if($description==NULL) $description = "Descrizione non presente";
+                    
                     echo "<div><b>$title</b></div><hr>";
                     echo "<div>$description</div>";
                     echo "</div>";

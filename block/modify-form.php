@@ -57,7 +57,7 @@
                 <label for="titolo" >Titolo:</label>
                 <input type="text" id="titolo" name="titolo" form="modifyform-'.$id.'" placeholder="Titolo" value="'.$titolo.'" required><br>
                 <label for="descrizione">Descrizione:</label>
-                <textarea rows="4" cols="50" name="descrizione" form="modifyform-'.$id.'" placeholder="Descrizione">'.$descrizione.'</textarea>
+                <textarea rows="4"  name="descrizione" form="modifyform-'.$id.'" placeholder="Descrizione">'.$descrizione.'</textarea>
               </div>';
 
         

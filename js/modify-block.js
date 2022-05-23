@@ -1,6 +1,7 @@
 $(document).ready(function(){
     //Una volta scelto il tipo di contenuto da memorizzare all'interno del blocco viene mostrato il form di modifica
     $("#chosen-content").on("change",function(){
+        $("#modify-selected").addClass("change");
         let selected = $("#chosen-content").prop("value");
         if(selected == "none"){ 
             $("#modify-selected").text('');
