@@ -14,8 +14,8 @@ $(document).ready(function(){
     let width_smartphone = 425;
     let height_smartphone = 425;
     
-    let width_tablet = 628;
-    let height_tablet = 628;
+    let width_tablet = 768;
+    let height_tablet = 768;
     //LE VARIABILI SOPRA DEFINITE NON SONO UTILIZZATE TUTTE AL MOMENTO. QUELLE CHE NON SI RIVELERANNO UTILI VERRANNO CANCELLATE
     
 
@@ -60,7 +60,7 @@ $(document).ready(function(){
             let type = response.tipo;
                 if(type =="image") path = "../mosaic/" + path;
             
-            $("#price-block").text("Prezzo:" + price);
+            $("#price-block").text("Prezzo:\n" + price);
             $(".card-title").text(title);
             $(".card-text").text(description);
             
@@ -261,6 +261,8 @@ $(document).ready(function(){
         if(window.innerWidth>width_smartphone) $(".info-pop").css("top","");
         togglePopup(w,z,"transparent");
         cancelPurchase(buyButton);
+        $('#container-block').html(''); //NECESSARIO AFFINCHE' NEL CASO CI SIA UN VIDEO VIENE FERMATO E CHIUSO
+
         if(blur) {
             $("#grid").toggleClass("filter");
             if(window.innerWidth>width_smartphone) 

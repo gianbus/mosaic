@@ -94,7 +94,7 @@
 #buy-if{
   display: flex;
   flex-direction: column ;
-  font-size: 30px;
+  font-size: 25px;
   height: 100%;
 }   
 
@@ -113,7 +113,7 @@
   border: 0px;
   box-shadow: 2px 2px 5px 0px #4152634d;
   width: 100%;
-
+  height: fit-content;
   text-align: center;
   color: rgb(255, 255, 255);
   text-shadow:2px 1px rgba(56, 56, 56, 0.493);
@@ -194,12 +194,13 @@
 
 .card-footer{
   flex: 0 1 4%;
+  font-weight: 600;
 }
 
-/*--Responsiveness--*/
+/*----------------Responsiveness----------------*/
 @media screen and (max-height: 475px){
   .info-pop .closebtn{
-    font-size: 10px;
+    font-size: 25px;
     padding: 8px;
   }
   .card-body{
@@ -213,16 +214,27 @@
     font-size: 11px;
     margin: 0px;
   }
+  #price-block{
+    font-size: 30px;
+  }
   #buy-if{
     flex-direction: row;
     font-size: 15px;
   }
+  .not-logged{
+    margin: auto 5px;
+    font-size:  16px;
+    padding: 2vw 5px;
+    height: fit-content;
+    
+  }
   .card-footer{
-    font-size: 10px;
+    font-size: 15px;
+   
   }
 }
 
-@media screen and (max-width: 1000px){
+@media screen and (max-width: 768px){
   .card-market{
     flex-direction: column;
   }
@@ -235,20 +247,13 @@
   }
   .not-logged{
     width: 100%;
-    margin: 5px 0px  ;
-  }
-}
-
-@media screen and (max-height: 915px) and (min-height: 401px){
-  .info-pop .closebtn{
-    font-size: 15px;
-    padding: 8px 0px;
+   
   }
 }
 
 
 
-@media screen and (max-height: 915px) and (max-width: 425px){
+@media screen  and (max-width: 425px){
   .info-pop {
       border-radius: 25px 25px 0px 0px ;
       top: 100%;
@@ -258,9 +263,7 @@
   .card{
     border-radius:25px 25px 0px 0px;
   }
-  .not-logged{
-    margin: 5px;
-  }
+  
   .confirm-body > div{
     margin: auto;
     
@@ -270,3 +273,4 @@
     width: 40%;
   }
 }
+
