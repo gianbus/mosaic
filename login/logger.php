@@ -56,6 +56,10 @@
                             //ESEGUE L'ACCESSO
                             $_SESSION['utente'] = $sessione['username'];
                             $_SESSION['punti'] = $sessione['punti'];
+
+                            setcookie("utente", $sessione['username'], time()+3600, "/","", 0);
+                            setcookie("punti", $sessione['punti'], time()+3600, "/", "",  0);
+
                             echo "Login effettuato con successo!";
                             header("Refresh: 2; URL= ../index.php");
 
