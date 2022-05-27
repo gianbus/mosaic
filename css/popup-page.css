@@ -161,7 +161,7 @@
   color: white;
   background-color: #1e252e;
   width: 100%;
-  height: 20%;
+  height: fit-content;
   animation-name: btoup;
   animation-duration: 0.4s
 }
@@ -177,7 +177,10 @@
   
 }
 
-.confirm-body {padding: 1vw;}
+.confirm-body {
+  padding: 1vw;
+  
+}
 
 .confirm-body > div{text-align:right;}
 
@@ -206,6 +209,10 @@
   .card-body{
     padding-bottom: 0.5rem!important;
     padding-top: 0rem!important;
+  }
+
+  .card-body > span{
+    font-size: 2vh;
   }
   .card-title{
     font-size: 14px;
@@ -263,14 +270,21 @@
   .card{
     border-radius:25px 25px 0px 0px;
   }
-  
-  .confirm-body > div{
+  .confirm-content{
+    height: fit-content;
+
+  }
+  .confirm-body  div{
     margin: auto;
     
     text-align: center;
   }
+  .confirm-body  > span{
+    font-size: 5vw;
+  }
   .confirm-body ._btn{
-    width: 40%;
+    width: 49%;
+
   }
 }
 

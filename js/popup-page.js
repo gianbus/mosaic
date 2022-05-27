@@ -158,6 +158,8 @@ $(document).ready(function(){
                 return;
             }
             $("#purchase-confirm").css("display","block");
+            let leftPoints = myPoints - price;
+            $(".confirm-body > span").text("Rimarrai con soli "+ leftPoints + " punti, accetti?" );
 
 
             
