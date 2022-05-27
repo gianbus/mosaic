@@ -11,7 +11,7 @@
         <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
         <!-- My CSS -->
-        <link rel="stylesheet" href="../css/style.css">
+        <link rel="stylesheet" href="../css/style.css">                      
 
         <link href="../css/sign-up.css" rel="stylesheet">
     
@@ -22,11 +22,11 @@
         include '../navbar.php';
         if(isset($_SESSION['utente'])) header("refresh:0;url=../index.php");
     ?>
-    <div class="my-container" style="background-color: #202936af; ">
+    <div id="outer-main" style="background-color: #202936af; position: relative;">
        
-        <div style="margin:auto;width:70%; border: 1px solid black; border-radius: 20px; display: flex; background-color: rgb(255, 255, 255); height: fit-content;">
+        <div id="main-container">
                 
-            <div style="display:flex; justify-content: center; align-items: center; flex: 40%;">
+            <div id="container-logo-blocchi">
                 <!--<img style="height: 400px; width: 400px;" src="../../../Backgrounds/istockphoto-666262220-612x612.jpeg">-->
                 
                 <div style = "display: flex; flex-direction: column;">
@@ -52,9 +52,9 @@
             </div>
 
 
-            <div style="flex:60%;display: flex; flex-direction: column; background-color: rgb(207, 207, 207);border-radius: 0px 20px 20px 0px;">
+            <div id="container-destra" style="flex:60%;display: flex; flex-direction: column; background-color: rgb(207, 207, 207);border-radius: 0px 20px 20px 0px;">
                 <div style="flex: 15%;text-align: center;">
-                    <span style="font-size: 2vw;">Registrazione</span>
+                    <span style="font-size: 5vw;">Registrazione</span>
                 </div>
                 <div style="flex: 50%; display: flex;">
                     <div style="flex: 0%;"></div>
@@ -89,7 +89,7 @@
                         <div style="flex: 0%;">
                             <span  class="campoform" style="display: flex; position: relative;">
                                 <label for="password1">Password</label>
-                                <input id="password1" name="password1" type="text"  class= "mytooltip" placeholder="Password" form="formregistrazione">
+                                <input autocomplete="off" id="password1" name="password1" type="text"  class= "mytooltip" placeholder="Password" form="formregistrazione">
                                 <i class="fa fa-eye" id="mostra" aria-hidden="true"></i>
                                 <div id="commentoPassword" class="tooltiptext"></div>
                                 <small></small>
@@ -105,7 +105,7 @@
 
                             <span class="campoform" style="display: flex;">
                                 <label for="password2">Conferma</label>
-                                <input id="password2" name="password2" type="text" placeholder="Conferma password" form="formregistrazione">
+                                <input autocomplete="off" id="password2" name="password2" type="text" placeholder="Conferma password" form="formregistrazione">
                                 <small></small>
                             </span>
                             
