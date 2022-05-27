@@ -22,7 +22,7 @@
         include '../navbar.php';
         if(isset($_SESSION['utente'])) header("refresh:0;url=../index.php");
     ?>
-    <div id="outer-main" style="background-color: #202936af; position: relative;">
+    <div id="outer-main" >
        
         <div id="main-container">
                 
@@ -52,7 +52,7 @@
             </div>
 
 
-            <div id="container-destra" style="flex:60%;display: flex; flex-direction: column; background-color: rgb(207, 207, 207);border-radius: 0px 20px 20px 0px;">
+            <div id="container-destra" style="flex:60%;display: flex; flex-direction: column; background-color: rgb(207, 207, 207);">
                 <div style="flex: 15%;text-align: center;">
                     <span style="font-size: 5vw;">Registrazione</span>
                 </div>
@@ -116,13 +116,13 @@
                             
                         </span>
                         
-                        <input class="buttonSubmit" type="submit" value="Registrati" form="formregistrazione">
+                        
 
                     </div>
                     <div style="flex: 0%;"></div>
                 </div>
                 <div style="flex:20%;">
-                    
+                    <input class="buttonSubmit" type="submit" value="Registrati" form="formregistrazione">
                 </div>
             </div>
         </div>

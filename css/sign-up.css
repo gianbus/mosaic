@@ -1,7 +1,7 @@
 #outer-main {
-    background-color: #202936af;
+    
     position: relative;
-    height: 100vw;
+    margin-top: 15vw;
 }
 
 /* qua sopra prima c'era mycontainer*/
@@ -58,7 +58,8 @@ span.campoform{
     flex: 0%;
     align-items: center;
     position:relative;
-    margin:15px;
+    margin:10px;
+    
 }
 .campoform > input:focus-visible{
     border: 1px solid black;
@@ -66,8 +67,7 @@ span.campoform{
 .check_termini{
     text-align: center;
     width: fit-content;
-    position: relative;
-    left: 40%;
+    margin-left: auto;
 }
 
 .logo-blocchi > div {
@@ -80,12 +80,13 @@ span.campoform{
 .buttonSubmit {
     border:none;
     border-radius: 5px;
-    margin: 20px;
     box-shadow: 0 8px 16px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
     width: 25%;
-    position: relative;
+    margin-top: 2%;
+    margin-left: 53%;
+    margin-bottom: 5%;
     background-color: #5b7caa;
-    left: 70%;
+    
     padding: 1%;
     font-size: 20px;
 }
@@ -121,7 +122,7 @@ span.campoform{
 
 #sicurezzaPassword{
     display: none;
-    width: 72px;
+   
     height: 7px;
     text-align: center;
     margin-bottom: 5px;
@@ -181,6 +182,42 @@ div[id|=pass]{
 
 
 #footer {
-  position: fixed;
-  bottom: 0;
+  margin-top:12vh ;
+}
+
+@media screen and (max-width: 768px){
+    
+    #main-container {
+        width: 70%;
+    }
+
+    #container-logo-blocchi{
+        display: none;
+    }
+    #container-destra{
+        border-radius: 20px;
+    }
+    span.campoform{
+        flex-direction: column;
+
+    }
+    
+}
+
+@media screen and (max-width: 425px){
+    #main-container {
+        width: 80%;
+    }
+
+    #outer-main {
+    
+        position: relative;
+        margin-top: 15vh;
+    }
+    #main-container{
+        margin: auto
+    }
+    #footer{
+        margin-top:5vh ;
+    }
 }
