@@ -64,7 +64,7 @@
                                 'domain' => 'localhost',
                                 'secure' => true,
                                 'httponly' => true,
-                                'samesite' => 'strict',
+                                'samesite' => 'Strict',
                             ]);
 
                             setcookie("punti", $sessione['punti'], [
@@ -73,7 +73,7 @@
                                 'domain' => 'localhost',
                                 'secure' => true,
                                 'httponly' => true,
-                                'samesite' => 'strict',
+                                'samesite' => 'Strict',
                             ]);
 
                             echo "Login effettuato con successo!";

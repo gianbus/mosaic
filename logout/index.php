@@ -19,7 +19,7 @@
 						'domain' => 'localhost',
 						'secure' => true,
 						'httponly' => true,
-						'samesite' => 'strict',
+						'samesite' => 'Strict',
 					]);
 
 					setcookie("punti", "", [
@@ -28,7 +28,7 @@
 						'domain' => 'localhost',
 						'secure' => true,
 						'httponly' => true,
-						'samesite' => 'strict',
+						'samesite' => 'Strict',
 					]);
 
 					echo 'Logout effettuato con successo!';
