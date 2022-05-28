@@ -61,7 +61,7 @@
                             setcookie("utente", $sessione['username'], [
                                 'expires' => time() + 3600,
                                 'path' => '/',
-                                'domain' => 'ltw-mosaic.it',
+                                'domain' => 'localhost',
                                 'secure' => true,
                                 'httponly' => true,
                                 'samesite' => 'strict',
@@ -70,7 +70,7 @@
                             setcookie("punti", $sessione['punti'], [
                                 'expires' => time() + 3600,
                                 'path' => '/',
-                                'domain' => 'ltw-mosaic.it',
+                                'domain' => 'localhost',
                                 'secure' => true,
                                 'httponly' => true,
                                 'samesite' => 'strict',
