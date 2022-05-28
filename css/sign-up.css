@@ -1,16 +1,19 @@
 #outer-main {
-    
     position: relative;
-    margin-top: 15vw;
+    padding-top: 17vw;
+    padding-bottom: 8vw;
+    background-image: url(../assets/19742.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
-/* qua sopra prima c'era mycontainer*/
 
+/* qua sopra prima c'era mycontainer*/
 
 #main-container {
     margin: auto;
     width: 85%;
-    border: 1px solid black;
+
     border-radius: 20px;
     display: flex;
     background-color: rgb(255, 255, 255);
@@ -35,6 +38,7 @@
     flex-direction: column;
     background-color: rgb(207, 207, 207);
     border-radius: 0px 20px 20px 0px;
+    background-image: linear-gradient(to right, rgb(255 255 255), rgb(200 201 204));
 }
 
 
@@ -44,6 +48,7 @@
 }
 .campoform > input{
     flex: 3 0 0%;
+    width: 100%;
     padding: 10px;
     margin: 4px;
     height: 100%;
@@ -52,6 +57,15 @@
     background-color: rgba(255, 255, 255, 0.863);
     box-shadow: 5px 5px 3px 1px #161b2212;
     
+}
+
+#container-destra  input[type=text]:focus-visible{
+    
+    outline-color: rgba(42, 42, 243, 0.747);
+    outline-style: solid;
+    outline-width: 1px;
+    background-color: #31466356;
+    color: whitesmoke;
 }
 
 span.campoform{
@@ -67,7 +81,7 @@ span.campoform{
 .check_termini{
     text-align: center;
     width: fit-content;
-    margin-left: auto;
+    margin-left: 13%;
 }
 
 .logo-blocchi > div {
@@ -181,9 +195,7 @@ div[id|=pass]{
   }
 
 
-#footer {
-  margin-top:12vh ;
-}
+
 
 @media screen and (max-width: 768px){
     
@@ -201,6 +213,22 @@ div[id|=pass]{
         flex-direction: column;
 
     }
+
+    #mostra {
+        right: 10px;
+        bottom: 15px;
+    }
+
+    .check_termini  label {
+        display: inline;
+        margin-left: 8px;
+    }
+
+    .buttonSubmit {
+        width: 90%;
+        margin-left: 5%;
+        margin-right: 5%;
+    }
     
 }
 
@@ -210,14 +238,10 @@ div[id|=pass]{
     }
 
     #outer-main {
-    
         position: relative;
         margin-top: 15vh;
     }
     #main-container{
         margin: auto
-    }
-    #footer{
-        margin-top:5vh ;
     }
 }

@@ -136,7 +136,7 @@
     }
 
 
-    document.getElementById("mostra").addEventListener("click", mostraPassword);
+    /*document.getElementById("mostra").addEventListener("click", mostraPassword);
 
     function mostraPassword() {
         let p1 = $("#password1");
@@ -161,7 +161,15 @@
         }
         
         return;
-    }
+    }*/
+
+    $("#mostra").click(function(){
+        let input = $("input[id^=password]");
+    
+        let next = input.attr("type")==="password"?"text":"password";
+        $("#mostra").toggleClass("fa-eye fa-eye-slash");
+        input.attr("type",next);
+    });
 
 
     $("#password1").keyup(validitaPassword);

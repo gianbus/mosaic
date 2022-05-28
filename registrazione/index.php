@@ -50,9 +50,9 @@
             </div>
 
 
-            <div id="container-destra" style="flex:60%;display: flex; flex-direction: column; background-color: rgb(207, 207, 207);">
+            <div id="container-destra">
                 <div style="flex: 15%;text-align: center;">
-                    <span style="font-size: 5vw;">Registrazione</span>
+                    <span style="font-size: 4vw;">Registrazione</span>
                 </div>
                 <div style="flex: 50%; display: flex;">
                     <div style="flex: 0%;"></div>
@@ -85,6 +85,8 @@
                         </span>
 
                         <div style="flex: 0%;">
+
+                            
                             <span  class="campoform" style="display: flex; position: relative;">
                                 <label for="password1">Password</label>
                                 <input autocomplete="off" id="password1" name="password1" type="text"  class= "mytooltip" placeholder="Password" form="formregistrazione">
@@ -108,7 +110,8 @@
                             </span>
                             
                         </div>
-                        <span class="check_termini">
+                        
+                        <span class="check_termini" style="">
                             <input type="checkbox" name="checktermini" id="checktermini" form="formregistrazione">
                             <label style="margin-left:8px;" for="checktermini" form="formregistrazione">Accetto i <a href="termini-servizio.html"><strong>Termini di servizio</strong></a> di Mosaic</label>
                             
