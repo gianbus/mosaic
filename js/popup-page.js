@@ -188,7 +188,7 @@ $(document).ready(function(){
                 $(".logged").prop('disabled',false);
                 $(".logged").attr("href","./block/modify-selection.php?id="+nBlocco);
                 $(".text-muted").text("Ultimo proprietario: " + user);
-                $("#points").html(new_wallet + "<i class=\"fa fa-money\" aria-hidden=\"true\"></i>");
+                $("#points").html(new_wallet + " <i class=\"fa fa-money\" aria-hidden=\"true\"></i>");
                 $("#price-block").text("Prezzo:--");
                 $("#block-"+ id ).addClass("owner_block");
             }
