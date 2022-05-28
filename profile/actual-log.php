@@ -8,7 +8,7 @@
             $contauser = mysqli_num_rows($recuperauser);
             if($contauser == 1){
                 $sessione = mysqli_fetch_array($recuperauser);
-                $_COOKIE['punti'] = $sessione['punti']; 
+                setcookie("punti", $sessione['punti']);
                 $resp->user = $sessione["username"];
                 $resp->points = $sessione["punti"];
                 echo json_encode($resp);
