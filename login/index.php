@@ -8,7 +8,8 @@
 
     <!-- My CSS -->
     <link rel="stylesheet" href="../css/style.css">
-    
+    <link rel="stylesheet" href="../css/form.css">
+
     <title>Mosaic |Login</title>
     
     <!--favicons-->
@@ -24,18 +25,18 @@
     ?>
     <div class="my-container container-fluid">
         
-        <div id="divlogin">
+        <div id="divlogin" class="mosaic-form">
             <h2>Login</h2>
 
             <form action="logger.php" method="POST" id="formlogin"> 
 
                 <label for="username">Username:</label><br>
-                <input type="text" id="username" name="username" placeholder="Username" required><br>
+                <input type="text" id="username" class="mosaic-input" name="username" placeholder="Username" required><br>
 
                 <label for="password">Password:</label><br>
-                <input type="password" id="password" name="password" placeholder="Password" required><br><br>
+                <input type="password" class="mosaic-input" id="password" name="password" placeholder="Password" required><br>
                 
-                <input type="submit" value="Login" ><br>
+                <input type="submit" class="mosaic-submit" value="Login" ><br>
             </form>
             <br>
             <a href="../recuperapassword/"><p>Hai dimenticato la password?</p></a>

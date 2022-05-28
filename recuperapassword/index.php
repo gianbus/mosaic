@@ -8,7 +8,7 @@
 
     <!--MY CSS-->
     <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/recover-pw.css">
+    <link rel="stylesheet" href="../css/form.css">
     <!--MY CSS-->
     
     <title>Mosaic |Recupera Password</title>
@@ -24,12 +24,12 @@
         include '../navbar.php';
     ?>
     <div id="container" class="my-container container-fluid " >
-            <div id="divrecuperapassword">
+            <div id="divrecuperapassword" class="mosaic-form" >
                 <h2>Recupera Password</h2><br>
                 <form action="verificarecupera.php" method="POST" id="formrecuperapassword"> 
                     <label for="email">Email inserita in fase di registrazione:</label><br>
-                    <input type="text" id="email" name="email" placeholder="email" required><br><br>
-                    <input type="submit" value="Recupera!" ><br><br>
+                    <input type="email" id="email" class="mosaic-input" name="email" placeholder="email" required>
+                    <input type="submit" class="mosaic-submit" value="Recupera!" ><br><br>
                 </form>
                 <a href="../login/"><p>Ti sei ricordato la password?</p></a>
             </div>

@@ -1,60 +1,70 @@
-/*RECOVER*/
+/* FORM */
 
-
-#divrecuperapassword{
+.mosaic-form{
     text-align: center;
-    background-color: #0e1c2f;
-    padding: 5%;
-    box-shadow: 0px 0px 10px 1px #161b227c;
+    background-color: #161b22;
+    padding: 2vw 15vw;
+    box-shadow: 0px 0px 20px 10px #161b227c;
     width: fit-content;
     margin: auto;
     border-radius: 2vw;
     color: white;
+    background: rgb(6,180,151);
+    background: linear-gradient(36deg, rgba(6,180,151,1) 0%, rgba(0,33,40,1) 57%);
 }
-#divrecuperapassword  input[type=text]{
+
+.mosaic-form h2{
+    font-weight: 650;
+}
+
+.mosaic-form label{
+    margin: 5px;
+    padding: 0;
+}
+
+.mosaic-input{
     width: 100%;
     padding: 4%;
     border-radius: 10px;
-    margin-top: 10%;
     border: 0px;
     font-weight: 600;
     text-align: center;
     background-color: rgb(250, 250, 239);
 }
 
-#divrecuperapassword  input[type=text]:focus-visible{
-    
-    outline-color: rgba(42, 42, 243, 0.747);
+.mosaic-input:focus-visible{
+    outline-color: #06b497;
     outline-style: solid;
     outline-width: 1px;
     background-color: #31466356;
     color: whitesmoke;
 }
 
-#divrecuperapassword  input[type=submit]{
+.mosaic-submit{
     width: 100%;
     padding: 2%;
     border-radius: 10px;
     font-weight: 600;
     border: 0px;
+    margin-top: 15px;
 }
 
-#divrecuperapassword  input[type=submit]:hover{
-    background-color: cadetblue;
+.mosaic-submit:hover{
+    background-color: #06b497;
+    color: white;
 }
 
-#divrecuperapassword a{
+.mosaic-form a{
     text-decoration: none;
     color: aliceblue;
     font-size: small;
 }
-#divrecuperapassword a:hover{
+
+.mosaic-form a:hover{
     text-decoration: underline;
-    
 }
 
 /*MODIFY*/
-
 
 #divmodificapassword{
     text-align: center;
@@ -66,12 +76,13 @@
     margin: auto;
     border-radius: 2vw;
     color: white;
-    
+
 }
 
 #container-password{
     position: relative;
 }
+
 #mostra {
     position: absolute;
     right: 10px;
@@ -79,18 +90,16 @@
     color: #314663;
 }
 
-#divmodificapassword  input[id^=password]{
+#divmodificapassword input[id^=password]{
     width: 100%;
     padding: 4%;
     border-radius: 10px;
-    
     border: 0px;
     font-weight: 600;
     text-align: center;
 }
 
-#divmodificapassword  input[id^=password]:focus-visible{
-    
+#divmodificapassword input[id^=password]:focus-visible{
     outline-color: rgba(206, 206, 252, 0.747);
     outline-style: solid;
     outline-width: 1px;
@@ -98,7 +107,7 @@
     color: whitesmoke;
 }
 
-#divmodificapassword  input[type=submit]{
+#divmodificapassword input[type=submit]{
     width: 100%;
     padding: 2%;
     border-radius: 10px;
@@ -106,7 +115,7 @@
     border: 0px;
 }
 
-#divmodificapassword  input[type=submit]:hover{
+#divmodificapassword input[type=submit]:hover{
     background-color: cadetblue;
 }
 

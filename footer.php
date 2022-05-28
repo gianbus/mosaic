@@ -1,3 +1,4 @@
+<footer>
 <div id="footer">
 
     <div id="footer-logo">
@@ -13,6 +14,7 @@
     </div>  
 
 </div>
+</footer>
 
 
 

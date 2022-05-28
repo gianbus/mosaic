@@ -8,8 +8,7 @@
     
     <!--MY CSS-->
     <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/recover-pw.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../css/form.css">
     <!--MY CSS-->
 
     <title>Mosaic |Modifica password</title>
@@ -51,21 +50,21 @@
                     if($contauser == 1){ //SE E' PRESENTE UN ACCOUNT CHE SODDISFA LE CONDIZIONI
                         //MOSTRO IL FORM DI CAMBIO PASSWORD
                         echo '
-                        <div id=divmodificapassword>
+                        <div id="divmodificapassword" class="mosaic-form">
                             <h2>Modifica Password</h2><br>
 
                             <form action="cambiopassword.php?key='.$key.'&email='.$email.'" method="POST" id="formcambiopassword"> 
                             
                             <label for="password1">Crea una nuova password:</label>
                             <div id=container-password>
-                            <input type="password" id="password1" name="password1" placeholder="Password" required>
+                            <input type="password" class="mosaic-input" id="password1" name="password1" placeholder="Password" required>
                             <i class="fa fa-eye" id="mostra" aria-hidden="true"></i>
                             </div><br><br>
 
                             <label for="password2">Conferma la nuova password:</label><br>
-                            <input type="password" id="password2" name="password2" placeholder="Ripeti Password" required><br><br>
+                            <input type="password" class="mosaic-input" id="password2" name="password2" placeholder="Ripeti Password" required><br><br>
                             
-                            <input type="submit" value="Cambia Password" >
+                            <input type="submit" class="mosaic-submit" value="Cambia Password" >
                         
                             </form>
                         </div>';
