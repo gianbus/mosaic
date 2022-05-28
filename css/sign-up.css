@@ -75,9 +75,7 @@ span.campoform{
     margin:10px;
     
 }
-.campoform > input:focus-visible{
-    border: 1px solid black;
-}
+
 .check_termini{
     text-align: center;
     width: fit-content;
@@ -135,8 +133,8 @@ span.campoform{
 
 
 #sicurezzaPassword{
-    display: none;
-   
+    display: flex;
+    visibility: hidden;
     height: 7px;
     text-align: center;
     margin-bottom: 5px;
@@ -148,8 +146,9 @@ span.campoform{
 div[id|=pass]{
     width: 20px;
     margin: 5px 1px 0px;
-    border: 1px solid rgba(128, 128, 128, 0.644);
+    border: 1px solid rgba(185, 185, 185, 0.39);
     height: 100%;
+    transition: 0.5s;
 }
 
 
@@ -166,17 +165,19 @@ div[id|=pass]{
   
   .mytooltip ~ .tooltiptext {
     visibility: hidden;
-    width: 120px;
-    background-color: rgb(94, 94, 94);
+    
+    font-weight: 900;
+    box-shadow: 0px 0px 10px 0px #00000036;
+    border: 1px solid #9a9a9a;
+    background-color: rgb(255 255 255 / 84%);
     color: #fff;
     text-align: center;
     border-radius: 6px;
-    padding: 5px 0;
+    padding: 5%;
     position: absolute;
     z-index: 1;
     top: 120%;
-    left: 50%;
-    margin-left: -60px;
+    left: 35%;
   }
   
   .mytooltip ~ .tooltiptext::after {
@@ -194,7 +195,9 @@ div[id|=pass]{
     visibility: visible;
   }
 
-
+  .check_termini  label {
+    display: inline;
+  }
 
 
 @media screen and (max-width: 768px){
@@ -208,19 +211,27 @@ div[id|=pass]{
     }
     #container-destra{
         border-radius: 20px;
+        background-image: linear-gradient(2350deg, rgb(255 255 255), rgb(200 201 204));
     }
     span.campoform{
         flex-direction: column;
 
     }
-
+    .check_termini{
+       
+        margin-left: 0%;
+    }
+    
     #mostra {
         right: 10px;
         bottom: 15px;
     }
 
+    #sicurezzaPassword {
+        bottom: 0%;
+        left: 4%;
+    }
     .check_termini  label {
-        display: inline;
         margin-left: 8px;
     }
 
@@ -239,7 +250,7 @@ div[id|=pass]{
 
     #outer-main {
         position: relative;
-        margin-top: 15vh;
+        margin-top: 10vh;
     }
     #main-container{
         margin: auto

@@ -56,7 +56,7 @@
                 </div>
                 <div style="flex: 50%; display: flex;">
                     <div style="flex: 0%;"></div>
-                    <div style="flex: 40%;display: flex;flex-direction: column; display: flex;flex-direction:column ;">
+                    <div style="flex: 2 0 40%;display: flex;flex-direction: column; display: flex;flex-direction:column ;">
                         
                         <form action="registar.php" method="POST" id="formregistrazione" onsubmit="return verificaForm()" ></form>
 
@@ -77,19 +77,19 @@
                             <input type = "text" id="username" name="username" placeholder="Username" form="formregistrazione">
                             <small></small>
                         </span>
-
+                       
                         <span class="campoform" style="display: flex;">
                             <label for="email">Email</label>
                             <input id="email" name="email" type="text" placeholder="Email" form="formregistrazione">
                             <small></small>
                         </span>
-
+                        <hr>
                         <div style="flex: 0%;">
 
                             
                             <span  class="campoform" style="display: flex; position: relative;">
                                 <label for="password1">Password</label>
-                                <input autocomplete="off" id="password1" name="password1" type="text"  class= "mytooltip" placeholder="Password" form="formregistrazione">
+                                <input autocomplete="off" id="password1" name="password1" type="password"  class= "mytooltip" placeholder="Password" form="formregistrazione">
                                 <i class="fa fa-eye" id="mostra" aria-hidden="true"></i>
                                 <div id="commentoPassword" class="tooltiptext"></div>
                                 <small></small>
@@ -105,7 +105,7 @@
 
                             <span class="campoform" style="display: flex;">
                                 <label for="password2">Conferma</label>
-                                <input autocomplete="off" id="password2" name="password2" type="text" placeholder="Conferma password" form="formregistrazione">
+                                <input autocomplete="off" id="password2" name="password2" type="password" placeholder="Conferma password" form="formregistrazione">
                                 <small></small>
                             </span>
                             

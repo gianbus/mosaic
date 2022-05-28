@@ -176,11 +176,11 @@
 
     document.getElementById("password1").addEventListener("focus", () => {
         
-        return document.getElementById("sicurezzaPassword").style.display = "flex";
+        return document.getElementById("sicurezzaPassword").style.visibility = "visible";
     });
 
     document.getElementById("password1").addEventListener("blur", () => {
-        return document.getElementById("sicurezzaPassword").style.display = "none";
+        return document.getElementById("sicurezzaPassword").style.visibility = "hidden";
     });
 
 
@@ -200,7 +200,6 @@
         let testMinuscole = minuscole.test(p1);
         let testNumeri = numeri.test(p1);
         let testSpeciali = speciali.test(p1);
-
         let testModerato = testMaiuscole && testMinuscole && p1.length >= 8;
         let testForte = testModerato && testNumeri && testSpeciali;
 
