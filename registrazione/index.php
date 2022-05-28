@@ -20,7 +20,7 @@
 <body>
     <?php
         include '../navbar.php';
-        if(isset($_SESSION['utente'])) header("refresh:0;url=../index.php");
+        if(isset($_COOKIE['utente'])) header("refresh:0;url=../index.php");
     ?>
     <div class="my-container" style="background-color: #202936af; ">
        

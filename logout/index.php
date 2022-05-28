@@ -10,10 +10,27 @@
 </head>
 <body>
 			<?php
-				session_start();
-				if(isset($_SESSION['utente'])){
-					$_SESSION = array();
-					session_destroy();
+
+				if(isset($_COOKIE['utente']) || isset($_COOKIE['punti'])){
+					
+					setcookie("utente", "", [
+						'expires' => -1,
+						'path' => '/',
+						'domain' => 'localhost',
+						'secure' => true,
+						'httponly' => true,
+						'samesite' => 'strict',
+					]);
+
+					setcookie("punti", "", [
+						'expires' => -1,
+						'path' => '/',
+						'domain' => 'localhost',
+						'secure' => true,
+						'httponly' => true,
+						'samesite' => 'strict',
+					]);
+
 					echo 'Logout effettuato con successo!';
 					header( "refresh:2;url=../index.php" );
 					exit();

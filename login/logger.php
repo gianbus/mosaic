@@ -25,6 +25,8 @@
         <h2>Login</h2>
         
         <?php
+
+            if(isset($_COOKIE['utente'])) header( "refresh:0;url=../index.php" );
         
             //IMPORTO USERNAME E PASSWORD CON REAL ESCAPE STRING + PROTEZIONE SQL INJECTION
             $username = mysqli_real_escape_string($mysqli, $_POST['username']);
@@ -53,12 +55,26 @@
                         $sessione = mysqli_fetch_array($recuperauser);
 
                         if($sessione['verificato']==1){ //SE L'UTENTE E' UN UTENTE VERIFICATO
-                            //ESEGUE L'ACCESSO
-                            $_SESSION['utente'] = $sessione['username'];
-                            $_SESSION['punti'] = $sessione['punti'];
 
-                            setcookie("utente", $sessione['username'], time()+3600, "/","", 0);
-                            setcookie("punti", $sessione['punti'], time()+3600, "/", "",  0);
+                            //ESEGUE L'ACCESSO SETTANDO I DUE COOKIES "UTENTE" E "PUNTI" PER LA DURATA DI UN'ORA
+
+                            setcookie("utente", $sessione['username'], [
+                                'expires' => time() + 3600,
+                                'path' => '/',
+                                'domain' => 'ltw-mosaic.it',
+                                'secure' => true,
+                                'httponly' => true,
+                                'samesite' => 'strict',
+                            ]);
+
+                            setcookie("punti", $sessione['punti'], [
+                                'expires' => time() + 3600,
+                                'path' => '/',
+                                'domain' => 'ltw-mosaic.it',
+                                'secure' => true,
+                                'httponly' => true,
+                                'samesite' => 'strict',
+                            ]);
 
                             echo "Login effettuato con successo!";
                             header("Refresh: 2; URL= ../index.php");

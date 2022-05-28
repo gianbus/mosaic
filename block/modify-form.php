@@ -3,7 +3,7 @@
 
     <?php
         include '../config.php';
-        if(!isset($_SESSION['utente'])) header( "refresh:0;url=../index.php" );
+        if(!isset($_COOKIE['utente'])) header( "refresh:0;url=../index.php" );
         $type =  mysqli_real_escape_string($mysqli, $_GET['type']);
         $id = mysqli_real_escape_string($mysqli, $_GET['id']);
         $pathcolor = "#FFFFFF";
@@ -23,7 +23,7 @@
             $descrizione = $blocco_row['descrizione'];
             $tipoblocco = $blocco_row['tipo'];
 
-            if($_SESSION['utente'] == $blocco_row['proprietario']){
+            if($_COOKIE['utente'] == $blocco_row['proprietario']){
     
                 if($tipoblocco == "color"){
                     $pathcolor = $blocco_row['path'];

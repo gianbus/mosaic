@@ -12,7 +12,7 @@
 
     include './config.php';
 
-    if(isset($_SESSION['utente']) && $_SESSION['utente']=="mosaic"){
+    if(isset($_COOKIE['utente']) && $_COOKIE['utente']=="mosaic"){
         try{
             $k = 0;
             for ($i = $MIN_BLOCK; $i <= $MAX_BLOCK; ++$i) {

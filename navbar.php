@@ -14,12 +14,12 @@
             
             <div id="profile" >
                 <?php
-                    if(!isset($_SESSION['utente'])){
+                    if(!isset($_COOKIE['utente'])){
                         echo "<a class='signup nav-btn' href='/registrazione' >_sign up</a>";
                         echo "<a class='login nav-btn' href='/login' >_login</a>";
                     }else{
-                        echo "<span id='points' class=' nav-btn'>".$_SESSION['punti']." <i class=\"fa fa-money\" aria-hidden=\"true\"></i></span>";
-                        echo "<a id='logged-username' class=' nav-btn' href='/profile'>".$_SESSION['utente']."</a>";
+                        echo "<span id='points' class=' nav-btn'>".$_COOKIE['punti']." <i class=\"fa fa-money\" aria-hidden=\"true\"></i></span>";
+                        echo "<a id='logged-username' class=' nav-btn' href='/profile'>".$_COOKIE['utente']."</a>";
                         echo "<a class='login nav-btn' href='/logout' >_logout</a>";
                     }
                 ?> 

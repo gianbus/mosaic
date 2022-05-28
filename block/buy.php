@@ -1,7 +1,7 @@
 <?php
     include '../config.php';
     //RECUPERO IL NOME UTENTE E L'ID BLOCCO
-    $username = $_SESSION['utente'];
+    $username = $_COOKIE['utente'];
     $id = mysqli_real_escape_string($mysqli, $_GET['id']);
     $richiesta_valida = false;
     $comprato = false;
@@ -48,7 +48,7 @@
 
                 if($username != $seller_username){
                     if($nuovo_saldo_buyer >= 0){
-                        $_SESSION['punti'] = $nuovo_saldo_buyer;
+                        $_COOKIE['punti'] = $nuovo_saldo_buyer;
                         $aggiorna_saldo_buyer = mysqli_query($mysqli, "UPDATE utenti SET punti = '$nuovo_saldo_buyer' WHERE username = '$username' ");
                         $aggiorna_saldo_seller = mysqli_query($mysqli, "UPDATE utenti SET punti = '$nuovo_saldo_seller' WHERE username = '$seller_username' ");
                         $aggiorna_blocco = mysqli_query($mysqli, "UPDATE blocchi SET proprietario = '$username' WHERE id = '$id' ");

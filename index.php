@@ -48,7 +48,7 @@
                         </div>
                         <div id="buy-if"style="flex: 2 1 0%">
                             <?php
-                                if(!isset($_SESSION['utente'])){
+                                if(!isset($_COOKIE['utente'])){
                                     echo "<a href='./registrazione' class='not-logged signup _btn '>Sign up</a>";
                                     echo "<a href='./login' class='not-logged login _btn '>Login</a>";
                                 }else{
@@ -65,7 +65,7 @@
         </div>
     </div>
     <?php
-        if(isset($_SESSION['utente'])) 
+        if(isset($_COOKIE['utente'])) 
             include "purchase-block.php";
     ?>
     <!--popup-page-->
@@ -74,7 +74,7 @@
     <div id="grid">
         <?php
             $logged_username ="";
-            if(isset($_SESSION['utente'])) $logged_username = $_SESSION['utente'];
+            if(isset($_COOKIE['utente'])) $logged_username = $_COOKIE['utente'];
 
             $sql = "SELECT id,tipo,path,proprietario FROM blocchi";
             $result = $mysqli->query($sql);
