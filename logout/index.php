@@ -14,7 +14,7 @@
 				if(isset($_COOKIE['utente']) || isset($_COOKIE['punti'])){
 					
 					setcookie("utente", "", [
-						'expires' => -1,
+						'expires' => time() - 3600,
 						'path' => '/',
 						'domain' => 'localhost',
 						'secure' => true,
@@ -23,7 +23,7 @@
 					]);
 
 					setcookie("punti", "", [
-						'expires' => -1,
+						'expires' => time() - 3600,
 						'path' => '/',
 						'domain' => 'localhost',
 						'secure' => true,
