@@ -111,15 +111,15 @@
         //elem.parentNode.querySelector("small").innerHTML = msg;
         //form.querySelectorAll("small")[num].innerHTML = msg + "<br>";
         elem.placeholder = msg;
-        elem.className = "error";
+        elem.classList.add("error");
         return false;
     }
 
 
     function auxBordiNeri(inputElem) {
-        if (inputElem.className == "error") {
-            inputElem.parentNode.querySelector("small").innerText = "";
-            inputElem.className = "";
+        if (inputElem.classList.contains("error")) {
+            
+            inputElem.classList.remove("error");
         }
 
         return;
@@ -175,7 +175,7 @@
     $("#password1").keyup(validitaPassword);
 
     document.getElementById("password1").addEventListener("focus", () => {
-        console.log("tua mamma chrome");
+        
         return document.getElementById("sicurezzaPassword").style.display = "flex";
     });
 
