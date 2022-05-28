@@ -16,7 +16,7 @@
 
     //RECUPERO IL NOME UTENTE E L'ID BLOCCO DA MODIFICARE
     $id = mysqli_real_escape_string($mysqli, $_GET['id']);
-    $username = $_SESSION['utente'];
+    $username = $_COOKIE['utente'];
 
     //RECUPERO IL  TIPO, TITOLO E DESCRIZIONE
     $new_tipo = mysqli_real_escape_string($mysqli, $_GET['type']);

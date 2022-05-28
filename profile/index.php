@@ -21,9 +21,9 @@
 
     <?php
         include '../navbar.php';
-        if(!isset($_SESSION['utente'])) header("refresh:0;url=../index.php");
-        $sql = "SELECT id,tipo,path,titolo,descrizione FROM blocchi WHERE proprietario = '".$_SESSION['utente']."' ";
-        $sql_user = "SELECT nome, cognome FROM utenti WHERE username = '".$_SESSION['utente']."' ";
+        if(!isset($_COOKIE['utente'])) header("refresh:0;url=../index.php");
+        $sql = "SELECT id,tipo,path,titolo,descrizione FROM blocchi WHERE proprietario = '".$_COOKIE['utente']."' ";
+        $sql_user = "SELECT nome, cognome FROM utenti WHERE username = '".$_COOKIE['utente']."' ";
         
         $result = $mysqli->query($sql);
         $result_user = $mysqli->query($sql_user);

@@ -12,7 +12,7 @@
 
     include 'navbar.php';
 
-    if(isset($_SESSION['utente']) && $_SESSION['utente']==mosaic){
+    if(isset($_COOKIE['utente']) && $_COOKIE['utente']==mosaic){
         try{
             for ($i = $MIN_BLOCK; $i <= $MAX_BLOCKS; ++$i) {
                 $crea_blocco = mysqli_query($mysqli, "INSERT INTO blocchi (id, proprietario, tipo, path) VALUES ('$i', 'mosaic', 'color', '#FFFFFF') ");
