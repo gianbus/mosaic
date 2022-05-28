@@ -288,3 +288,21 @@
   }
 }
 
+
+/*Scrollbar personalizzata, magari da utilizzare*/
+.card-body::-webkit-scrollbar {
+  width: 10px;
+}
+
+.card-body::-webkit-scrollbar-track {
+  background: #000000; 
+}
+
+.card-body::-webkit-scrollbar-thumb {
+  background: #161b22; 
+}
+
+.card-body::-webkit-scrollbar-thumb:hover {
+  background: #2f3947; 
+}
+/*fine scrollbar personalizzata */
