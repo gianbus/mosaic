@@ -49,7 +49,23 @@
                 if($username != $seller_username){
                     if($nuovo_saldo_buyer >= 0){
 
-                        setcookie("punti", $nuovo_saldo_buyer);
+                        setcookie("utente", $username, [
+                            'expires' => time() + 3600,
+                            'path' => '/',
+                            'domain' => 'localhost',
+                            'secure' => true,
+                            'httponly' => true,
+                            'samesite' => 'Strict',
+                        ]);
+
+                        setcookie("punti", $nuovo_saldo_buyer, [
+                            'expires' => time() + 3600,
+                            'path' => '/',
+                            'domain' => 'localhost',
+                            'secure' => true,
+                            'httponly' => true,
+                            'samesite' => 'Strict',
+                        ]);
 
                         $_COOKIE['punti'] = $nuovo_saldo_buyer;
                         $aggiorna_saldo_buyer = mysqli_query($mysqli, "UPDATE utenti SET punti = '$nuovo_saldo_buyer' WHERE username = '$username' ");

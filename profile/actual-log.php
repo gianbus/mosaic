@@ -8,7 +8,25 @@
             $contauser = mysqli_num_rows($recuperauser);
             if($contauser == 1){
                 $sessione = mysqli_fetch_array($recuperauser);
-                setcookie("punti", $sessione['punti']);
+                
+                setcookie("utente", $sessione['username'], [
+                    'expires' => time() + 3600,
+                    'path' => '/',
+                    'domain' => 'localhost',
+                    'secure' => true,
+                    'httponly' => true,
+                    'samesite' => 'Strict',
+                ]);
+
+                setcookie("punti", $sessione['punti'], [
+                    'expires' => time() + 3600,
+                    'path' => '/',
+                    'domain' => 'localhost',
+                    'secure' => true,
+                    'httponly' => true,
+                    'samesite' => 'Strict',
+                ]);
+
                 $resp->user = $sessione["username"];
                 $resp->points = $sessione["punti"];
                 echo json_encode($resp);
