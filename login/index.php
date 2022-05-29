@@ -48,5 +48,22 @@
     <?php
         include '../footer.php';
     ?>
+
+    <script>
+            $('#formlogin').ajaxForm({
+            url : 'logger.php', // or whatever
+            dataType : 'json',
+            success : function (response){ 
+                let resp = JSON.parse(response);
+                let err = resp.err;
+                let message = resp.message;
+                if(err!=0){
+                    $("#divlogin").prepend("<div style = 'background-color:#edb3b3; width:50%; margin:0px auto; text-align:center;border-radius:10px; border:2px solid red;color:whitesmoke;' >!"+ message +"</div><br>")
+                }
+                }
+            }
+        })
+    ;
+    </script>
 </body>
 </html>
