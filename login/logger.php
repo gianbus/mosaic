@@ -1,7 +1,7 @@
 <?php
     include '../config.php';
 
-    $err = 0;
+    $err = -1;
     $message = "";
 
     if(isset($_COOKIE['utente'])){ //SE L'UTENTE E' GIA' LOGGATO
@@ -36,13 +36,13 @@
                     $sessione = mysqli_fetch_array($recuperauser);
 
                     if($sessione['verificato']==1){ //SE L'UTENTE E' UN UTENTE VERIFICATO
-
+                        
                         //ESEGUE L'ACCESSO SETTANDO I DUE COOKIES "UTENTE" E "PUNTI" PER LA DURATA DI UN'ORA
 
                         setcookie("utente", $sessione['username'], [
                             'expires' => time() + 3600,
                             'path' => '/',
-                            'domain' => 'localhost',
+                            'domain' => 'ltw-mosaic.it',
                             'secure' => true,
                             'httponly' => true,
                             'samesite' => 'Strict',
@@ -51,11 +51,13 @@
                         setcookie("punti", $sessione['punti'], [
                             'expires' => time() + 3600,
                             'path' => '/',
-                            'domain' => 'localhost',
+                            'domain' => 'ltw-mosaic.it',
                             'secure' => true,
                             'httponly' => true,
                             'samesite' => 'Strict',
                         ]);
+
+                        $err = 0;
 
                     }else{ //SE NON E' VERIFICATO
                         $mess="Il tuo account non risulta verificato!";
