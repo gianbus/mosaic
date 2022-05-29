@@ -23,7 +23,7 @@
     <?php
         include '../navbar.php';
     ?>
-    <div id="container" class="my-container container-fluid " >
+    <div id="containerrecpsw" class="my-container container-fluid form-bg" >
             <div id="divrecuperapassword" class="mosaic-form" >
                 <h2>Recupera Password</h2><br>
                 <form action="verificarecupera.php" method="POST" id="formrecuperapassword"> 

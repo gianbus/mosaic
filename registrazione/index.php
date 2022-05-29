@@ -52,7 +52,7 @@
 
             <div id="container-destra">
                 <div style="flex: 15%;text-align: center;">
-                    <span style="font-size: 4vw;">Registrazione</span>
+                    <h2>Registrazione</h2>
                 </div>
                 <div style="flex: 50%; display: flex;">
                     <div style="flex: 0%;"></div>

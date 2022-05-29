@@ -3,7 +3,7 @@
 .mosaic-form{
     text-align: center;
     background-color: #161b22;
-    padding: 2vw 15vw;
+    padding: 2vw 3vw;
     box-shadow: 0px 0px 20px 10px #161b227c;
     width: fit-content;
     margin: auto;
@@ -129,3 +129,12 @@
 }
 
 
+.form-bg{
+    background-image: url(../assets/19742.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#containerrecpsw, #containermodpsw, #containerlogin {
+    padding: 25% 0;
+}

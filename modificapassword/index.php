@@ -23,7 +23,7 @@
     <?php
         include '../navbar.php';
     ?>
-    <div class="my-container container-fluid">
+    <div class="my-container container-fluid form-bg">
 
     <?php
             if(!isset($_GET['key'])){

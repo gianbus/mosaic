@@ -23,7 +23,7 @@
         include '../navbar.php';
         if(isset($_COOKIE['utente'])) header( "refresh:0;url=../index.php" );
     ?>
-    <div class="my-container container-fluid">
+    <div id="containerlogin" class="my-container container-fluid form-bg">
         
         <div id="divlogin" class="mosaic-form">
             <h2>Login</h2>
