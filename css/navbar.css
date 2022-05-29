@@ -110,6 +110,16 @@
 .change .bar2 {opacity: 0;}
 .change .bar3 {transform: rotate(45deg) translate(-5px, -5px);}
 
+
+@media  screen and (max-width: 768px){
+
+    .nav-menu{
+        font-size: 3vw;
+    }
+    
+}
+
+
 @media  screen and (min-width: 426px){
     #navbar {
         position: fixed;
