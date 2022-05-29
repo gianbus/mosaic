@@ -10,8 +10,8 @@
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
     
     <!-- My CSS -->
-    <link rel="stylesheet" href="css/block-grid.css" type="text/css">
     <link rel="stylesheet" href="css/style.css" type="text/css">
+    <link rel="stylesheet" href="css/block-grid.css" type="text/css">
     <link rel="stylesheet" href="css/popup-page.css" type="text/css">
 
     <!--favicons-->

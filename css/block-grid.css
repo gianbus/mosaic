@@ -1,6 +1,28 @@
-@import "block-grid-md.css";
-@import "block-grid-min.css";
+/*medium*/
 
+@media screen and (max-width: 912px){
+    div[id|=block]{
+        min-width: 16.6%;
+    }
+}
+
+/*min*/
+@media screen and (max-width: 425px){
+    #grid {
+        margin: 10vh 0;
+    }
+    div[id|=block]{
+        min-width: 33.2%;
+    }
+    div[id|=block]:active{
+        border: 1px solid red;
+        padding: 0px;
+        background-color: rgb(253, 146, 146);
+       
+    }
+}
+
+/*standard*/
 
 #grid {
     background-color: #000000;
@@ -82,3 +104,5 @@ div[id|=color]{
         mask-repeat: no-repeat;  
     }
 }
+
+
