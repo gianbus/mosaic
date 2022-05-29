@@ -22,6 +22,19 @@
     padding: 0;
 }
 
+#err-div {
+    background-color:#edb3b3;  
+    margin:0px auto; 
+    text-align:center;
+    border-radius:10px; 
+    border:2px solid red;
+    font-weight: 800;
+    width: fit-content;
+    color: red;
+    display: none;
+    padding: 1vw 2vw;
+}
+
 .mosaic-input{
     width: 100%;
     padding: 4%;
@@ -128,7 +141,6 @@
     text-decoration: underline;
 }
 
-
 .form-bg{
     background-image: url(../assets/form-bg.jpg);
     background-repeat: no-repeat;
@@ -146,3 +158,4 @@
         padding: 15% 0;
     }
 }
+

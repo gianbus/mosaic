@@ -2,11 +2,11 @@
     include '../config.php';
 
     $err = -1;
-    $message = "";
+    $mess = "";
 
     if(isset($_COOKIE['utente'])){ //SE L'UTENTE E' GIA' LOGGATO
         $err = 6;
-        $message = "Hai già effettuato il login!!";
+        $mess = "Hai già effettuato il login!!";
     }else{
 
         //IMPORTO USERNAME E PASSWORD CON REAL ESCAPE STRING + PROTEZIONE SQL INJECTION
@@ -60,7 +60,7 @@
                         $err = 0;
 
                     }else{ //SE NON E' VERIFICATO
-                        $mess="Il tuo account non risulta verificato!";
+                        $mess="Il tuo account non risulta verificato!<br>";
 
                         //GENERAZIONE NUOVO CODICE CONFERMA RANDOMICO
                         $codiceconferma = md5(uniqid(rand()));

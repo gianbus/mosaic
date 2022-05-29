@@ -24,10 +24,10 @@
         if(isset($_COOKIE['utente'])) header( "refresh:0;url=../index.php" );
     ?>
     <div id="containerlogin" class="my-container container-fluid form-bg">
-        
+        <div id="err-div"></div><br> 
         <div id="divlogin" class="mosaic-form">
-            <h2>Login</h2>
 
+            <h2>Login</h2>
             <form action="logger.php" method="POST" id="formlogin"> 
 
                 <label for="username">Username:</label><br>
@@ -48,26 +48,25 @@
     <?php
         include '../footer.php';
     ?>
-    <script>
-        document.forms["formlogin"].addEventListener("submit", async (event) => {
-            event.preventDefault();
-            const resp = await fetch(event.target.action, {
-                method: "POST",
-                body: new URLSearchParams(new FormData(event.target)),
+ <script>
+            document.forms["formlogin"].addEventListener("submit", async (event) => {
+                event.preventDefault();
+                const resp = await fetch(event.target.action, {
+                    method: "POST",
+                    body: new URLSearchParams(new FormData(event.target)),
+                });
+
+                const body = await resp.json();
+                let err = body.err;
+                let mess = body.mess;
+                if(err!=0){
+                    $("#err-div").html(mess);
+                    $("#err-div").show();
+                }else{
+                    location.replace("/");
+                }
+
             });
-
-            const resp = await resp.json();
-            let err = resp.err;
-            let message = resp.message;
-            if(err!=0){
-                $("#divlogin").prepend("<div style = 'background-color:#edb3b3; width:50%; margin:0px auto; text-align:center;border-radius:10px; border:2px solid red;color:whitesmoke;' >!"+ message +"</div><br>")
-            }
-            else {
-                window.location.href = "/";
-            }
-            });
-
-
     </script>
 
 </body>
