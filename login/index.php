@@ -49,6 +49,18 @@
         include '../footer.php';
     ?>
     <script>
+        document.forms["formlogin"].addEventListener("submit", async (event) => {
+            event.preventDefault();
+            const resp = await fetch(event.target.action, {
+                method: "POST",
+                body: new URLSearchParams(new FormData(event.target)),
+            });
+
+            const body = await resp.json();
+            console.log(body);
+            });
+
+/*
         $('#formlogin').ajaxForm({
         url : 'logger.php', // or whatever
         dataType : 'json',
@@ -62,7 +74,7 @@
             }
         }
     })
-;
+;*/
     </script>
 
 </body>
