@@ -108,8 +108,6 @@
         ?>
     </div>
     <!--block-grid-->    
-
-    <!--Fare pulsantino per mettere la visione del mosaico senza bordi-->
     
     <?php
 		  include 'footer.php';

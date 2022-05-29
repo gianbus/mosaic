@@ -1,5 +1,5 @@
 //VARIABILE SETTABILE PER FARE TEST
-const pathURL = "http://localhost/mosaic/profile/actual-log.php";
+const pathURL = "/profile/actual-log.php";
 
 $(document).ready(function(){
     $("#dropup-btn").click(function(){
@@ -34,7 +34,7 @@ $(document).ready(function(){
     $("#points").load(pathURL,function(responseTxt, statusTxt, xhr){
         if(statusTxt == "success"){
             let resp = JSON.parse(responseTxt);
-            $("#points").html(resp.points + "<i class=\"fa fa-money\" aria-hidden=\"true\"></i>");
+            $("#points").html(resp.points + " <i class=\"fa fa-money\" aria-hidden=\"true\"></i>");
         }
     });
 });

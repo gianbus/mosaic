@@ -7,7 +7,7 @@
         <div class="nav-menu nav-menu-resp ">
 
             <div id="logo">
-                <img onclick="location.href = '/';" src="https://www.ltw-mosaic.it/assets/logos/logo2.png">
+                <img onclick="location.href = '/';" src="/assets/logos/logo2.png">
             </div>
 
             <span style="flex: 2 2 auto; "></span>

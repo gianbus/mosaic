@@ -79,7 +79,7 @@
             }
             
         }else{
-            echo "<h3>Attualmente non possiedi alcun blocco, inizia a comprarli </h3>";
+            echo "<h3>Attualmente non possiedi alcun blocco, <a style='color: black; text-decoration:none; fonte-weight:bold;' href='/'>inizia a comprarli!</a> </h3>";
         }
         echo "</div>";
     ?>

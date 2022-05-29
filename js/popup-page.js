@@ -58,7 +58,7 @@ $(document).ready(function(){
                
             let path = (response.path);
             let type = response.tipo;
-                if(type =="image") path = "../mosaic/" + path;
+                if(type =="image") path = "/" + path;
             
             $("#price-block").text("Prezzo:\n" + price);
             $(".card-title").text(title);
@@ -82,7 +82,7 @@ $(document).ready(function(){
                 let resp = JSON.parse(this.responseText);
                 userLogged = resp.user;
             }
-            requestUser.open('GET',"../mosaic/profile/actual-log.php",false);
+            requestUser.open('GET',"/profile/actual-log.php",false);
             requestUser.send();
             
             //UTENTE PROPRIETARIO = MODIFICA
@@ -110,7 +110,7 @@ $(document).ready(function(){
             
         }
 
-        xhttp.open("GET", "/mosaic/block/block-info.php?id="+nBlocco,false); //|False perchè così aspetto la fine della query per avere il responso su schermo
+        xhttp.open("GET", "/block/block-info.php?id="+nBlocco,false); //|False perchè così aspetto la fine della query per avere il responso su schermo
         xhttp.send();
 
         //Design, con il seguente codice la pagina è aperta ufficialmente. 
@@ -144,7 +144,7 @@ $(document).ready(function(){
             xhttp.onload = function() {
                 myPoints = parseInt(JSON.parse(this.responseText).points);
             }
-            xhttp.open("GET", "../mosaic/profile/actual-log.php",false);
+            xhttp.open("GET", "/profile/actual-log.php",false);
             xhttp.send();
 
         
@@ -211,7 +211,7 @@ $(document).ready(function(){
                 $(".logged").prop('disabled',false);
             } 
         }
-        xhttp.open("GET", "../mosaic/block/buy.php?id="+nBlocco,true);
+        xhttp.open("GET", "/block/buy.php?id="+nBlocco,true);
         xhttp.send();
     });
 

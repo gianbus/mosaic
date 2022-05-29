@@ -87,7 +87,7 @@
                         <div style="flex: 0%;">
 
                             
-                            <span  class="campoform" style="display: flex; position: relative;">
+                            <span class="campoform" style="display: flex; position: relative;">
                                 <label for="password1">Password</label>
                                 <input autocomplete="off" id="password1" name="password1" type="password"  class= "mytooltip" placeholder="Password" form="formregistrazione">
                                 <i class="fa fa-eye" id="mostra" aria-hidden="true"></i>

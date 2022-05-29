@@ -4,7 +4,7 @@
     <div id="footer-logo">
         <span></span>
         <div>
-            <a href="/"><img src="https://www.ltw-mosaic.it/assets/logos/logo2.png"></a>
+            <a href="/"><img src="/assets/logos/logo2.png"></a>
         </div>
         <span></span>
     </div>
@@ -19,13 +19,13 @@
 
 
 <!-- JQuery -->
-<script src="https://ltw-mosaic.it/jquery/jquery.min.js"></script>
+<script src="/jquery/jquery.min.js"></script>
 
 <!-- Bootstrap Bundle with Popper -->
-<script src="https://ltw-mosaic.it/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="/bootstrap/js/bootstrap.bundle.min.js"></script>
 
 <!-- Navbar JS -->
-<script src="https://ltw-mosaic.it/js/navbar.js"></script>
+<script src="/js/navbar.js"></script>
 
 <?php
     $mysqli->close();

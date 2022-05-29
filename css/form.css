@@ -135,6 +135,14 @@
     background-size: cover;
 }
 
-#containerrecpsw, #containermodpsw, #containerlogin {
-    padding: 25% 0;
+@media screen and (max-width: 425px){
+    #containerrecpsw, #containermodpsw, #containerlogin {
+        padding: 25% 0;
+    }
+}
+
+@media screen and (max-width: 768px){
+    #containerrecpsw, #containermodpsw, #containerlogin {
+        padding: 15% 0;
+    }
 }

@@ -55,7 +55,7 @@
         echo '<!--COLONNA1 = TITOLO & DESCRIZIONE-->
               <div id = "formCol-1" class = "modifyForm-column">
                 <label for="titolo" >Titolo:</label>
-                <input type="text" id="titolo" name="titolo" form="modifyform-'.$id.'" placeholder="Titolo" value="'.$titolo.'" required><br>
+                <input type="text" id="titolo" name="titolo" maxlength="50" form="modifyform-'.$id.'" placeholder="Titolo" value="'.$titolo.'" required><br>
                 <label for="descrizione">Descrizione:</label>
                 <textarea rows="4"  name="descrizione" form="modifyform-'.$id.'" placeholder="Descrizione">'.$descrizione.'</textarea>
               </div>';
@@ -71,18 +71,18 @@
 
             //CAMBIO IL COMPORTAMENTO DI MODIFICA A SECONDA DELL'INPUT
             if($type == "color"){
-                echo   "<form action='/mosaic/block/modify.php?id=$id&type=". $type ."' method='POST' id='modifyform-$id'></form>";
+                echo   "<form action='/block/modify.php?id=$id&type=". $type ."' method='POST' id='modifyform-$id'></form>";
                 echo       "<label>Scegli il colore:</label>
                             <input type='color' id='path' value=".$pathcolor." name='path' form='modifyform-$id' required><br><br>";
             }
             //A CAUSA DELL'UPLOAD SONO COSTRETTO A STAMPARE DUE FORM DIFFERENTI (QUESTO USA UN ENCTYPE DIFFERENTE)
             else if($type == "image"){
-                echo   "<form action='/mosaic/block/modify.php?id=$id&type=". $type ."' method='POST' id='modifyform-$id' enctype='multipart/form-data'></form>";
+                echo   "<form action='/block/modify.php?id=$id&type=". $type ."' method='POST' id='modifyform-$id' enctype='multipart/form-data'></form>";
                 echo       "<label >Scegli la tua immagine:</label>
                             <input type='file' id='path' name='path' form='modifyform-$id' ".$required_img."><br><br>";
             }
             else if($type == "video"){
-                echo   "<form action='/mosaic/block/modify.php?id=$id&type=". $type ."' method='POST' id='modifyform-$id'></form>";
+                echo   "<form action='/block/modify.php?id=$id&type=". $type ."' method='POST' id='modifyform-$id'></form>";
                 echo       "<label>Copia il link del video su youtube:</label>
                             <input type='url' id='path' value='".$pathvideo."' name='path' form='modifyform-$id' placeholder='link video' required><br><br>";
             }                      
