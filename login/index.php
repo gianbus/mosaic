@@ -48,34 +48,27 @@
     <?php
         include '../footer.php';
     ?>
-
     <script>
-            document.forms["formlogin"].addEventListener("submit", async (event) => {
-                event.preventDefault();
-                const resp = await fetch(event.target.action, {
-                    method: "POST",
-                    body: new URLSearchParams(new FormData(event.target)),
-                });
-
-                const body = await resp.json();
-                console.log(body);
+        document.forms["formlogin"].addEventListener("submit", async (event) => {
+            event.preventDefault();
+            const resp = await fetch(event.target.action, {
+                method: "POST",
+                body: new URLSearchParams(new FormData(event.target)),
             });
 
-    /*
-            $('#formlogin').ajaxForm({
-            url : 'logger.php', // or whatever
-            dataType : 'json',
-            success : function (response){ 
-                let resp = JSON.parse(response);
-                let err = resp.err;
-                let message = resp.message;
-                if(err!=0){
-                    $("#divlogin").prepend("<div style = 'background-color:#edb3b3; width:50%; margin:0px auto; text-align:center;border-radius:10px; border:2px solid red;color:whitesmoke;' >!"+ message +"</div><br>")
-                }
-                }
+            const resp = await resp.json();
+            let err = resp.err;
+            let message = resp.message;
+            if(err!=0){
+                $("#divlogin").prepend("<div style = 'background-color:#edb3b3; width:50%; margin:0px auto; text-align:center;border-radius:10px; border:2px solid red;color:whitesmoke;' >!"+ message +"</div><br>")
             }
-        })
-    ;*/
-        </script>
+            else {
+                window.location.href = "/";
+            }
+            });
+
+
+    </script>
+
 </body>
 </html>
