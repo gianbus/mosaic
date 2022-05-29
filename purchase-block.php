@@ -1,7 +1,9 @@
+<!-- inizio blocco di acquisto-->
 <div id='purchase-confirm'  >
+    <!-- inizio blocco di conferma-->
     <div class="confirm-content" >
         <div class="confirm-header">
-            Desidera compiere l'acquisto del seguente blocco?
+            Desidera acquistare il seguente blocco?
         </div>
         <div class="confirm-body">
             <span> </span>
@@ -11,4 +13,6 @@
             </div>
         </div>
     </div>
+    <!-- fine blocco di conferma-->
 </div>
+<!-- fine blocco di acquisto-->

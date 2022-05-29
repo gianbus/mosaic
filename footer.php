@@ -1,22 +1,20 @@
 <footer>
-<div id="footer">
+    <div id="footer">
 
-    <div id="footer-logo">
-        <span></span>
-        <div>
-            <a href="/"><img src="/assets/logos/logo2.png"></a>
+        <div id="footer-logo">
+            <span></span>
+            <div>
+                <a href="/"><img src="/assets/logos/logo2.png"></a>
+            </div>
+            <span></span>
         </div>
-        <span></span>
+
+        <div id="footer-credits">
+            <p class="credits">MOSAIC &#169; 2022</p>
+        </div>  
+
     </div>
-
-    <div id="footer-credits">
-        <p class="credits">MOSAIC &#169; 2022</p>
-    </div>  
-
-</div>
 </footer>
-
-
 
 <!-- JQuery -->
 <script src="/jquery/jquery.min.js"></script>

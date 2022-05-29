@@ -11,8 +11,7 @@
         <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
         <!-- My CSS -->
-        <link rel="stylesheet" href="../css/style.css">                      
-        <link href="../css/sign-up.css" rel="stylesheet">
+        <link rel="stylesheet" href="../css/style.css">
     
 </head>
 <body>

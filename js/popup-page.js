@@ -119,6 +119,8 @@ $(document).ready(function(){
         else w=w_max;
         togglePopup(w,z,black_medium);
         $("#grid").toggleClass("filter");
+        $("#footer").toggleClass("filter");
+        
         if(window.innerWidth<=width_smartphone) 
             $("#logo").toggleClass("filter")
         else

@@ -31,17 +31,19 @@
     
     <!--popup-page-->
     <div id="pop-block">
-        <div  class="info-pop  text-white ">
-            <div class="card  h-100" >
-                <span  class="closebtn carad-title "  >&times;</span>
+        <div  class="info-pop text-white ">
+            <div class="card h-100" >
+                <span  class="closebtn carad-title ">&times;</span>
                 <div id="container-block" class="pe-3 pb-3 ps-3 "></div>
                 <div class="card-body p-3"  >
-                    <h5 class="card-title ">Titolo fac-simile</h5>
+                    <h5 class="card-title">Titolo fac-simile</h5>
                     <p class="card-text" style="flex: 2 1 0%">Fac-simile </p>
                     <div class = "card-market">
+
                         <div class="placeholder-price" style="flex: 1 2 0%">
                             <h1 id="price-block">10</h1>
                         </div>
+
                         <div id="buy-if"style="flex: 2 1 0%">
                             <?php
                                 if(!isset($_COOKIE['utente'])){
@@ -52,6 +54,7 @@
                                 }
                             ?>
                         </div>
+
                     </div>  
                 </div>
                 <div class="card-footer">
@@ -89,17 +92,18 @@
 
                             $type =$row["tipo"];
                             $path = $row["path"];
-                            if($type=="image"){
-                                echo "<div class='blocco".$owner_class."' id='block-". ($j+$i*12)."'>";
-                                echo "<img id=img-".($j+$i*12)." src='".$path."'>";
-                            }else if($type=="color"){
-                                echo "<div class='blocco".$owner_class."' id='block-". ($j+$i*12)."'>";
-                                echo "<div id='color-". ($j+$i*12)."' style=\"background-color:$path\"></div>";
-                            }
-                            else if( $type=="video"){
-                                echo "<div class='blocco".$owner_class."' id='block-". ($j+$i*12)."'>";
-                                echo "<img id=img-".($j+$i*12)." src='https://img.youtube.com/vi/".$path."/default.jpg'>";
-                            }
+                            echo "<div class='blocco".$owner_class."' id='block-". ($j+$i*12)."'>";
+
+                                if($type=="image"){
+                                    echo "<img id=img-".($j+$i*12)." src='".$path."'>";
+
+                                }else if($type=="color"){
+                                    echo "<div id='color-". ($j+$i*12)."' style=\"background-color:$path\"></div>";
+                                    
+                                }else if( $type=="video"){
+                                    echo "<img id=img-".($j+$i*12)." src='https://img.youtube.com/vi/".$path."/default.jpg'>";
+                                }
+
                             echo "</div>";
                         }
                         echo "</div>";
