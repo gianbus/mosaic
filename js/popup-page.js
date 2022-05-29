@@ -12,13 +12,6 @@ function cancelPurchase(buyButton){
 
 $(document).ready(function(){
     let width_smartphone = 425;
-    let height_smartphone = 425;
-    
-    let width_tablet = 768;
-    let height_tablet = 768;
-    //LE VARIABILI SOPRA DEFINITE NON SONO UTILIZZATE TUTTE AL MOMENTO. QUELLE CHE NON SI RIVELERANNO UTILI VERRANNO CANCELLATE
-    
-
     let w="0px"                                     //|Larghezza della popup page settata a 0
     let z="-1;"                                     //|La popup page in principio è sotto la griglia
     let w_max="40%";                                //|popup page larghezza massima solo quando aperta da schermo desktop
@@ -31,8 +24,10 @@ $(document).ready(function(){
 
     //Quando apro un blocco 
     $("div[id|=block]").click(function(){           //|Serve ad attivare la popup page per ogni blocco
-        let idBlocco = $(this).attr("id");
-        nBlocco= parseInt(idBlocco.match(/[0-9]+/));
+        
+        let idBlocco = $(this).attr("id");          //|Ricavo l'id blocco
+        nBlocco= parseInt(idBlocco.match(/[0-9]+/));//|traduco la stringa in intero
+
         $(".logged").attr("href","#");              //|Evito che cliccando su un blocco io possa influenzare il click sui successivi 
         
         //loading della query dal database per caricare la popup page
@@ -43,10 +38,10 @@ $(document).ready(function(){
             
             price = response.prezzo;
             let onSale=1;
-                if(price==null){
-                    price ="--";
-                    onSale = 0; 
-                }
+            if(price==null){
+                price ="--";
+                onSale = 0; 
+            }
 
             let owner = response.proprietario;
 
