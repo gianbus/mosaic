@@ -4,8 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap CSS -->
+    <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- My CSS -->
+    <link rel="stylesheet" href="../css/style.css">
     <title>Mosaic |Login</title>
     <!--favicons-->
     <?php
@@ -16,8 +19,10 @@
 
 <body>
     <?php
-            include '../config.php';
+            include '../navbar.php';
     ?>
+    <div id="container" class="my-container container-fluid">
+        <h2>Login</h2>
         
         <?php
 
@@ -56,7 +61,7 @@
                             setcookie("utente", $sessione['username'], [
                                 'expires' => time() + 3600,
                                 'path' => '/',
-                                'domain' => 'ltw-mosaic.it',
+                                'domain' => 'localhost',
                                 'secure' => true,
                                 'httponly' => true,
                                 'samesite' => 'Strict',
@@ -65,13 +70,13 @@
                             setcookie("punti", $sessione['punti'], [
                                 'expires' => time() + 3600,
                                 'path' => '/',
-                                'domain' => 'ltw-mosaic.it',
+                                'domain' => 'localhost',
                                 'secure' => true,
                                 'httponly' => true,
                                 'samesite' => 'Strict',
                             ]);
-
-                            header("refresh:0;url=../index.php");
+                            
+                            header("Refresh: 0; URL= ../index.php");
 
                         }else{ //SE NON E' VERIFICATO
                             echo 'Il tuo account non risulta verificato!<br>';
@@ -205,10 +210,13 @@
                     header("Refresh: 2; URL= index.php");
                 }			
 			}
+		?>
 
-
-            $mysqli->close();
-            ?>
+    </div><!-- CONTAINER END -->
+	
+	<?php
+		include '../footer.php';
+	?>
 
 </body>
 
