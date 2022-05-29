@@ -4,11 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Bootstrap CSS -->
-    <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- My CSS -->
-    <link rel="stylesheet" href="../css/style.css">
     <title>Mosaic |Login</title>
     <!--favicons-->
     <?php
@@ -19,10 +16,8 @@
 
 <body>
     <?php
-            include '../navbar.php';
+            include '../config.php';
     ?>
-    <div id="container" class="my-container container-fluid">
-        <h2>Login</h2>
         
         <?php
 
@@ -76,8 +71,7 @@
                                 'samesite' => 'Strict',
                             ]);
 
-                            echo "Login effettuato con successo!";
-                            header("Refresh: 2; URL= ../index.php");
+                            header("refresh:0;url=../index.php");
 
                         }else{ //SE NON E' VERIFICATO
                             echo 'Il tuo account non risulta verificato!<br>';
@@ -211,13 +205,10 @@
                     header("Refresh: 2; URL= index.php");
                 }			
 			}
-		?>
 
-    </div><!-- CONTAINER END -->
-	
-	<?php
-		include '../footer.php';
-	?>
+
+            $mysqli->close();
+            ?>
 
 </body>
 

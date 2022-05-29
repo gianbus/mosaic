@@ -120,9 +120,11 @@ body::-webkit-scrollbar-thumb:hover {
 .credits{
     color: #ffffff;
     font-weight: 100;
+    font-size: 1vw;
     padding: 3px 0;
     margin: 0;
 }
+
 /*fine footer*/
 
 /*---------------------------------------------------------------------*/

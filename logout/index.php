@@ -31,8 +31,7 @@
 						'samesite' => 'Strict',
 					]);
 
-					echo 'Logout effettuato con successo!';
-					header( "refresh:2;url=../index.php" );
+					header( "refresh:0;url=../index.php" );
 					exit();
 				}else{
 					header( "refresh:0;url=../login" );
