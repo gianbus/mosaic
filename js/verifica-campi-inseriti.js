@@ -72,8 +72,6 @@
             res++;
         }
 
-        
-
         return res > 0 ? false : true;
         
     }
@@ -195,7 +193,6 @@
 
         let p1 = document.getElementById("password1").value;
         
-
         let testMaiuscole = maiuscole.test(p1);
         let testMinuscole = minuscole.test(p1);
         let testNumeri = numeri.test(p1);
@@ -220,14 +217,12 @@
             colorPass3 = "white";
         }
         
-        
         else {
             testoPass = "Debole<br> (Non accettabile, inserire almeno 8 caratteri di cui almeno una maiuscola)";
             colorPass1 = "red";
             colorPass2 = "white";
             colorPass3 = colorPass2;
         }
-
 
         document.getElementById("commentoPassword").innerHTML = testoPass;
         document.getElementById("commentoPassword").style.color = colorPass1;
