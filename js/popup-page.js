@@ -139,7 +139,7 @@ $(document).ready(function(){
 
             //RICAVO I PUNTI DELL'ACQUIRENTE E DELL'ACQUISTO
             let myPoints;
-            let purchasePoints = price
+            let purchasePoints = price;
             const xhttp = new XMLHttpRequest();
             xhttp.onload = function() {
                 myPoints = parseInt(JSON.parse(this.responseText).points);
@@ -157,6 +157,7 @@ $(document).ready(function(){
                 },2000,buyButton);
                 return;
             }
+
             $("#purchase-confirm").css("display","block");
             let leftPoints = myPoints - price;
             $(".confirm-body > span").text("Rimarrai con soli "+ leftPoints + " punti, accetti?" );
@@ -174,11 +175,9 @@ $(document).ready(function(){
             let isBought =JSON.parse(this.responseText);
 
             let validRequest = isBought.richiesta_valida; 
-            let bought = isBought.comprato;
             let err = isBought.errore;
             let id = isBought.idblocco; 
             let user = isBought.acquirente;
-            let old_owner = isBought.venditore;
             let new_wallet = isBought.nuovo_saldo_acquirente;
 
             $("#purchase-confirm").css("display","none");
@@ -189,7 +188,7 @@ $(document).ready(function(){
                 $(".logged").attr("href","./block/modify-selection.php?id="+nBlocco);
                 $(".text-muted").text("Ultimo proprietario: " + user);
                 $("#points").html(new_wallet + " <i class=\"fa fa-money\" aria-hidden=\"true\"></i>");
-                $("#price-block").text("Prezzo:--");
+                $("#price-block").text("Prezzo:\n--");
                 $("#block-"+ id ).addClass("owner_block");
             }
             else if(err==1){

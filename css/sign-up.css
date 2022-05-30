@@ -148,17 +148,6 @@
     background-color: rgb(207, 207, 207);
     border-radius: 0px 20px 20px 0px;
     background-image: linear-gradient(to right, rgb(255 255 255), rgb(200 201 204));
-    opacity: 0%;
-    animation-delay: 4.5s;
-    animation-duration: 2s;
-
-    animation-timing-function:ease-out;
-    animation-fill-mode: forwards;
-    animation-iteration-count: 1;
-
-    
-    animation-name: opening;
-
 
 }
 
@@ -367,6 +356,23 @@ div[id|=pass]{
         margin-right: 5%;
     }
     
+}
+
+@media screen and (min-width: 426px){
+    #container-destra {
+        opacity: 0%;
+        animation-delay: 4.5s;
+        animation-duration: 2s;
+    
+        animation-timing-function:ease-out;
+        animation-fill-mode: forwards;
+        animation-iteration-count: 1;
+    
+        
+        animation-name: opening;
+    
+    
+    }
 }
 
 @media screen and (max-width: 425px){
