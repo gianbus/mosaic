@@ -17,7 +17,10 @@
 <body>
     <?php
         include '../navbar.php';
-        if(isset($_COOKIE['utente'])) header("refresh:0;url=../index.php");
+        if(isset($_COOKIE['utente'])){
+            header("refresh:0;url=../index.php");
+            exit;
+        }
     ?>
     <div id="outer-main" >
        
