@@ -236,6 +236,7 @@ $(document).ready(function(){
         $("#pop-block").css("background-color"," transparent");
         $("#pop-block").animate({zIndex:z},1000);
         $("#grid").toggleClass("filter");
+        $("#footer").toggleClass("filter");
 
         //BLURRO SOLO IL LOGO O L'INTERA NAVBAR A SECONDA DELLO SCHERMO SU CUI MI TROVO
         if(window.innerWidth<=width_smartphone) 
@@ -265,6 +266,7 @@ $(document).ready(function(){
         $('#container-block').html(''); //NECESSARIO AFFINCHE' NEL CASO CI SIA UN VIDEO VIENE FERMATO E CHIUSO
 
         if(blur) {
+            $("#footer").toggleClass("filter");
             $("#grid").toggleClass("filter");
             if(window.innerWidth>width_smartphone) 
                 $("#logo").toggleClass("filter")
