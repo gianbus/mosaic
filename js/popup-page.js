@@ -77,7 +77,7 @@ $(document).ready(function(){
                 let resp = JSON.parse(this.responseText);
                 userLogged = resp.user;
             }
-            requestUser.open('GET',"/profile/actual-log.php",true);
+            requestUser.open('GET',"/profile/actual-log.php",false);
             requestUser.send();
             
             //UTENTE PROPRIETARIO = MODIFICA

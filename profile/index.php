@@ -53,6 +53,7 @@
                 
                 
                 echo "<div  id='myblock-". ($id)."' class='row mt-2 mb-2 mx-0'>";
+                    //PARTE SINISTRA DELLA RIGA
                     if($type=="image"){
                         echo "<div  id='myimg-". ($id)."' >";
                         echo "<img id=img-".($id)." src='../".$path."' >";
