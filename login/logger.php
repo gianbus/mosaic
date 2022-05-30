@@ -166,7 +166,7 @@
 
                             $sentmail=mail($to, $oggetto, $message, implode("\r\n", $headers));
                             
-                            if($sentmail){
+                            if($sentmail){ 
                                 $err = 1;
                                 $mess .= "Ti abbiamo inviato nuovamente il link di verifica!<br>Clicca sul link per procedere all'attivazione.";
 

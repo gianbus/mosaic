@@ -27,7 +27,6 @@
         <div id="main-container">
                 
             <div id="container-logo-blocchi">
-                <!--<img style="height: 400px; width: 400px;" src="../../../Backgrounds/istockphoto-666262220-612x612.jpeg">-->
                 
                 <div style = "display: flex; flex-direction: column;">
                     <div class = "logo-blocchi" style="display: flex;">

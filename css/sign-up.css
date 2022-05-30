@@ -358,7 +358,7 @@ div[id|=pass]{
     
 }
 
-@media screen and (min-width: 426px){
+@media screen and (min-width: 769px){
     #container-destra {
         opacity: 0%;
         animation-delay: 4.5s;

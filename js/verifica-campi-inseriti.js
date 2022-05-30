@@ -127,39 +127,11 @@
     let campiInput = document.getElementsByTagName("input");
 
     for (let i=0; i < campiInput.length-2; i++) {
-        console.log(campiInput[i]);
         campiInput[i].addEventListener("click", () => {
             auxBordiNeri(campiInput[i]);
         });
     }
 
-
-    /*document.getElementById("mostra").addEventListener("click", mostraPassword);
-
-    function mostraPassword() {
-        let p1 = $("#password1");
-        let p2 = $("#password2");
-        let mostra = $("#mostra");
-
-        
-        if (p1.attr("type") === "password") {
-            p1.attr("type","text");
-            p2.attr("type","text");
-            mostra.removeClass("fa-eye");
-            mostra.addClass("fa-eye-slash");
-        } 
-        
-        else {
-            p1.attr("type","password");
-            p2.attr("type","password");
-            
-            mostra.removeClass("fa-eye-slash");
-            mostra.addClass("fa-eye");
-        
-        }
-        
-        return;
-    }*/
 
     $("#mostra").click(function(){
         let input = $("input[id^=password]");
@@ -187,9 +159,6 @@
         let maiuscole = /[A-Z]/g;
         let numeri = /[0-9]/g;
         let speciali = /[!@#\$%\^\&*\)\(+=._-]/g;
-
-        //let regex = /^[a-zA-Z0-9!@#\$%\^\&*\)\(+=._-]{8,}$/g; 
-        //let regexMinima = /^[a-zA-Z]{8,}$/g
 
         let p1 = document.getElementById("password1").value;
         
