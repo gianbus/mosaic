@@ -35,6 +35,7 @@
 					exit();
 				}else{
 					header( "refresh:0;url=../login" );
+					exit();
 				}
 			?>
 </body>
