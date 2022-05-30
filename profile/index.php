@@ -21,7 +21,11 @@
 
     <?php
         include '../navbar.php';
-        if(!isset($_COOKIE['utente'])) header("refresh:0;url=../index.php");
+        if(!isset($_COOKIE['utente'])){ 
+            header("location:../index.php");
+            exit;
+        }
+
         $sql = "SELECT id,tipo,path,titolo,descrizione FROM blocchi WHERE proprietario = '".$_COOKIE['utente']."' ";
         $sql_user = "SELECT nome, cognome FROM utenti WHERE username = '".$_COOKIE['utente']."' ";
         
