@@ -28,21 +28,21 @@
                 
                 <div style = "display: flex; flex-direction: column;">
                     <div class = "logo-blocchi" style="display: flex;">
-                        <div></div>
+                        <div id="mad-block2"></div>
                         <div style="background-color: #ffffff;"></div>
-                        <div style = "transform: rotate(20deg);"></div>
+                        <div id="mad-block2" ></div>
                     </div>
                     
                     <div class = "logo-blocchi" style="display: flex;">
-                        <div></div>
-                        <div style = "height:2.5rem; align-self: flex-start"></div>
-                        <div></div>
+                        <div id="mad-block3"></div>
+                        <div id="mad-block-center" style = "height:2.5rem; align-self: flex-start"></div>
+                        <div id="mad-block1"></div>
                     </div>
                     
                     <div class = "logo-blocchi" style="display: flex;">
-                        <div></div>
+                        <div id="mad-block1"></div>
                         <div style="background-color: #ffffff;"></div>
-                        <div></div>
+                        <div id="mad-block3"></div>
                     </div>
                 </div>
 
@@ -72,7 +72,7 @@
                         </span>
 
                         <span class = "campoform" style="display: flex;">
-                            <label for="username"> Username: </label>
+                            <label for="username"> Username </label>
                             <input type = "text" id="username" name="username" placeholder="Username" form="formregistrazione">
                             <small></small>
                         </span>
