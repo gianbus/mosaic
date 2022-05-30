@@ -114,7 +114,7 @@
                         
                         <span class="check_termini" style="">
                             <input type="checkbox" class="form-check-input" name="checktermini" id="checktermini" form="formregistrazione">
-                            <label style="margin-left:8px;" for="checktermini" form="formregistrazione">Accetto i <a href="termini-servizio.html"><strong>Termini di servizio</strong></a> di Mosaic</label>
+                            <label style="margin-left:8px;" for="checktermini" form="formregistrazione">Accetto i <a href="termini-servizio.php"><strong>Termini di servizio</strong></a> di Mosaic</label>
                             
                         </span>
                         
