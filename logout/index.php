@@ -11,7 +11,7 @@
 <body>
 			<?php
 
-				if(isset($_COOKIE['utente']) || isset($_COOKIE['punti'])){
+				if(isset($_COOKIE['utente'])){
 					
 					setcookie("utente", "", [
 						'expires' => time() - 3600,
@@ -31,11 +31,12 @@
 						'samesite' => 'Strict',
 					]);
 
-					header( "refresh:0;url=../index.php" );
-					exit();
+					header( "location:/" );
+					exit;
+					
 				}else{
-					header( "refresh:0;url=../login" );
-					exit();
+					header( "location:/login" );
+					exit;
 				}
 			?>
 </body>
