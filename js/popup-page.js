@@ -77,7 +77,7 @@ $(document).ready(function(){
                 let resp = JSON.parse(this.responseText);
                 userLogged = resp.user;
             }
-            requestUser.open('GET',"/profile/actual-log.php",false);
+            requestUser.open('GET',"/profile/actual-log.php",true);
             requestUser.send();
             
             //UTENTE PROPRIETARIO = MODIFICA
@@ -101,7 +101,7 @@ $(document).ready(function(){
                 $(".logged").addClass(" _btn");
             }
             $(".logged").prop('disabled',isDisabled);
-            $(".text-muted").text("Ultimo proprietario: " + owner);
+            $(".text-muted").text("Proprietario: " + owner);
             
         }
 
@@ -112,18 +112,21 @@ $(document).ready(function(){
         z="3";
         if(window.innerWidth<=width_smartphone) w=w_sm;
         else w=w_max;
-        togglePopup(w,z,black_medium);
+        togglePopup(w,z,black_medium);          //|Mostra la popup page allargandola e la mette sopra la griglia 
+        
+        //blur degli elementi di sfondo
         $("#grid").toggleClass("filter");
         $("#footer").toggleClass("filter");
         
         if(window.innerWidth<=width_smartphone) 
-            $("#logo").toggleClass("filter")
+            $("#logo").toggleClass("filter");
         else
             $("#navbar").toggleClass("filter");
-        $(".closebtn").show();                  //Per evitare che si blurri per doppio click su barra della x, scoperta fatta a caso
+
+        $(".closebtn").show();                  //Mostrare X dopo che è stata nascosta per evitare che si blurri per doppio click su barra
         blur=!blur;
     
-        if(window.innerWidth<=width_smartphone) $(".info-pop").css("top","25%");
+        if(window.innerWidth<=width_smartphone) $(".info-pop").css("top","20%"); //Alzare o abbassare popup-page da telefono
     });
 
     var buyButton;
