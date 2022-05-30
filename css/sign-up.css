@@ -80,33 +80,51 @@
 #mad-block1{
     animation-duration: 3s;
     animation-timing-function:ease-out;
-    animation: iteration count 1;
+    animation-iteration-count: 1;
+
     
-    animation-name: traslateY;
+    animation-name: traslateY ;
 }
 #mad-block2{
     animation-duration: 3s;
     animation-timing-function:ease-out;
-    animation: iteration count 1;
-    
+    animation-iteration-count: 1;  
     animation-name: traslateX_right;
 }
 
 #mad-block3{
     animation-duration: 3s;
     animation-timing-function:ease-out;
-    animation: iteration count 1;
-    
+    animation-iteration-count: 1;
+
     animation-name: traslateX_left;
 }
 
-#mad-block-center{
-    opacity: 0%;
-    animation-duration: 2s;
-    animation-delay: 1.5s;
+
+@keyframes rotate{
+    from {  transform: rotate(0deg);  }
+    to { transform: rotate(40deg);}
+}
+#mad-block-rotate{
+    animation-duration: 5s;
+    
     animation-timing-function:ease-out;
     animation-fill-mode: forwards;
-    animation: iteration count 1;
+    animation-iteration-count: 1;
+    
+    animation-name: traslateY ,rotate;
+}
+
+
+#mad-block-center{
+    transform: rotate(0deg); 
+    opacity: 0%;
+    animation-duration: 2s;
+    animation-delay: 0.5s;
+    animation-timing-function:ease-out;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+
     
     animation-name: visible;
 }
@@ -136,7 +154,8 @@
 
     animation-timing-function:ease-out;
     animation-fill-mode: forwards;
-    animation: iteration count 1px;
+    animation-iteration-count: 1;
+
     
     animation-name: opening;
 

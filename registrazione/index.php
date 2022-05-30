@@ -30,7 +30,7 @@
                     <div class = "logo-blocchi" style="display: flex;">
                         <div id="mad-block2"></div>
                         <div style="background-color: #ffffff;"></div>
-                        <div id="mad-block2" ></div>
+                        <div id="mad-block-rotate" ></div>
                     </div>
                     
                     <div class = "logo-blocchi" style="display: flex;">
