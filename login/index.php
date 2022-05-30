@@ -48,7 +48,7 @@
     <?php
         include '../footer.php';
     ?>
- <script>
+    <script>
             document.forms["formlogin"].addEventListener("submit", async (event) => {
                 event.preventDefault();
                 const resp = await fetch(event.target.action, {

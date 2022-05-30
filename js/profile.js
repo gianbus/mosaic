@@ -57,7 +57,7 @@ $(document).ready(function(){
                 idBlocco = $(this).parent().parent().parent().attr("id");
                 nBlocco= parseInt(idBlocco.match(/[0-9]+/));
             
-                let selected = $("#modify-myblock-"+ nBlocco+" #chosen-content").pop("value");r
+                let selected = $("#modify-myblock-"+ nBlocco+" #chosen-content").prop("value");
 
         
                 
