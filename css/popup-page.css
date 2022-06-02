@@ -7,7 +7,6 @@
   z-index: -1;
 }
 
-
 .filter{
   filter: blur(5px);
 }
@@ -17,21 +16,16 @@
   border-radius:25px;
   width: 0;
   position: absolute;
-
   top: 2%;
   left: 1.5%;
-
   overflow-x: hidden;
   overflow-y: hidden;
   transition: 1s;
-
 }
-
 
 .info-pop a {
   display: block;
   text-decoration: none;
-  
 }
 
 .info-pop .closebtn {  
@@ -41,6 +35,7 @@
   margin-right: 16px;
   flex: 0 1 1%;
 }
+
 .info-pop .closebtn:hover{
   color: #f1f1f1;
   cursor: pointer;
@@ -48,7 +43,7 @@
 
 /*| More deep in details*/
 /*|*/
-/*V*/
+/*|override bootstrap card class*/
 .card {
   background-color: #111;
   background-image: linear-gradient(to bottom left, #111, #313131);
@@ -90,6 +85,10 @@
   margin:10px;
 }
 
+.placeholder-price > h1{
+  font-size: 25px;
+}
+
 /* signup button and login button ready to become buy and details button */
 #buy-if{
   display: flex;
@@ -98,10 +97,13 @@
   height: 100%;
 }   
 
+#buy-if > .logged{
+  padding: 6%;
+}
+
 #buy-if > ._btn:hover{
   background-image: linear-gradient(-45deg, #00366dec, #14035377);
   box-shadow: 0px 0px  5px 1px rgba(122, 122, 122, 0.233);
-  
   color:rgb(138, 138, 138);
 }
 
@@ -151,7 +153,6 @@
   width: 100%; 
   height: 100%; 
   overflow: auto; 
-  background-color: rgb(0,0,0); 
   background-color: rgba(0,0,0,0.4); 
 }
 
@@ -166,6 +167,7 @@
   animation-duration: 0.4s
 }
 
+/*---animazione conferma acquisto---*/
 @keyframes btoup {
   from {bottom:-300px; opacity:0}
   to {bottom:0; opacity:1}
@@ -201,6 +203,7 @@
 }
 
 /*----------------Responsiveness----------------*/
+/*---proporzioni telefono orizzontale---*/
 @media screen and (max-height: 475px){
   .info-pop .closebtn{
     font-size: 25px;
@@ -210,7 +213,6 @@
     padding-bottom: 0.5rem!important;
     padding-top: 0rem!important;
   }
-
   .card-body > span{
     font-size: 2vh;
   }
@@ -233,14 +235,14 @@
     font-size:  16px;
     padding: 2vw 5px;
     height: fit-content;
-    
   }
   .card-footer{
     font-size: 15px;
-   
   }
 }
 
+
+/*---da tablet---*/
 @media screen and (max-width: 768px){
   .card-market{
     flex-direction: column;
@@ -253,18 +255,16 @@
     text-align: end;
   }
   .not-logged{
-    width: 100%;
-   
+    width: 100%; 
   }
 }
 
-
-
+/*---da cellulare---*/
 @media screen  and (max-width: 425px){
   .info-pop {
       border-radius: 25px 25px 0px 0px ;
       top: 100%;
-      height: 75%;
+      height: 80%;
       width: 97%;
   }
   .card{
@@ -272,7 +272,6 @@
   }
   .confirm-content{
     height: fit-content;
-
   }
   .confirm-body  div{
     margin: auto;
@@ -284,10 +283,8 @@
   }
   .confirm-body ._btn{
     width: 49%;
-
   }
 }
-
 
 /*Scrollbar personalizzata, magari da utilizzare*/
 .card-body::-webkit-scrollbar {

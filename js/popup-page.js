@@ -12,13 +12,6 @@ function cancelPurchase(buyButton){
 
 $(document).ready(function(){
     let width_smartphone = 425;
-    let height_smartphone = 425;
-    
-    let width_tablet = 768;
-    let height_tablet = 768;
-    //LE VARIABILI SOPRA DEFINITE NON SONO UTILIZZATE TUTTE AL MOMENTO. QUELLE CHE NON SI RIVELERANNO UTILI VERRANNO CANCELLATE
-    
-
     let w="0px"                                     //|Larghezza della popup page settata a 0
     let z="-1;"                                     //|La popup page in principio è sotto la griglia
     let w_max="40%";                                //|popup page larghezza massima solo quando aperta da schermo desktop
@@ -31,8 +24,10 @@ $(document).ready(function(){
 
     //Quando apro un blocco 
     $("div[id|=block]").click(function(){           //|Serve ad attivare la popup page per ogni blocco
-        let idBlocco = $(this).attr("id");
-        nBlocco= parseInt(idBlocco.match(/[0-9]+/));
+        
+        let idBlocco = $(this).attr("id");          //|Ricavo l'id blocco
+        nBlocco= parseInt(idBlocco.match(/[0-9]+/));//|traduco la stringa in intero
+
         $(".logged").attr("href","#");              //|Evito che cliccando su un blocco io possa influenzare il click sui successivi 
         
         //loading della query dal database per caricare la popup page
@@ -43,10 +38,10 @@ $(document).ready(function(){
             
             price = response.prezzo;
             let onSale=1;
-                if(price==null){
-                    price ="--";
-                    onSale = 0; 
-                }
+            if(price==null){
+                price ="--";
+                onSale = 0; 
+            }
 
             let owner = response.proprietario;
 
@@ -58,7 +53,7 @@ $(document).ready(function(){
                
             let path = (response.path);
             let type = response.tipo;
-                if(type =="image") path = "../mosaic/" + path;
+                if(type =="image") path = "/" + path;
             
             $("#price-block").text("Prezzo:\n" + price);
             $(".card-title").text(title);
@@ -82,7 +77,7 @@ $(document).ready(function(){
                 let resp = JSON.parse(this.responseText);
                 userLogged = resp.user;
             }
-            requestUser.open('GET',"../mosaic/profile/actual-log.php",false);
+            requestUser.open('GET',"/profile/actual-log.php",false);
             requestUser.send();
             
             //UTENTE PROPRIETARIO = MODIFICA
@@ -106,27 +101,32 @@ $(document).ready(function(){
                 $(".logged").addClass(" _btn");
             }
             $(".logged").prop('disabled',isDisabled);
-            $(".text-muted").text("Ultimo proprietario: " + owner);
+            $(".text-muted").text("Proprietario: " + owner);
             
         }
 
-        xhttp.open("GET", "/mosaic/block/block-info.php?id="+nBlocco,false); //|False perchè così aspetto la fine della query per avere il responso su schermo
+        xhttp.open("GET", "/block/block-info.php?id="+nBlocco,false); //|False perchè così aspetto la fine della query per avere il responso su schermo
         xhttp.send();
 
         //Design, con il seguente codice la pagina è aperta ufficialmente. 
         z="3";
         if(window.innerWidth<=width_smartphone) w=w_sm;
         else w=w_max;
-        togglePopup(w,z,black_medium);
+        togglePopup(w,z,black_medium);          //|Mostra la popup page allargandola e la mette sopra la griglia 
+        
+        //blur degli elementi di sfondo
         $("#grid").toggleClass("filter");
+        $("#footer").toggleClass("filter");
+        
         if(window.innerWidth<=width_smartphone) 
-            $("#logo").toggleClass("filter")
+            $("#logo").toggleClass("filter");
         else
             $("#navbar").toggleClass("filter");
-        $(".closebtn").show();                  //Per evitare che si blurri per doppio click su barra della x, scoperta fatta a caso
+
+        $(".closebtn").show();                  //Mostrare X dopo che è stata nascosta per evitare che si blurri per doppio click su barra
         blur=!blur;
     
-        if(window.innerWidth<=width_smartphone) $(".info-pop").css("top","25%");
+        if(window.innerWidth<=width_smartphone) $(".info-pop").css("top","20%"); //Alzare o abbassare popup-page da telefono
     });
 
     var buyButton;
@@ -139,12 +139,12 @@ $(document).ready(function(){
 
             //RICAVO I PUNTI DELL'ACQUIRENTE E DELL'ACQUISTO
             let myPoints;
-            let purchasePoints = price
+            let purchasePoints = price;
             const xhttp = new XMLHttpRequest();
             xhttp.onload = function() {
                 myPoints = parseInt(JSON.parse(this.responseText).points);
             }
-            xhttp.open("GET", "../mosaic/profile/actual-log.php",false);
+            xhttp.open("GET", "/profile/actual-log.php",false);
             xhttp.send();
 
         
@@ -157,6 +157,7 @@ $(document).ready(function(){
                 },2000,buyButton);
                 return;
             }
+
             $("#purchase-confirm").css("display","block");
             let leftPoints = myPoints - price;
             $(".confirm-body > span").text("Rimarrai con soli "+ leftPoints + " punti, accetti?" );
@@ -174,11 +175,9 @@ $(document).ready(function(){
             let isBought =JSON.parse(this.responseText);
 
             let validRequest = isBought.richiesta_valida; 
-            let bought = isBought.comprato;
             let err = isBought.errore;
             let id = isBought.idblocco; 
             let user = isBought.acquirente;
-            let old_owner = isBought.venditore;
             let new_wallet = isBought.nuovo_saldo_acquirente;
 
             $("#purchase-confirm").css("display","none");
@@ -189,7 +188,7 @@ $(document).ready(function(){
                 $(".logged").attr("href","./block/modify-selection.php?id="+nBlocco);
                 $(".text-muted").text("Ultimo proprietario: " + user);
                 $("#points").html(new_wallet + " <i class=\"fa fa-money\" aria-hidden=\"true\"></i>");
-                $("#price-block").text("Prezzo:--");
+                $("#price-block").text("Prezzo:\n--");
                 $("#block-"+ id ).addClass("owner_block");
             }
             else if(err==1){
@@ -211,7 +210,7 @@ $(document).ready(function(){
                 $(".logged").prop('disabled',false);
             } 
         }
-        xhttp.open("GET", "../mosaic/block/buy.php?id="+nBlocco,true);
+        xhttp.open("GET", "/block/buy.php?id="+nBlocco,true);
         xhttp.send();
     });
 
@@ -237,6 +236,7 @@ $(document).ready(function(){
         $("#pop-block").css("background-color"," transparent");
         $("#pop-block").animate({zIndex:z},1000);
         $("#grid").toggleClass("filter");
+        $("#footer").toggleClass("filter");
 
         //BLURRO SOLO IL LOGO O L'INTERA NAVBAR A SECONDA DELLO SCHERMO SU CUI MI TROVO
         if(window.innerWidth<=width_smartphone) 
@@ -266,6 +266,7 @@ $(document).ready(function(){
         $('#container-block').html(''); //NECESSARIO AFFINCHE' NEL CASO CI SIA UN VIDEO VIENE FERMATO E CHIUSO
 
         if(blur) {
+            $("#footer").toggleClass("filter");
             $("#grid").toggleClass("filter");
             if(window.innerWidth>width_smartphone) 
                 $("#logo").toggleClass("filter")

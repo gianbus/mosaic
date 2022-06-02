@@ -1,10 +1,10 @@
 <?php
     include "../config.php";
-    $recuperauser = mysqli_query($mysqli, "SELECT id,proprietario,tipo,path,titolo,descrizione,price FROM blocchi LEFT JOIN market ON id = idBlocco   WHERE id=".$_GET["id"]);
-    if($recuperauser){
-        $contauser = mysqli_num_rows($recuperauser);
-        if($contauser == 1){
-            $row = mysqli_fetch_array($recuperauser);
+    $recuperablocco = mysqli_query($mysqli, "SELECT id,proprietario,tipo,path,titolo,descrizione,price FROM blocchi LEFT JOIN market ON id = idBlocco   WHERE id=".$_GET["id"]);
+    if($recuperablocco){
+        $contablocco = mysqli_num_rows($recuperablocco);
+        if($contablocco == 1){
+            $row = mysqli_fetch_array($recuperablocco);
             
             $resp = new stdClass();
             $resp->proprietario = $row["proprietario"];
@@ -17,12 +17,12 @@
             echo json_encode($resp);
             //Resa grafica della risposta json
             /*'{
-                "proprietario":"'.$row["proprietario"].'",
-                "tipo":"'.$row["tipo"].'",
-                "path":"'.$row["path"].'",
-                "titolo":"'.$row["titolo"].'",
-                "descrizione":"'.$row["descrizione"].'",
-                "prezzo":"'.$row["price"].'"
+                "proprietario":"'.$row["proprietario"].'", //card-footer
+                "tipo":"'.$row["tipo"].'",                 //tipo 
+                "path":"'.$row["path"].'",                 //container-block
+                "titolo":"'.$row["titolo"].'",             //card-title
+                "descrizione":"'.$row["descrizione"].'",   //card-text
+                "prezzo":"'.$row["price"].'"               //placeholder-price
             }';*/
         }
     }

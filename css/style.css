@@ -3,7 +3,6 @@
 /*importazioni*/
 @import "navbar.css";
 @import "sign-up.css";
-/*@import "mobstyle.css" screen and (max-width: 768px);*/
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css');
 /*fine importazioni*/
@@ -31,7 +30,7 @@ body{
 .my-container{
     background-color: white;
     margin-top: 10vh;
-    padding: 2vw;
+    padding: 3vh;
 
 }
 
@@ -109,20 +108,22 @@ body::-webkit-scrollbar-thumb:hover {
     flex: 1 2 0%;
 }
 
-#footer-logo img{
-    max-width: 100%;
-}
-
 #footer-logo span{
     flex: 2 2 0%;
+}
+
+#footer-logo img{
+    max-width: 100%;
 }
 
 .credits{
     color: #ffffff;
     font-weight: 100;
+    font-size: 1vw;
     padding: 3px 0;
     margin: 0;
 }
+
 /*fine footer*/
 
 /*---------------------------------------------------------------------*/

@@ -1,3 +1,4 @@
+/*nav-menu*/
 
 .nav-menu {
     text-align: center;
@@ -7,7 +8,6 @@
     font-weight: 300;
     background-color: #161b22;
     align-items: center;
-   
 }
 
 .nav-menu-resp {
@@ -39,6 +39,8 @@
     color: rgb(255, 255, 255);
 }
 
+/*---container bottoni navbar---*/
+
 #profile {
     flex: 0 1 auto;
     display: flex;
@@ -49,6 +51,8 @@
     flex: 0 0 2%;
     display: flex;
 }
+
+/*---utente non loggato---*/
 
 #profile > .signup {
     flex: 1 0 auto;
@@ -72,9 +76,10 @@
 #profile > .login:hover{
     background-color:  #011c97;
     box-shadow: 2px 2px 5px 0px #4152634d;
-
     color: #000000;
 }
+
+/*---utente loggato---*/
 
 #points{
     background-color: #24292f00;
@@ -91,7 +96,6 @@
     border-radius: 10px;
     width:fit-content;
     border: 1px solid rgb(63, 63, 63);
-    
     padding: 8px;
     display: none;
   }
@@ -102,15 +106,25 @@
     background-color: rgba(255, 255, 255, 0.801);
     margin: 4px 0;
     transition: 0.4s;
-    
-  }
+}
 
+/*----animazione bottone cellulare ----*/
 
 .change .bar1 {transform: rotate(-45deg) translate(-5px, 4px);}
 .change .bar2 {opacity: 0;}
 .change .bar3 {transform: rotate(45deg) translate(-5px, -5px);}
 
-@media  screen and (min-width: 426px){
+
+/*---media query---*/
+/*--navbar tablet--*/
+@media  screen and (max-width: 768px){
+    .nav-menu{
+        font-size: 3vw;
+    }
+}
+
+/*--navbar computer--*/
+@media screen and (min-width: 426px){
     #navbar {
         position: fixed;
         top: 0;
@@ -123,7 +137,8 @@
     }
 }
 
-@media  screen and (max-width: 425px){
+/*--navbar cellulare--*/
+@media screen and (max-width: 425px){
     #navbar{
         width: 40%;
         right: 20px;
@@ -131,10 +146,10 @@
         position: fixed;
         z-index: 2;
     }
+
     .nav-menu{
         background-color: rgba(255, 255, 255, 0);
         font-size: 7vw;
-
     }
     
     .visible{
@@ -143,7 +158,6 @@
 
     .nav-menu-resp {
         color: rgb(255, 255, 255);
-        
         flex-flow: column nowrap;
     }
 

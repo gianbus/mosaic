@@ -21,7 +21,11 @@
 
     <?php
         include '../navbar.php';
-        if(!isset($_COOKIE['utente'])) header("refresh:0;url=../index.php");
+        if(!isset($_COOKIE['utente'])){ 
+            header("location:../index.php");
+            exit;
+        }
+
         $sql = "SELECT id,tipo,path,titolo,descrizione FROM blocchi WHERE proprietario = '".$_COOKIE['utente']."' ";
         $sql_user = "SELECT nome, cognome FROM utenti WHERE username = '".$_COOKIE['utente']."' ";
         
@@ -49,6 +53,7 @@
                 
                 
                 echo "<div  id='myblock-". ($id)."' class='row mt-2 mb-2 mx-0'>";
+                    //PARTE SINISTRA DELLA RIGA
                     if($type=="image"){
                         echo "<div  id='myimg-". ($id)."' >";
                         echo "<img id=img-".($id)." src='../".$path."' >";
@@ -79,7 +84,7 @@
             }
             
         }else{
-            echo "<h3>Attualmente non possiedi alcun blocco, inizia a comprarli </h3>";
+            echo "<h3>Attualmente non possiedi alcun blocco, <a style='color: black; text-decoration:none; fonte-weight:bold;' href='/'>inizia a comprarli!</a> </h3>";
         }
         echo "</div>";
     ?>

@@ -20,7 +20,7 @@
 </head>
 
 <body>
-    <div id="container" class="my-container container-fluid">
+    <div class="my-container container-fluid">
         <h1>M O S A I C</h1>
         <h2>Attivazione account</h2>
 

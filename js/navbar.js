@@ -1,5 +1,5 @@
 //VARIABILE SETTABILE PER FARE TEST
-const pathURL = "http://localhost/mosaic/profile/actual-log.php";
+const pathURL = "/profile/actual-log.php";
 
 $(document).ready(function(){
     $("#dropup-btn").click(function(){
@@ -7,34 +7,28 @@ $(document).ready(function(){
         $("#profile").toggleClass("visible");
     });
 
-
-    //fissaggio navbar allo scroll e responsiveness al resize 
+    //fissaggio navbar allo scroll 
     height="12vw";
     $(window).scroll(function(){
-        if( window.innerWidth>425){
-            if($(window).scrollTop() < 80 )
-                height="12vw"
-            else
-                height="7vw"
+        if(window.innerWidth>425){ //se mi trovo da tablet/computer
+            if($(window).scrollTop() < 80)
+                height="12vw";
+            else 
+                height="7vw";
+        }else{ //altrimenti se sono da cellulare
+            height="auto";
         }
-        else height="auto";
         $(".nav-menu").css("height", height);
     });
 
+    //responsiveness al resize 
     $(window).resize(function(){
         if( window.innerWidth<=425)
             height="auto";
-        else if(window.innerWidth>425)
-            height="12vw"
-        else 
-            height="7vw";
+        else
+            height="12vw";
+        
         $(".nav-menu").css("height", height);
     });
-    //--------------------------------------------------------
-    $("#points").load(pathURL,function(responseTxt, statusTxt, xhr){
-        if(statusTxt == "success"){
-            let resp = JSON.parse(responseTxt);
-            $("#points").html(resp.points + "<i class=\"fa fa-money\" aria-hidden=\"true\"></i>");
-        }
-    });
+    
 });

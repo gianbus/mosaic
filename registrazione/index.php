@@ -11,39 +11,40 @@
         <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
         <!-- My CSS -->
-        <link rel="stylesheet" href="../css/style.css">                      
-        <link href="../css/sign-up.css" rel="stylesheet">
+        <link rel="stylesheet" href="../css/style.css">
     
 </head>
 <body>
     <?php
         include '../navbar.php';
-        if(isset($_COOKIE['utente'])) header("refresh:0;url=../index.php");
+        if(isset($_COOKIE['utente'])){
+            header("refresh:0;url=../index.php");
+            exit;
+        }
     ?>
     <div id="outer-main" >
        
         <div id="main-container">
                 
             <div id="container-logo-blocchi">
-                <!--<img style="height: 400px; width: 400px;" src="../../../Backgrounds/istockphoto-666262220-612x612.jpeg">-->
                 
                 <div style = "display: flex; flex-direction: column;">
                     <div class = "logo-blocchi" style="display: flex;">
-                        <div></div>
+                        <div id="mad-block2"></div>
                         <div style="background-color: #ffffff;"></div>
-                        <div style = "transform: rotate(20deg);"></div>
+                        <div id="mad-block-rotate" ></div>
                     </div>
                     
                     <div class = "logo-blocchi" style="display: flex;">
-                        <div></div>
-                        <div style = "height:2.5rem; align-self: flex-start"></div>
-                        <div></div>
+                        <div id="mad-block3"></div>
+                        <div id="mad-block-center" style = "height:2.5rem; align-self: flex-start"></div>
+                        <div id="mad-block1"></div>
                     </div>
                     
                     <div class = "logo-blocchi" style="display: flex;">
-                        <div></div>
+                        <div id="mad-block1"></div>
                         <div style="background-color: #ffffff;"></div>
-                        <div></div>
+                        <div id="mad-block3"></div>
                     </div>
                 </div>
 
@@ -73,7 +74,7 @@
                         </span>
 
                         <span class = "campoform" style="display: flex;">
-                            <label for="username"> Username: </label>
+                            <label for="username"> Username </label>
                             <input type = "text" id="username" name="username" placeholder="Username" form="formregistrazione">
                             <small></small>
                         </span>
@@ -87,7 +88,7 @@
                         <div style="flex: 0%;">
 
                             
-                            <span  class="campoform" style="display: flex; position: relative;">
+                            <span class="campoform" style="display: flex; position: relative;">
                                 <label for="password1">Password</label>
                                 <input autocomplete="off" id="password1" name="password1" type="password"  class= "mytooltip" placeholder="Password" form="formregistrazione">
                                 <i class="fa fa-eye" id="mostra" aria-hidden="true"></i>
@@ -112,8 +113,8 @@
                         </div>
                         
                         <span class="check_termini" style="">
-                            <input type="checkbox" name="checktermini" id="checktermini" form="formregistrazione">
-                            <label style="margin-left:8px;" for="checktermini" form="formregistrazione">Accetto i <a href="termini-servizio.html"><strong>Termini di servizio</strong></a> di Mosaic</label>
+                            <input type="checkbox" class="form-check-input" name="checktermini" id="checktermini" form="formregistrazione">
+                            <label style="margin-left:8px;" for="checktermini" form="formregistrazione">Accetto i <a href="termini-servizio.php"><strong>Termini di servizio</strong></a> di Mosaic</label>
                             
                         </span>
                         
