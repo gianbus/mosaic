@@ -9,35 +9,27 @@
     <!--favicons-->
 </head>
 <body>
-			<?php
+			<?php	
+				setcookie("utente", "", [
+					'expires' => time() - 3600,
+					'path' => '/',
+					'domain' => 'ltw-mosaic.it',
+					'secure' => true,
+					'httponly' => true,
+					'samesite' => 'Strict',
+				]);
 
-				if(isset($_COOKIE['utente'])){
-					
-					setcookie("utente", "", [
-						'expires' => time() - 3600,
-						'path' => '/',
-						'domain' => 'ltw-mosaic.it',
-						'secure' => true,
-						'httponly' => true,
-						'samesite' => 'Strict',
-					]);
+				setcookie("punti", "", [
+					'expires' => time() - 3600,
+					'path' => '/',
+					'domain' => 'ltw-mosaic.it',
+					'secure' => true,
+					'httponly' => true,
+					'samesite' => 'Strict',
+				]);
 
-					setcookie("punti", "", [
-						'expires' => time() - 3600,
-						'path' => '/',
-						'domain' => 'ltw-mosaic.it',
-						'secure' => true,
-						'httponly' => true,
-						'samesite' => 'Strict',
-					]);
-
-					header( "location:/" );
-					exit;
-					
-				}else{
-					header( "location:/login" );
-					exit;
-				}
+				header( "location:/" );
+				exit;
 			?>
 </body>
 			
