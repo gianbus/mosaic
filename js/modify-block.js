@@ -14,7 +14,6 @@ $(document).ready(function(){
         
         const urlParams = new URLSearchParams(queryString);
         const id = urlParams.get('id')
-        console.log(id);
 
         //Ora faccio la richiesta del form di modifica
         $("#modify-selected").load("modify-form.php?id="+id+"&type="+selected,function(){
