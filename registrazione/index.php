@@ -9,7 +9,9 @@
     
         <!-- Bootstrap CSS -->
         <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
+        <?php
+            include '../favicon.php';
+        ?>
         <!-- My CSS -->
         <link rel="stylesheet" href="../css/style.css">
     
